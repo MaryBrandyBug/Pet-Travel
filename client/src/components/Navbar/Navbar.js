@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ auth }) {
+export default function Navbar({auth}) {
   const authLinks = () => (
     <div>
       <Link to="/">

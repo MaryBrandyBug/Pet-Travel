@@ -27,5 +27,6 @@ module.exports = {
     'default-param-last': 0,
     'no-unused-expressions': 0,
     'no-param-reassign': 0,
+    'max-len': 0,
   },
 };
