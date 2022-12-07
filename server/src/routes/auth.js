@@ -29,4 +29,23 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+router.post('/signin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const hashedPass = await bcrypt.hash(password, 10);
+    const user = await User.findOne({ where: { email }, raw: true });
+    if (!user) {
+      return res.status(401).json({ msg: 'Try again' });
+    }
+    const isUser = await bcrypt.compare(password, user.password);
+    if (isUser) {
+      delete user.password;
+      req.session.auth = user;
+      return res.json(user);
+    }
+  } catch (error) {
+    return res.status(400).json({ msg: error.message });
+  }
+});
+
 module.exports = router;
