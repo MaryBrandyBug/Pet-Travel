@@ -1,7 +1,7 @@
-export const userReducer = (state = { user: null }, action) => {
+export const userReducer = (state = null, action) => {
   switch (action.type) {
     case 'USER':
-      return { ...state, user: action.payload };
+      return action.payload;
     default:
       return state;
   }

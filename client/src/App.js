@@ -1,6 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import AboutUs from './components/AboutUs/AboutUs';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -18,8 +19,23 @@ import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 
 function App() {
+  const dispatch = useDispatch();
   const [auth, setAuth] = useState(null);
 
+  useEffect(() => {
+    const abortController = new AbortController();
+    fetch('http://localhost:3001/', {
+      credentials: 'include',
+      signal: abortController.signal,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch({ type: 'USER', payload: res });
+      });
+    return () => {
+      abortController.abort();
+    };
+  }, []);
   return (
     <div className="App">
       <Navbar auth={auth} setAuth={setAuth} />
