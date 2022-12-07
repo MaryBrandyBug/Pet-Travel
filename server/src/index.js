@@ -4,6 +4,7 @@ const express = require('express');
 const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+
 const http = require('http');
 const wss = require('./ws');
 
@@ -22,11 +23,18 @@ wss.on('connection', (ws) => {
   });
 }); */
 
+const cors = require('./middlewares/cors');
+
 const app = express();
 
-const { PORT, SESSION_SECRET } = process.env;
+const { SERV_PORT, SESSION_SECRET } = process.env;
+
+const isAuth = require('./middlewares/isAuth');
+const authRouter = require('./routes/auth');
+
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors);
 app.use(express.urlencoded({ extended: false }));
 
 const sessionParser = session({
@@ -39,9 +47,9 @@ const sessionParser = session({
     maxAge: 1000 * 60 * 60 * 24 * 1000,
     httpOnly: true,
   },
-
 });
 
+app.use('/', authRouter);
 app.use(sessionParser);
 
 app.locals.wsClients = new Map();
@@ -64,6 +72,6 @@ server.on('upgrade', (req, socket, head) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server started at PORT: ${PORT}`);
+server.listen(SERV_PORT, () => {
+  console.log(`Server started at PORT: ${SERV_PORT}`);
 });

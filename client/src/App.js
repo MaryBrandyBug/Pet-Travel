@@ -16,11 +16,11 @@ import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterAr
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
 import Chat from './components/Chat/Chat';
 
+import SignUp from './components/SignUp/SignUp';
+import SignIn from './components/SignIn/SignIn';
+
 function App() {
   const [auth, setAuth] = useState(null);
-  // http module
-
-  // if (user)
 
   return (
     <div className="App">
@@ -35,7 +35,12 @@ function App() {
         <Route path="/top-5-dog-sitting-tips" element={<DogSittingTips />} />
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
+
         <Route path="/chat" element={<Chat />} />
+
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+
       </Routes>
       <Footer />
     </div>
