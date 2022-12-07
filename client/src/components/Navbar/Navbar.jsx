@@ -24,11 +24,19 @@ export default function Navbar({ auth }) {
         {auth
           ? (
 
-            <Link to="/">
-              {' '}
-              <span>{auth.name}</span>
-              {' '}
-            </Link>
+            <>
+              <Link to="/">
+                {' '}
+                <span>{auth.name}</span>
+                {' '}
+              </Link>
+              <Link to="/chat">
+                {' '}
+                <span>Чат</span>
+                {' '}
+              </Link>
+
+            </>
 
           )
           : (

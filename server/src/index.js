@@ -59,11 +59,11 @@ const server = http.createServer(app);
 server.on('upgrade', (req, socket, head) => {
   console.log('Upgrade to WS');
   sessionParser(req, {}, () => {
-    /*  if (!req.session.user) {
+    if (!req.session.auth) {
       console.log('error');
       socket.write('Error: No session');
       socket.end();
-    } */
+    }
 
     wss.handleUpgrade(req, socket, head, (ws) => {
       console.log('emit');

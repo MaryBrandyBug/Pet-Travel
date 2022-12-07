@@ -47,10 +47,10 @@ wss.on('connection', (ws, req, wsClientMap) => {
 
         break;
       case 'open':
-        if (sender && receiver) {
+        /* if (sender && receiver) {
           sender.ws.send(JSON.stringify({ type: 'online' }));
           receiver.ws.send(JSON.stringify({ type: 'online' }));
-        }
+        } */
         break;
 
       default:

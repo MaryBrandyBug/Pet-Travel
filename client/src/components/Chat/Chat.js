@@ -8,7 +8,7 @@ const socketInit = new WebSocket(URL);
 console.log(socketInit);
 
 export default function Chat() {
-  const [user, setUser] = useState({ id: 1, name: 'Jim' });
+  const [user, setUser] = useState(auth);
   const [message, setMessage] = useState([]);
   const [messages, setMessages] = useState(['privet', 'kak dela']);
   const [socket, setSocket] = useState(socketInit);
