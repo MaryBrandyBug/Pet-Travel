@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({auth}) {
+export default function Navbar({ auth }) {
   const authLinks = () => (
     <div>
       <Link to="/">
@@ -33,6 +33,9 @@ export default function Navbar({auth}) {
       </div>
       <div>
         <Link to="/aboutus"><span>О нас</span></Link>
+      </div>
+      <div>
+        <Link to="/chat"><span>Чат</span></Link>
       </div>
       {auth ? authLinks() : notAuthLinks()}
     </nav>

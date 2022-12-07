@@ -14,9 +14,14 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
+import Chat from './components/Chat/Chat';
 
 function App() {
   const [auth, setAuth] = useState(null);
+  // http module
+
+  // if (user)
+
   return (
     <div className="App">
       <Navbar auth={auth} setAuth={setAuth} />
@@ -30,6 +35,7 @@ function App() {
         <Route path="/top-5-dog-sitting-tips" element={<DogSittingTips />} />
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
       <Footer />
     </div>
