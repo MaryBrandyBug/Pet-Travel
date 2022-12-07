@@ -2,10 +2,11 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import AboutUs from './components/AboutUs/AboutUs';
+// import AboutUs from './components/AboutUs/AboutUs';
+
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import Main from './components/Main/Main';
+// import Main from './components/Main/Main';
 import BirdsPets from './components/Articles/BirdsPets/BirdsPets';
 import GreatPhotosTips from './components/Articles/GreatPhotosTips/GreatPhotosTips';
 import TipsForSeniorPets from './components/Articles/TipsForSeniorPets/TipsForSeniorPets';
@@ -15,6 +16,8 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
+import Chat from './components/Chat/Chat';
+
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 
@@ -49,8 +52,12 @@ function App() {
         <Route path="/top-5-dog-sitting-tips" element={<DogSittingTips />} />
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
+
+        <Route path="/chat" element={<Chat />} />
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+
       </Routes>
       <Footer />
     </div>
