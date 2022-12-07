@@ -6,7 +6,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const http = require('http');
-const wss = require('./ws');
+const wss = require('../ws');
 
 // const WebSocket = require('ws');
 
@@ -49,8 +49,8 @@ const sessionParser = session({
   },
 });
 
-app.use('/', authRouter);
 app.use(sessionParser);
+app.use('/', authRouter);
 
 app.locals.wsClients = new Map();
 

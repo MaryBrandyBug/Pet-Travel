@@ -1,9 +1,9 @@
 const cors = require('cors');
 require('dotenv').config();
 
-// const { SERV_PORT, CLIENT_PORT } = process.env;
+const { SERV_PORT, CLIENT_PORT } = process.env;
 
 module.exports = cors({
-  origin: ['http://localhost:3001', 'http://localhost:3000'],
+  origin: [`http://localhost:${SERV_PORT}`, `http://localhost:${CLIENT_PORT}`],
   credentials: true,
 });

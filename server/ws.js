@@ -59,11 +59,11 @@ wss.on('connection', (ws, req, wsClientMap) => {
   });
   ws.on('close', (msg) => {
     const message = JSON.parse(msg);
-    wsClientMap.delete(user.id);
-    const receiver = wsClientMap.get(+message.chatWithUser);
-    if (receiver) {
+    // wsClientMap.delete(user.id);
+    // const receiver = wsClientMap.get(+message.chatWithUser);
+    /*    if (receiver) {
       receiver.ws.send(JSON.stringify({ type: 'offline' }));
-    }
+    } */
   });
 });
 
