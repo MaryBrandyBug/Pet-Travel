@@ -7,7 +7,7 @@ const FileStore = require('session-file-store')(session);
 
 const app = express();
 
-const { PORT, SESSION_SECRET } = process.env;
+const { SERV_PORT, SESSION_SECRET } = process.env;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -25,6 +25,6 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 
-app.listen(PORT, () => {
-  console.log(`Server started at PORT: ${PORT}`);
+app.listen(SERV_PORT, () => {
+  console.log(`Server started at PORT: ${SERV_PORT}`);
 });
