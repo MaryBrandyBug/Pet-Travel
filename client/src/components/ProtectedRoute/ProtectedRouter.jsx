@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 
 export default function ProtectedRoute({ redirectPass = '/' }) {
   const user = useSelector((store) => store.userStore);
-  console.log(user);
-  if (!user) {
+  if (user) {
     return <Navigate to={redirectPass} replace />;
   }
   return (
