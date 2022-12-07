@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const { User } = require('../../db/models');
 
 router.get('/', async (req, res) => {
-  res.json(req.session.auth || null);
+  res.json(req.session?.auth || null);
 });
 
 router.post('/signup', async (req, res) => {
@@ -12,11 +12,9 @@ router.post('/signup', async (req, res) => {
     const {
       email, name, password, role,
     } = req.body;
-    console.log(role);
     const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email } });
     if (!user) {
-      console.log(user);
       const newUser = await User.create({
         name, email, password: hashedPass, role,
       });
@@ -25,7 +23,6 @@ router.post('/signup', async (req, res) => {
       delete auth.createdAt;
       delete auth.updatedAt;
       req.session.auth = auth;
-      console.log(auth);
       return res.json(auth);
     }
   } catch (error) {

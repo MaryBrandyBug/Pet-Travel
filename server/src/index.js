@@ -6,7 +6,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const http = require('http');
-const wss = require('./ws');
+// const wss = require('./ws');
 
 // const WebSocket = require('ws');
 
@@ -49,28 +49,28 @@ const sessionParser = session({
   },
 });
 
-app.use('/', authRouter);
 app.use(sessionParser);
+app.use('/', authRouter);
 
 app.locals.wsClients = new Map();
 
 const server = http.createServer(app);
 
-server.on('upgrade', (req, socket, head) => {
-  console.log('Upgrade to WS');
-  sessionParser(req, {}, () => {
-    /*  if (!req.session.user) {
-      console.log('error');
-      socket.write('Error: No session');
-      socket.end();
-    } */
+// server.on('upgrade', (req, socket, head) => {
+//   console.log('Upgrade to WS');
+//   sessionParser(req, {}, () => {
+//     /*  if (!req.session.user) {
+//       console.log('error');
+//       socket.write('Error: No session');
+//       socket.end();
+//     } */
 
-    wss.handleUpgrade(req, socket, head, (ws) => {
-      console.log('emit');
-      wss.emit('connection', ws, req);
-    });
-  });
-});
+//     wss.handleUpgrade(req, socket, head, (ws) => {
+//       console.log('emit');
+//       wss.emit('connection', ws, req);
+//     });
+//   });
+// });
 
 server.listen(SERV_PORT, () => {
   console.log(`Server started at PORT: ${SERV_PORT}`);

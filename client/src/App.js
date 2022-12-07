@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-// import Main from './components/Main/Main';
+import Main from './components/Main/Main';
 import BirdsPets from './components/Articles/BirdsPets/BirdsPets';
 import GreatPhotosTips from './components/Articles/GreatPhotosTips/GreatPhotosTips';
 import TipsForSeniorPets from './components/Articles/TipsForSeniorPets/TipsForSeniorPets';
@@ -20,6 +20,7 @@ import Chat from './components/Chat/Chat';
 
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRouter';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
     <div className="App">
       <Navbar auth={auth} setAuth={setAuth} />
       <Routes>
+        <Route path="/" element={<Main />} />
         <Route path="/reasons-birds-make-perfect-pets" element={<BirdsPets />} />
         <Route path="/how-to-take-great-pet-photos" element={<GreatPhotosTips />} />
         <Route path="/7-top-tips-for-senior-pets" element={<TipsForSeniorPets />} />
@@ -53,11 +55,11 @@ function App() {
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
 
-        <Route path="/chat" element={<Chat />} />
-
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-
+        {/* <Route path="/chat" element={<Chat />} /> */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+        </Route>
       </Routes>
       <Footer />
     </div>
