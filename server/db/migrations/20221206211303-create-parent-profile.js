@@ -53,24 +53,24 @@ module.exports = {
         type: Sequelize.STRING,
       },
       dateSince1: {
-        type: Sequelize.DATE,
-        allowNull: false,
+        type: Sequelize.STRING,
+        // allowNull: false,
       },
       dateUntil1: {
-        type: Sequelize.DATE,
-        allowNull: false,
+        type: Sequelize.STRING,
+        // allowNull: false,
       },
       dateSince2: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       dateUntil2: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       dateSince3: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       dateUntil3: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
