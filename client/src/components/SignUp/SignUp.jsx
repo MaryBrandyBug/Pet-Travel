@@ -34,7 +34,7 @@ export default function SignUp() {
             <h2 className="active"> Регистрация </h2>
 
             {/* <div className="fadeIn first">
-              <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+              <img src="client/src/components/Navbar/Pet_1.png" id="icon" alt="User Icon" />
             </div> */}
 
             <form className="form" onSubmit={handleSubmit}>
