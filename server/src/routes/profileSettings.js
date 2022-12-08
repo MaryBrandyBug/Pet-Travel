@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { User } = require('../../db/models');
 
 router.put('/settings', async (req, res) => {
-  console.log('REQ', req.body);
-
   try {
     const {
       email,
@@ -28,10 +26,15 @@ router.put('/settings', async (req, res) => {
       telegram,
       facebook,
     });
-    console.log(userProfileData);
   } catch (error) {
     console.log(error);
   }
+});
+
+router.delete('/settings', async (req, res) => {
+  const { id } = req.body;
+  await User.destroy({ where: { id } });
+  res.redirect('/');
 });
 
 module.exports = router;
