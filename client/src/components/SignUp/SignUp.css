@@ -8,52 +8,6 @@ h2 {
   margin: 40px 8px 10px 8px; 
   color: #cccccc;
 }
-input{
-    width: 400px;
-    height: 25px;
-    margin: 10px;
-}
-p>input {
-    -webkit-appearance: none; /* remove default */
-    display: block;
-    margin: 10px;
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    vertical-align: middle;
-    box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
-    background-color: hsla(0,0%,0%,.2);
-    background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
-    background-repeat: no-repeat;
-    -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
-      -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
-    outline: none;
-  }
-  p>input:checked {
-    -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
-      -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
-  }
-  p>input:active {
-    -webkit-transform: scale(1.5);
-    -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
-  }
-  
-  
-  
-  /* The up/down direction logic */
-  
-  p>input,
-  input:active {
-    background-position: 0 24px;
-  }
-  p>input:checked {
-    background-position: 0 0;
-  }
-  p>input:checked ~ input,
-  input:checked ~ input:active {
-    background-position: 0 -24px;
-  }
 
 .wrapper {
   display: flex;
@@ -80,23 +34,23 @@ p>input {
   text-align: center;
 }
 
-#formFooter {
+/* #formFooter {
   background-color: #f6f6f6;
   border-top: 1px solid #dce8f1;
   padding: 25px;
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;
-}
+} */
 
-.fadeInDown {
+/* .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-}
+} */
 
 @-webkit-keyframes fadeInDown {
   0% {
@@ -124,7 +78,6 @@ p>input {
   }
 }
 
-/* Simple CSS3 Fade-in Animation */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -168,7 +121,6 @@ p>input {
   animation-delay: 1s;
 }
 
-/* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
   display: block;
   left: 0;
@@ -189,9 +141,6 @@ p>input {
 }
 
 
-
-/* OTHERS */
-
 *:focus {
     outline: none;
 } 
@@ -202,4 +151,66 @@ p>input {
 
 * {
   box-sizing: border-box;
+} 
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form {
+  padding: 15px;
+}
+
+.form-item {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 15px;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  padding: 5px 15px;
+}
+
+.form-label {
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  right: 30px;
+  top: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 60px;
+  transition: .3s;
+}
+
+.add_text {
+  display: flex;
+  flex-direction: column
+}
+.add_role {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px;
+}
+.add_role>input{
+  padding: 10px;
+}
+.btn_sub{
+  margin: 15px;
+}
+.btn_sub>button{
+  width: 300px;
+  height: 40px;
+  background-color: #4d4d4d;
+  color: #ffff;
+}
+.btn_sub>button:hover{
+  background-color: #ffff;
+  color: #4d4d4d;
 }
