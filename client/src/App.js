@@ -21,7 +21,14 @@ import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterAr
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRouter';
+
 import AppReview from './components/AppReview/AppReview';
+
+import Profile from './components/Profile/Profile';
+import ParentProfileForm from './components/ParentProfileForm/ParentProfileForm';
+import Settings from './components/Settings/Settings';
+import ProfileReviews from './components/ProfileReviews/ProfileReviews';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -56,7 +63,12 @@ function App() {
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
         <Route path="/appreview" element={<AppReview />} />
+        <Route path="/profile" element={<Profile />}>
+          <Route path="settings" element={<Settings />} />
+          <Route path="reviews" element={<ProfileReviews />} />
+        </Route>
         {/* <Route path="/chat" element={<Chat />} /> */}
+        <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
