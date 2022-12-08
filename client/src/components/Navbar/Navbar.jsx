@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import './Navbar.css';
 
-export default function Navbar({ auth }) {
+export default function Navbar() {
+  const user = useSelector((store) => store.userStore);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    fetch('http://localhost:3001/logout', { credentials: 'include' })
+      .then((res) => {
+        if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: null }); }
+      });
+  };
   return (
 
     <div className="nav">
@@ -21,14 +32,18 @@ export default function Navbar({ auth }) {
 
       <div className="nav-links">
         <Link to="/aboutus"><span>О нас</span></Link>
-        {auth
+        {user
           ? (
-
-            <Link to="/">
-              {' '}
-              <span>{auth.name}</span>
-              {' '}
-            </Link>
+            <div>
+              <Link to="/">
+                {' '}
+                <Link to="/profile">
+                  <span>{user?.name}</span>
+                </Link>
+                {' '}
+              </Link>
+              <button type="button" onClick={handleLogout}>Выход</button>
+            </div>
 
           )
           : (
