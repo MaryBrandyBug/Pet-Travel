@@ -1,23 +1,30 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Setting() {
-  const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore);
   console.log(user);
 
   const [signUpForm, setSignUpForm] = useState({
     email: '', name: '', password: '', role: '', surname: '', inst: '', telegram: '', facebook: '',
   });
+  const navigate = useNavigate();
 
   const handleInput = (e) => {
     setSignUpForm({ ...signUpForm, [e.target.name]: e.target.value });
   };
-  const deleteProfile = (e) => {
-    e.preventDefault();
+  const deleteProfile = () => {
     fetch('http://localhost:3001/profile/settings', {
       method: 'DELETE',
-    });
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: user.id }),
+    })
+      .then((res) => console.log(res));
+    navigate('/');
   };
 
   const handleSubmit = (e) => {
@@ -91,7 +98,7 @@ export default function Setting() {
         </div>
       </form>
       <div className="btn_sub">
-        <button type="submit" onClick={deleteProfile()}>Удалить профиль</button>
+        <button type="submit" onClick={() => deleteProfile()}>Удалить профиль</button>
       </div>
 
     </div>
