@@ -20,7 +20,7 @@ module.exports = {
         allowNull: false,
       },
       raiting: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       SitterProfileId: {

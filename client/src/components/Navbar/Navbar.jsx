@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './Navbar.css';
+import petImg from './Pet_1.png';
 
 export default function Navbar() {
   const user = useSelector((store) => store.userStore);
@@ -19,7 +20,9 @@ export default function Navbar() {
     <div className="nav">
       <div className="nav-header">
         <div className="nav-title">
-          <Link to="/"><span>Pet&Travel</span></Link>
+          {/* <Link to="/">
+            </Link> */}
+          <img src={petImg} alt="logo" />
         </div>
       </div>
       <div className="nav-btn">

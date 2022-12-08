@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   SitterReview.init({
     UserId: DataTypes.INTEGER,
     reviewText: DataTypes.TEXT,
-    raiting: DataTypes.INTEGER,
+    raiting: DataTypes.FLOAT,
     SitterProfileId: DataTypes.INTEGER,
   }, {
     sequelize,
