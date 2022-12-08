@@ -35,13 +35,13 @@ export default function Navbar() {
         {user
           ? (
             <div>
-              <Link to="/">
-                {' '}
-                <Link to="/profile">
-                  <span>{user?.name}</span>
-                </Link>
-                {' '}
+              {/* <Link to="/">
+                {' '} */}
+              <Link to="/profile">
+                <span>{user?.name}</span>
               </Link>
+              {/* {' '}
+              </Link> */}
               <button type="button" onClick={handleLogout}>Выход</button>
             </div>
 
