@@ -16,7 +16,7 @@ module.exports = {
         },
       },
       raiting: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       reviewText: {
