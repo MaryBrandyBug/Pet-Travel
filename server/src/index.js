@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 const session = require('express-session');
@@ -35,12 +35,14 @@ const authRouter = require('./routes/auth');
 const appReview = require('./routes/appReview');
 
 const ParentProfileRouter = require('./routes/parentProfile');
+const profileSetRouter = require('./routes/profileSettings');
 
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors);
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const sessionParser = session({
   name: 'Username',
@@ -61,6 +63,7 @@ app.use('/', authRouter);
 app.use('/', appReview);
 
 app.use('/profile', ParentProfileRouter);
+app.use('/profile', profileSetRouter);
 
 
 app.locals.wsClients = new Map();
