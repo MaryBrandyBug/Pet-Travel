@@ -29,23 +29,6 @@ export default function SignUp() {
   return (
     <div>
       <div>
-        {/* <form onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="email" name="email" onChange={handleInput} />
-          <label>Имя</label>
-          <input type="text" name="name" onChange={handleInput} />
-          <label>Пароль</label>
-          <input type="password" name="password" onChange={handleInput} />
-          <p>
-            <input type="radio" name="role" value="sitter" onChange={handleInput} />
-            Ситтер
-          </p>
-          <p>
-            <input type="radio" name="role" value="parent" onChange={handleInput} />
-            Владелец
-          </p>
-          <button type="submit">Зарегистрироваться</button>
-        </form> */}
         <div className="wrapper fadeInDown">
           <div id="formContent">
             <h2 className="active"> Регистрация </h2>

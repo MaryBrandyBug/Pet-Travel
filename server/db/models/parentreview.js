@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   ParentReview.init({
     UserId: DataTypes.INTEGER,
-    raiting: DataTypes.INTEGER,
+    raiting: DataTypes.FLOAT,
     reviewText: DataTypes.TEXT,
     ParentProfileId: DataTypes.INTEGER,
   }, {

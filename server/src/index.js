@@ -31,6 +31,7 @@ const { SERV_PORT, SESSION_SECRET } = process.env;
 
 const isAuth = require('./middlewares/isAuth');
 const authRouter = require('./routes/auth');
+const appReview = require('./routes/appReview');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -52,6 +53,7 @@ const sessionParser = session({
 app.use(sessionParser);
 
 app.use('/', authRouter);
+app.use('/', appReview);
 
 app.locals.wsClients = new Map();
 

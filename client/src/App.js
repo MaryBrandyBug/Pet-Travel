@@ -21,6 +21,7 @@ import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterAr
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRouter';
+import AppReview from './components/AppReview/AppReview';
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ function App() {
         <Route path="/top-5-dog-sitting-tips" element={<DogSittingTips />} />
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
-
+        <Route path="/appreview" element={<AppReview />} />
         {/* <Route path="/chat" element={<Chat />} /> */}
         <Route element={<ProtectedRoute />}>
           <Route path="/signup" element={<SignUp />} />
