@@ -28,6 +28,7 @@ module.exports = {
     'no-unused-expressions': 0,
     'no-param-reassign': 0,
     'max-len': 0,
-    'jsx-a11y/label-has-associated-control':0,
+    'jsx-a11y/label-has-associated-control': 0,
+    'react/jsx-one-expression-per-line': 0,
   },
 };

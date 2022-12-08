@@ -9,9 +9,9 @@ export default function Sidebar() {
       {' '}
       <Link to="/chat"><span className="span">Чат</span></Link>
       {' '}
-      <Link to="/reviews"><span className="span">Отзывы</span></Link>
+      <Link to="/profile/reviews"><span className="span">Отзывы</span></Link>
       {' '}
-      <Link to="/settings"><span className="span">Настройки</span></Link>
+      <Link to="/profile/settings"><span className="span">Настройки</span></Link>
     </div>
   );
 }
