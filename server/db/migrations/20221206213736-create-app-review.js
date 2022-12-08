@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       raiting: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       createdAt: {

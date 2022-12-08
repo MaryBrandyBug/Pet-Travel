@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './SignIn.css';
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -26,13 +27,37 @@ export default function SignIn() {
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <label>Email</label>
           <input type="email" name="email" onChange={handleInput} />
           <label>Пароль</label>
           <input type="password" name="password" onChange={handleInput} />
           <button type="submit">Войти</button>
-        </form>
+        </form> */}
+        <div className="wrapper fadeInDown">
+          <div id="formContent">
+            <h2 className="active"> Вход </h2>
+
+            {/* <div className="fadeIn first">
+              <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+            </div> */}
+
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="add_text">
+                <div className="form-item">
+                  <input type="email" id="login" className="form-input" placeholder="Email" name="email" onChange={handleInput} />
+                </div>
+                <div className="form-item">
+                  <input type="password" id="password" className="form-input" placeholder="Пароль" name="password" onChange={handleInput} />
+                </div>
+              </div>
+              <div className="btn_sub">
+                <button type="submit">Войти</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
       </div>
     </div>
   );
