@@ -9,7 +9,7 @@
   }
   
   .nav {
-    height: 50px;
+    height: 80px;
     width: 100%;
     background-color: #4d4d4d;
     position: relative;
@@ -26,7 +26,10 @@
     font-size: 22px;
     color: #fff;
     padding: 10px 10px 10px 10px;
+    width: 100px;
+    height: 100px;
   }
+ 
   
   .nav > .nav-btn {
     display: none;
@@ -37,6 +40,7 @@
     float: right;
     font-size: 18px;
   }
+
   
   .nav > .nav-links > a {
     display: inline-block;
@@ -51,6 +55,9 @@
   
   .nav > #nav-check {
     display: none;
+  }
+  .nav-title>img {
+    width: 70px;
   }
   
   @media (max-width:600px) {
