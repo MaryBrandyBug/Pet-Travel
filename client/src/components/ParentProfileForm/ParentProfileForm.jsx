@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './ParentProfileForm.css';
 
 export default function ParentProfileForm() {
@@ -72,7 +72,7 @@ export default function ParentProfileForm() {
         <input type="text" name="title" onChange={handleInput} />
         <label>Введение</label>
         <input type="text" name="introduction" onChange={handleInput} />
-        <label>Дом & Локация</label>
+        <label>Дом и Локация</label>
         <input type="text" name="location" onChange={handleInput} />
         <label>Обязанности</label>
         <input type="text" name="responsibilities" onChange={handleInput} />

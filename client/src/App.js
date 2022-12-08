@@ -29,7 +29,6 @@ import ParentProfileForm from './components/ParentProfileForm/ParentProfileForm'
 import Settings from './components/Settings/Settings';
 import ProfileReviews from './components/ProfileReviews/ProfileReviews';
 
-
 function App() {
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(null);
