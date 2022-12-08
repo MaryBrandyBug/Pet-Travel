@@ -58,6 +58,7 @@ const sessionParser = session({
 
 app.use(sessionParser);
 
+app.use('/profile', ParentProfileRouter);
 app.use('/', authRouter);
 
 app.use('/', appReview);

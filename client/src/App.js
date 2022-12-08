@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
 import Navbar from './components/Navbar/Navbar';
@@ -41,7 +41,9 @@ function App() {
     })
       .then((res) => res.json())
       .then((res) => {
-        dispatch({ type: 'USER', payload: res });
+        dispatch({ type: 'USER', payload: res.auth });
+        dispatch({ type: 'PARENT_PROFILE', payload: res.profile });
+        dispatch({ type: 'PET', payload: res.pet });
       });
     return () => {
       abortController.abort();

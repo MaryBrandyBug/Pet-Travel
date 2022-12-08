@@ -1,10 +1,23 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const { User } = require('../../db/models');
+const {
+  User, ParentProfile, Pet, SitterProfile,
+} = require('../../db/models');
 
 router.get('/', async (req, res) => {
-  res.json(req.session?.auth || null);
+  if (req.session?.auth) {
+    if (req.session?.auth.role === 'parent') {
+      const parent = await ParentProfile.findOne({ where: { UserId: req?.session.auth.id } });
+      const parentData = parent.get();
+      const petData = await Pet.findAll({ where: { ParentProfileId: parentData.id } });
+      res.json({ auth: req.session?.auth, profile: parent, pet: petData });
+    } else {
+      res.json({ auth: req.session.auth });
+    }
+  } else {
+    res.json({ auth: null, petParent: {} });
+  }
 });
 
 router.post('/signup', async (req, res) => {
