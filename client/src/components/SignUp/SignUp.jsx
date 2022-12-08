@@ -1,9 +1,9 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import './SignUp.css';
 
 export default function SignUp() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [signUpForm, setSignUpForm] = useState({
     email: '', name: '', password: '', role: '',
@@ -13,19 +13,19 @@ export default function SignUp() {
     setSignUpForm({ ...signUpForm, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch('http://localhost:3001/signup', {
-  //     method: 'POST',
-  //     credentials: 'include',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(signUpForm),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => dispatch({ type: 'USER', payload: res }));
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch('http://localhost:3001/signup', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(signUpForm),
+    })
+      .then((res) => res.json())
+      .then((res) => dispatch({ type: 'USER', payload: res }));
+  };
   return (
     <div>
       <div>

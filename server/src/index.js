@@ -50,6 +50,7 @@ const sessionParser = session({
 });
 
 app.use(sessionParser);
+
 app.use('/', authRouter);
 
 app.locals.wsClients = new Map();
