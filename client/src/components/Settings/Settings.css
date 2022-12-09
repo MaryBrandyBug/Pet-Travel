@@ -1,0 +1,24 @@
+.setting_form {
+    display: flex;
+    flex-direction: column;
+}
+.setting_form>form {
+    padding: 0;
+}
+.basic_data {
+    display: flex;
+    flex-direction: column;
+}
+.social_set {
+    display: flex;
+    flex-direction: column;
+}
+.data_input {
+    display: flex;
+}
+.data_input>.basic_data {
+    width: 50%;
+}
+.btn {
+    display: flex;
+}

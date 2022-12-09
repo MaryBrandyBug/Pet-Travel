@@ -1,0 +1,15 @@
+.link_bar {
+    display: flex;
+}
+.left_menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 10%;
+    border-right: 2px solid #4d4d4d;
+
+}
+
+.rigth_menu {
+    width: 90%;
+}
