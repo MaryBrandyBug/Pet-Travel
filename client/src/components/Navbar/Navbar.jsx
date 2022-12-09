@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Sidebar from '../Sidebar/Sidebar';
 
 import './Navbar.css';
 import petImg from './Pet_1.png';
@@ -37,19 +38,19 @@ export default function Navbar() {
         <Link to="/aboutus"><span>О нас</span></Link>
         {user
           ? (
-            <div>
-
-              <Link to="/profile">
+            <div className="dropdown">
+              <Link className="dropbtn" to="/profile">
+                <div className="dropdown-content">
+                  <Sidebar />
+                </div>
                 <span>{user.name}</span>
               </Link>
-              {/* {' '}
-              </Link> */}
               <button type="button" onClick={handleLogout}>Выход</button>
             </div>
 
           )
           : (
-            <>
+            <div>
               <Link to="/signup">
                 {' '}
                 <span>Регистрация</span>
@@ -60,7 +61,7 @@ export default function Navbar() {
                 <span>Вход</span>
                 {' '}
               </Link>
-            </>
+            </div>
           )}
       </div>
     </div>
