@@ -6,6 +6,7 @@ import './Profile.css';
 
 export default function Profile() {
   const user = useSelector((store) => store.userStore);
+  const parent = useSelector((store) => store.parentStore);
   return (
     <div>
       <div className="link_bar">
