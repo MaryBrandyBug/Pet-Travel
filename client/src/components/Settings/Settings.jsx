@@ -1,20 +1,71 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Settings.css';
 
 export default function Setting() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const user = useSelector((store) => store.userStore);
-  console.log(user);
 
   const [signUpForm, setSignUpForm] = useState({
-    email: '', name: '', password: '', role: '', surname: '', inst: '', telegram: '', facebook: '',
+    email: user.email,
+    name: user.name,
+    role: user.role,
+    surname: user.surname,
+    inst: user.inst,
+    telegram: user.telegram,
+    facebook: user.facebook,
   });
-  const navigate = useNavigate();
+  const [pass, setPass] = useState({
+    password: user.password,
+    confirmPassword: user.confirmPassword,
+  });
 
   const handleInput = (e) => {
     setSignUpForm({ ...signUpForm, [e.target.name]: e.target.value });
   };
+  const handlePassInput = (e) => {
+    setPass({ ...pass, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:3001/profile/settings', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...signUpForm, id: user.id }),
+    })
+      .then((res) => res.json())
+      .then((res) => dispatch({ type: 'USER', payload: res }));
+    if (response) {
+      alert('Изменения сохранены!');
+    }
+  };
+
+  const handlePassChangeSubmit = async (e) => {
+    e.preventDefault();
+    if (pass.password === pass.confirmPassword) {
+      const response = await fetch('http://localhost:3001/profile/settings/pass', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...pass, id: user.id }),
+      });
+      if (response.status === 200) {
+        alert('Пароль изменен!');
+      }
+    } else {
+      alert('Пароли не совпадают!');
+    }
+  };
+
   const deleteProfile = () => {
     fetch('http://localhost:3001/profile/settings', {
       method: 'DELETE',
@@ -28,18 +79,6 @@ export default function Setting() {
     navigate('/');
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch('http://localhost:3001/profile/settings', {
-      method: 'PUT',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...signUpForm, id: user.id }),
-    })
-      .then((res) => res.json());
-  };
   return (
     <div className="setting_form">
       <form className="updform" onSubmit={handleSubmit}>
@@ -105,6 +144,7 @@ export default function Setting() {
           </div>
         </div>
       </form>
+
 
     </div>
   );
