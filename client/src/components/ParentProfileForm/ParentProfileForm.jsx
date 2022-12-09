@@ -5,7 +5,7 @@ import './ParentProfileForm.css';
 export default function ParentProfileForm() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore);
-  const p = useSelector((store) => store.parentStore);
+  // const p = useSelector((store) => store.parentStore);
   // console.log(p.pet[0]?.id);
 
   const [pets, setPets] = useState([{}]);
@@ -152,7 +152,7 @@ export default function ParentProfileForm() {
         <h4>Ваши питомцы:</h4>
         {pets.map((el, i) => pet(i))}
         {/* pet */}
-        <button type="button" onClick={(e) => { setPets([...pets, {}]); }}>Добавить питомца</button>
+        <button type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
         <button type="submit">Создать</button>
       </form>
     </div>

@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
         auth: req.session?.auth, parent: parentData, pet: petData, sitter: null,
       });
     } else {
-      const sitter = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id } });
-      const sitterData = sitter.get();
+      const sitterData = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id } });
+      // const sitterData = sitter.get();
       res.json({ auth: req.session.auth, sitter: sitterData, profile: null });
     }
   } else {

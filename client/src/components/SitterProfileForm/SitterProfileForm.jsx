@@ -6,9 +6,9 @@ export default function SitterProfileForm() {
   const user = useSelector((store) => store.userStore);
   const dispatch = useDispatch();
 
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
   const [sitterProfileForm, setSitterProfileForm] = useState({
-    status: '', country: '', city: '', aboutMe: '', cats: checked, dogs: false, fish: false, horses: false, birds: false, reptiles: false, smallPets: false,
+    status: '', country: '', city: '', aboutMe: '', cats: false, dogs: false, fish: false, horses: false, birds: false, reptiles: false, smallPets: false,
   });
 
   const handleInput = (e) => {
