@@ -15,7 +15,7 @@ export default function Profile() {
             </Link>
           )
           : (
-            <Link to="/create-sitter-profile">
+            <Link to="/profile/create-sitter-profile">
               <button type="button">Заполнить анкету</button>
             </Link>
           )}
