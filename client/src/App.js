@@ -44,8 +44,9 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
-        dispatch({ type: 'PARENT_PROFILE', payload: res.profile });
+        dispatch({ type: 'PARENT_PROFILE', payload: res.parent });
         dispatch({ type: 'PET', payload: res.pet });
+        dispatch({ type: 'SITTER_PROFILE', payload: res.sitter });
       });
     return () => {
       abortController.abort();

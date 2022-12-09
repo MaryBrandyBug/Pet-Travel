@@ -8,12 +8,15 @@ const {
 router.get('/', async (req, res) => {
   if (req.session?.auth) {
     if (req.session?.auth.role === 'parent') {
-      const parent = await ParentProfile.findOne({ where: { UserId: req?.session.auth.id } });
-      const parentData = parent.get();
+      const parentData = await ParentProfile.findOne({ where: { UserId: req?.session.auth.id } });
       const petData = await Pet.findAll({ where: { ParentProfileId: parentData.id } });
-      res.json({ auth: req.session?.auth, profile: parent, pet: petData });
+      res.json({
+        auth: req.session?.auth, parent: parentData, pet: petData, sitter: null,
+      });
     } else {
-      res.json({ auth: req.session.auth });
+      const sitter = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id } });
+      const sitterData = sitter.get();
+      res.json({ auth: req.session.auth, sitter: sitterData, profile: null });
     }
   } else {
     res.json({ auth: null, petParent: {} });
