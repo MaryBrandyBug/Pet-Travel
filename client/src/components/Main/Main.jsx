@@ -1,7 +1,16 @@
 import React from 'react';
+import Slider from '../Slider/Slider';
+import './Main.css';
 
 export default function Main() {
   return (
-    <div>Main</div>
+    <div>
+      <Slider sliderItems={[
+        <div className="slide slide-1">slide 1</div>,
+        <div className="slide slide-2">slide 2</div>,
+        <div className="slide slide-3">slide 3</div>,
+      ]}
+      />
+    </div>
   );
 }

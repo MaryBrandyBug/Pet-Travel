@@ -1,0 +1,23 @@
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.slide-1 {
+  background-image: url(../../img/SubmissionUrination.jpg);
+  background-size: 100%;
+  background-position: center;
+  
+}
+.slide-2 {
+  background-image: url(../../img/hike-3.jpeg);
+  background-size: 100%;
+  background-position: center;
+}
+.slide-3 {
+  background-image: url(../../img/Mission.jpg);
+  background-size: 100%;
+  background-position: center;
+}
