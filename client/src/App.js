@@ -28,6 +28,7 @@ import Profile from './components/Profile/Profile';
 import ParentProfileForm from './components/ParentProfileForm/ParentProfileForm';
 import Settings from './components/Settings/Settings';
 import ProfileReviews from './components/ProfileReviews/ProfileReviews';
+import SitterProfileForm from './components/SitterProfileForm/SitterProfileForm';
 import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         </Route>
         {/* <Route path="/chat" element={<Chat />} /> */}
         <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} />
+        <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />

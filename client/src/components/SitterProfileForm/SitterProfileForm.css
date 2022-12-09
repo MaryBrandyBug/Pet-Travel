@@ -1,0 +1,5 @@
+.form_sitter {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}

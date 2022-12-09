@@ -34,9 +34,8 @@ const authRouter = require('./routes/auth');
 
 const appReview = require('./routes/appReview');
 
-const ParentProfileRouter = require('./routes/parentProfile');
+const profileRouter = require('./routes/profile');
 const profileSetRouter = require('./routes/profileSettings');
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -58,14 +57,12 @@ const sessionParser = session({
 
 app.use(sessionParser);
 
-app.use('/profile', ParentProfileRouter);
+app.use('/profile', profileRouter);
 app.use('/', authRouter);
 
 app.use('/', appReview);
 
-app.use('/profile', ParentProfileRouter);
 app.use('/profile', profileSetRouter);
-
 
 app.locals.wsClients = new Map();
 
