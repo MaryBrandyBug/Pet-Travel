@@ -88,23 +88,15 @@ export default function Setting() {
           <div className="basic_data">
             <div className="form-item">
               <span>Имя</span>
-              <input type="text" className="upd" value={user?.name} name="name" onChange={handleInput} />
+              <input type="text" className="upd" value={signUpForm.name} name="name" onChange={handleInput} />
             </div>
             <div className="form-item">
               <span>Фамилия</span>
-              <input type="text" className="upd" value={user?.surname} name="surname" onChange={handleInput} />
+              <input type="text" className="upd" value={signUpForm.surname} name="surname" onChange={handleInput} />
             </div>
             <div className="form-item">
               <span>Электронная почта</span>
-              <input type="email" className="upd" value={`${user?.email}`} name="email" onChange={handleInput} />
-            </div>
-            <div className="form-item">
-              <span>Пароль</span>
-              <input type="password" className="upd" value={user?.password} name="password" onChange={handleInput} />
-            </div>
-            <div className="form-item">
-              <span>Повторите пароль</span>
-              <input type="password" className="upd" value={user?.password} name="password" onChange={handleInput} />
+              <input type="email" className="upd" value={signUpForm.email} name="email" onChange={handleInput} />
             </div>
           </div>
           <div className="form-item">
@@ -122,15 +114,15 @@ export default function Setting() {
           </div>
           <div className="form-item">
             <span className="input-group-text" id="basic-addon1">@</span>
-            <input name="facebook" type="text" placeholder="Фэйсбук" onChange={handleInput} />
+            <input name="facebook" type="text" placeholder="Facebook" value={signUpForm.facebook} onChange={handleInput} />
           </div>
           <div className="form-item">
             <span className="input-group-text" id="basic-addon1">@</span>
-            <input name="inst" type="text" placeholder="Инстаграм" onChange={handleInput} />
+            <input name="inst" type="text" placeholder="Instagram" value={signUpForm.inst} onChange={handleInput} />
           </div>
           <div className="form-item">
             <span className="input-group-text" id="basic-addon1">@</span>
-            <input name="telegram" type="text" placeholder="Телеграм" onChange={handleInput} />
+            <input name="telegram" type="text" placeholder="Telegram" value={signUpForm.telegram} onChange={handleInput} />
           </div>
         </div>
         <div className="btn">
@@ -139,15 +131,34 @@ export default function Setting() {
               <button type="submit">Сохранить изменения</button>
             </div>
           </div>
-          <div className="btn_del">
+        </div>
+      </form>
+      <form className="updform" onSubmit={handlePassChangeSubmit}>
+        <div className="data_input">
+          <div className="basic_data">
+            <div className="form-item">
+              <span>Пароль</span>
+              <input type="password" className="upd" placeholder="****" value={pass.password} name="password" onChange={handlePassInput} />
+            </div>
+            <div className="form-item">
+              <span>Повторите пароль</span>
+              <input type="password" className="upd" placeholder="****" value={pass.confirmPassword} name="confirmPassword" onChange={handlePassInput} />
+            </div>
+          </div>
+        </div>
+        <div className="btn">
+          <div className="btn_put">
             <div className="btn_sub">
-              <button type="button" onClick={() => deleteProfile()}>Удалить профиль</button>
+              <button type="submit">Изменить пароль</button>
             </div>
           </div>
         </div>
       </form>
-
-
+      <div className="btn_del">
+        <div className="btn_sub">
+          <button type="button" onClick={() => deleteProfile()}>Удалить профиль</button>
+        </div>
+      </div>
     </div>
   );
 }

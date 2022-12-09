@@ -26,8 +26,6 @@ router.put('/settings', async (req, res) => {
       telegram: req.body.telegram,
       facebook: req.body.facebook,
     });
-    // const user = await User.findByPk(id);
-    console.log(user);
     const result = user.get();
     delete result.password;
     req.session.auth = result;
@@ -52,7 +50,6 @@ router.put('/settings/pass', async (req, res) => {
 });
 
 router.delete('/settings', async (req, res) => {
-  console.log('req.body', req.body);
   const { id } = req.body;
   await User.destroy({ where: { id } });
   req.session.destroy();
