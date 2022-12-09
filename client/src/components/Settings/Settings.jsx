@@ -74,7 +74,9 @@ export default function Setting() {
       },
       body: JSON.stringify({ id: user.id }),
     })
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: null }); }
+      });
     navigate('/');
   };
 

@@ -1,5 +1,5 @@
-// import React, { useState, useEffect } from 'react';
-// import './Chat.css';
+import React, { useState, useEffect } from 'react';
+import './Chat.css';
 
 // // const user = { id: 1, name: 'Jim' };
 
@@ -76,75 +76,74 @@
 
 //   );
 
-//   /* const [user, setUser] = useState('Tarzan');
-//   const [message, setMessage] = useState([]);
-//   const [messages, setMessages] = useState([]);
-//   const [ws, setWs] = useState(new WebSocket(URL));
+export default function Chat() {
+  const [user, setUser] = useState('Tarzan');
+  const [message, setMessage] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [ws, setWs] = useState(new WebSocket(URL));
 
-//   const submitMessage = (usr, msg) => {
-//     const message = { user: usr, message: msg };
-//     ws.send(JSON.stringify(message));
-//     setMessages([message, ...messages]);
-//   };
+  const submitMessage = (usr, msg) => {
+    const messageNew = { user: usr, message: msg };
+    ws.send(JSON.stringify(message));
+    setMessages([messageNew, ...messages]);
+  };
 
-//   useEffect(() => {
-//     ws.onopen = () => {
-//       console.log('WebSocket Connected');
-//     };
+  useEffect(() => {
+    ws.onopen = () => {
+      console.log('WebSocket Connected');
+    };
 
-//     ws.onmessage = (e) => {
-//       const newMessage = JSON.parse(e.data);
-//       setMessages([newMessage, ...messages]);
-//     };
-//     return () => {
-//       ws.onclose = () => {
-//         console.log('WebSocket Disconnected');
-//         setWs(new WebSocket(URL));
-//       };
-//     };
-//   }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
+    ws.onmessage = (e) => {
+      const newMessage = JSON.parse(e.data);
+      setMessages([newMessage, ...messages]);
+    };
+    return () => {
+      ws.onclose = () => {
+        console.log('WebSocket Disconnected');
+        setWs(new WebSocket(URL));
+      };
+    };
+  }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
 
-//   return (
-//     <div>
-//       <label htmlFor="user">
-//         Name :
-//         <input
-//           type="text"
-//           id="user"
-//           placeholder="User"
-//           value={user}
-//           onChange={(e) => setUser(e.target.value)}
-//         />
-//       </label>
+  return (
+    <div>
+      <label htmlFor="user">
+        Name :
+        <input
+          type="text"
+          id="user"
+          placeholder="User"
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
+      </label>
 
-//       <ul>
-//         {messages.reverse().map((message, index) => (
-//           <li key={index}>
-//             <b>{message.user}</b>
-//             :
-//             <em>{message.message}</em>
-//           </li>
-//         ))}
-//       </ul>
+      <ul>
+        {messages.reverse().map((mes, index) => (
+          <li key={index}>
+            <b>{mes.user}</b>
+            :
+            <em>{mes.message}</em>
+          </li>
+        ))}
+      </ul>
 
-//       <form
-//         action=""
-//         onSubmit={(e) => {
-//           e.preventDefault();
-//           submitMessage(user, message);
-//           setMessage([]);
-//         }}
-//       >
-//         <input
-//           type="text"
-//           placeholder="Type a message ..."
-//           value={message}
-//           onChange={(e) => setMessage(e.target.value)}
-//         />
-//         <input type="submit" value="Send" />
-//       </form>
-//     </div>
-
-//   );
-//  */
-// }
+      <form
+        action=""
+        onSubmit={(e) => {
+          e.preventDefault();
+          submitMessage(user, message);
+          setMessage([]);
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Type a message ..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <input type="submit" value="Send" />
+      </form>
+    </div>
+  );
+}

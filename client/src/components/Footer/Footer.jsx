@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import facebook from './facebook.png';
+import instagram from './instagram.png';
+import whatsapp from './whatsapp.png';
+import telegram from './telegram.png';
 
 export default function Footer() {
   return (
@@ -40,9 +44,10 @@ export default function Footer() {
         <div className="col social">
           <h1>Мы в социальных сетях</h1>
           <ul>
-            {/* <li><img src="https://svgshare.com/i/5fq.svg" width="32" style="width: 32px;" /></li>
-            <li><img src="https://svgshare.com/i/5eA.svg" width="32" style="width: 32px;" /></li>
-            <li><img src="https://svgshare.com/i/5f_.svg" width="32" style="width: 32px;" /></li> */}
+            <li><a href="https://ru.wikipedia.org/wiki/Whatsaap"><img src={whatsapp} alt="whatsup" width="32" style={{ width: `${32}px` }} /></a></li>
+            <li><a href="https://ru.wikipedia.org/wiki/Instagram"><img src={instagram} alt="inst" width="32" style={{ width: `${32}px` }} /></a></li>
+            <li><a href="https://t.me/A_151514"><img src={telegram} alt="telegram" width="32" style={{ width: `${32}px` }} /></a></li>
+            <li><a href="https://ru.wikipedia.org/wiki/Facebook"><img src={facebook} alt="facebook" width="32" style={{ width: `${32}px` }} /></a></li>
           </ul>
         </div>
         <div className="clearfix">

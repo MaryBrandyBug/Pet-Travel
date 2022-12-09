@@ -16,9 +16,7 @@ export default function SignIn() {
     fetch('http://localhost:3001/signin', {
       method: 'POST',
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(signInForm),
     })
       .then((res) => res.json())

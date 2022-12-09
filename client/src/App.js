@@ -16,7 +16,7 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
-// import Chat from './components/Chat/Chat';
+import Chat from './components/Chat/Chat';
 
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
@@ -72,7 +72,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="reviews" element={<ProfileReviews />} />
         </Route>
-        {/* <Route path="/chat" element={<Chat />} /> */}
+        <Route path="/chat" element={<Chat />} />
         <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} />
         <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} />
         <Route element={<ProtectedRoute />}>
