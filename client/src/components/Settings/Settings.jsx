@@ -10,17 +10,17 @@ export default function Setting() {
   const user = useSelector((store) => store.userStore);
 
   const [signUpForm, setSignUpForm] = useState({
-    email: user.email,
-    name: user.name,
-    role: user.role,
-    surname: user.surname,
-    inst: user.inst,
-    telegram: user.telegram,
-    facebook: user.facebook,
+    email: user?.email,
+    name: user?.name,
+    role: user?.role,
+    surname: user?.surname,
+    inst: user?.inst,
+    telegram: user?.telegram,
+    facebook: user?.facebook,
   });
   const [pass, setPass] = useState({
-    password: user.password,
-    confirmPassword: user.confirmPassword,
+    password: user?.password,
+    confirmPassword: user?.confirmPassword,
   });
 
   const handleInput = (e) => {
