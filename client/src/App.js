@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
 import Navbar from './components/Navbar/Navbar';
@@ -29,6 +29,7 @@ import ParentProfileForm from './components/ParentProfileForm/ParentProfileForm'
 import Settings from './components/Settings/Settings';
 import ProfileReviews from './components/ProfileReviews/ProfileReviews';
 import SitterProfileForm from './components/SitterProfileForm/SitterProfileForm';
+import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ function App() {
         <Route path="/cat-sitters" element={<CatSitterArticle />} />
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
         <Route path="/appreview" element={<AppReview />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/profile" element={<Profile />}>
           <Route path="settings" element={<Settings />} />
           <Route path="reviews" element={<ProfileReviews />} />

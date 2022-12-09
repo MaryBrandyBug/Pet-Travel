@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './ParentProfileForm.css';
 
 export default function ParentProfileForm() {
   const dispatch = useDispatch();

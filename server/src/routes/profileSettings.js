@@ -32,9 +32,12 @@ router.put('/settings', async (req, res) => {
 });
 
 router.delete('/settings', async (req, res) => {
+  console.log('req.body', req.body);
   const { id } = req.body;
   await User.destroy({ where: { id } });
-  res.redirect('/');
+  req.session.destroy();
+  res.clearCookie('Username');
+  res.sendStatus(200);
 });
 
 module.exports = router;
