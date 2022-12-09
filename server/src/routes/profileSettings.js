@@ -16,7 +16,7 @@ router.put('/settings', async (req, res) => {
     } = req.body;
 
     const userProfileData = await User.findOne({ where: { id } });
-    await userProfileData.update({
+    const user = await userProfileData.update({
       id: req.body.id,
       email: req.body.email,
       name: req.body.name,
@@ -26,7 +26,8 @@ router.put('/settings', async (req, res) => {
       telegram: req.body.telegram,
       facebook: req.body.facebook,
     });
-    const user = await User.findByPk(id);
+    // const user = await User.findByPk(id);
+    console.log(user);
     const result = user.get();
     delete result.password;
     req.session.auth = result;
