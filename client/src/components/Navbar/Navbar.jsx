@@ -39,7 +39,7 @@ export default function Navbar() {
         {user
           ? (
             <div className="dropdown">
-              <Link className="dropbtn" to="/profile">
+              <Link className="dropbtn" to={`/profile/${user.role}`}>
                 <div className="dropdown-content">
                   <Sidebar />
                 </div>

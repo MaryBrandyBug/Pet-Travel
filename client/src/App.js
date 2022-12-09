@@ -21,6 +21,7 @@ import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterAr
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRouter';
+import SitterProfile from './components/SitterProfile/SitterProfile';
 
 import AppReview from './components/AppReview/AppReview';
 
@@ -30,6 +31,7 @@ import Settings from './components/Settings/Settings';
 import ProfileReviews from './components/ProfileReviews/ProfileReviews';
 import SitterProfileForm from './components/SitterProfileForm/SitterProfileForm';
 import AboutUs from './components/AboutUs/AboutUs';
+import ParentProfile from './components/ParentProfile/ParentProfile';
 
 function App() {
   const dispatch = useDispatch();
@@ -69,6 +71,8 @@ function App() {
         <Route path="/appreview" element={<AppReview />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/profile" element={<Profile />}>
+          <Route path="sitter" element={<SitterProfile />} />
+          <Route path="parent" element={<ParentProfile />} />
           <Route path="settings" element={<Settings />} />
           <Route path="reviews" element={<ProfileReviews />} />
         </Route>

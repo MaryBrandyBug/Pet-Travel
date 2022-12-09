@@ -5,7 +5,6 @@ import './Sidebar.css';
 export default function Sidebar() {
   return (
     <div className="side_text">
-      <Link to="/profile"><span className="span">Ваш профиль</span></Link>
       {' '}
       <Link to="/chat"><span className="span">Чат</span></Link>
       {' '}

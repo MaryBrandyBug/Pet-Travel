@@ -13,16 +13,16 @@ export default function Profile() {
     <div>
       <div className="link_bar">
         <div className="left_menu">
-          <div>
+          <div className="side_text">
             {user?.role === 'parent'
               ? (
-                <Link to="/profile/create-parent-profile">
-                  <button type="button">Заполнить анкету</button>
+                <Link to="/profile/parent">
+                  <span className="span">Мой профиль</span>
                 </Link>
               )
               : (
-                <Link to="/profile/create-sitter-profile">
-                  <button type="button">Заполнить анкету</button>
+                <Link to="/profile/sitter">
+                  <span className="span">Мой профиль</span>
                 </Link>
               )}
           </div>
@@ -30,6 +30,7 @@ export default function Profile() {
         </div>
         <div className="rigth_menu">
           <Outlet />
+          {/* <SitterProfile /> */}
         </div>
       </div>
     </div>
