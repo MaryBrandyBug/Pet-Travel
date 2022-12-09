@@ -33,7 +33,7 @@ router.post('/create-parent-profile', async (req, res) => {
     // const ageNumber = truePets.map((el) => el.petAge = Number(el.petAge));
     // const addProfileId = truePets.map((el) => el.ParentProfileId = parent.id)
     const ageNumber = truePets.map((el) => Number(el.petAge));
-    const addProfileId = truePets.map((el) => el.ParentProfileId = parent.id)
+    const addProfileId = truePets.map((el) => el.ParentProfileId = parent.id);
     console.log(truePets);
     const pet = await Pet.bulkCreate(truePets);
     return res.json({ parentData, pet });
@@ -45,8 +45,13 @@ router.post('/create-parent-profile', async (req, res) => {
 router.post('/create-sitter-profile', async (req, res) => {
   try {
     const {
-      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
     } = req.body;
+    const sitter = await SitterProfile.create({
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+    });
+    const sitterData = sitter.get();
+    res.json({ sitterData });
   } catch (error) {
     return res.status(400).json({ msg: error.message });
   }

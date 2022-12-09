@@ -6,7 +6,7 @@ export default function ParentProfileForm() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore);
   const p = useSelector((store) => store.parentStore);
-  console.log(p.pet[0]?.id);
+  // console.log(p.pet[0]?.id);
 
   const [pets, setPets] = useState([{}]);
 

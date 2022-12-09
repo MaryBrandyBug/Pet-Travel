@@ -48,11 +48,7 @@ export default function SitterProfileForm() {
         <input type="text" name="aboutMe" onChange={handleInput} />
         <fieldset>
           <label>
-            <input
-              type="checkbox"
-              name="cats"
-              onChange={handleInput}
-            />
+            <input type="checkbox" name="cats" onChange={handleInput} />
             Кошки
           </label>
           <label>
