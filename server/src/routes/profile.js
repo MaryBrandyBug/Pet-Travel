@@ -11,6 +11,7 @@ router.post('/create-parent-profile', async (req, res) => {
       dateUntil1, dateSince2, dateUntil2, dateSince3, dateUntil3,
       pets,
     } = req.body;
+    console.log(req.body);
     const parent = await ParentProfile.create({
       UserId,
       title,
@@ -26,7 +27,9 @@ router.post('/create-parent-profile', async (req, res) => {
       dateSince3,
       dateUntil3,
     });
+    console.log('🚀🚀🚀 =>=>=> file: Profile.js:29 =>=>=> router.post =>=>=> parent', parent);
     const parentData = parent.get();
+    console.log('🚀🚀🚀 =>=>=> file: Profile.js:32 =>=>=> router.post =>=>=> parentData', parentData);
     delete parentData.createdAt;
     delete parentData.updatedAt;
     const truePets = pets.filter((el) => el.type);
@@ -36,6 +39,7 @@ router.post('/create-parent-profile', async (req, res) => {
     const addProfileId = truePets.map((el) => el.ParentProfileId = parent.id);
     console.log(truePets);
     const pet = await Pet.bulkCreate(truePets);
+    console.log('🚀🚀🚀 =>=>=> file: Profile.js:41 =>=>=> router.post =>=>=> pet', pet)
     return res.json({ parentData, pet });
   } catch (error) {
     return res.status(400).json({ msg: error.message });

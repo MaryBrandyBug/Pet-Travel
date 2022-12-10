@@ -8,18 +8,27 @@ const {
 router.get('/', async (req, res) => {
   if (req.session?.auth) {
     if (req.session?.auth.role === 'parent') {
-      const parentData = await ParentProfile.findOne({ where: { UserId: req?.session.auth.id } });
+      const parentData = await ParentProfile.findOne({ where: { UserId: req.session?.auth.id }, raw: true });
+      console.log('ses', req.session?.auth);
+      if (!parentData) {
+        console.log('tut');
+        return res.json({ auth: req.session?.auth, parent: {} });
+      }
+      console.log('1');
+      console.log(parentData);
       const petData = await Pet.findAll({ where: { ParentProfileId: parentData.id } });
       res.json({
         auth: req.session?.auth, parent: parentData, pet: petData, sitter: null,
       });
     } else {
+      console.log(2);
       const sitterData = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id } });
       // const sitterData = sitter.get();
-      res.json({ auth: req.session.auth, sitter: sitterData, profile: null });
+      res.json({ auth: req.session?.auth, sitter: sitterData, profile: null });
     }
   } else {
-    res.json({ auth: null, petParent: {} });
+    console.log('error');
+    res.json({ auth: {}, parent: {} });
   }
 });
 
@@ -30,6 +39,8 @@ router.post('/signup', async (req, res) => {
     } = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email } });
+    console.log(req.body);
+    // console.log(user);
     if (!user) {
       const newUser = await User.create({
         name, email, password: hashedPass, role,
@@ -39,7 +50,7 @@ router.post('/signup', async (req, res) => {
       delete auth.createdAt;
       delete auth.updatedAt;
       req.session.auth = auth;
-      return res.json(auth);
+      return res.json({ auth });
     }
   } catch (error) {
     return res.status(400).json({ msg: error.message });

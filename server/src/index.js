@@ -62,7 +62,7 @@ app.use('/', authRouter);
 
 app.use('/', appReview);
 
-app.use('/profile', profileSetRouter);
+// app.use('/profile', profileSetRouter);
 
 app.locals.wsClients = new Map();
 

@@ -35,7 +35,6 @@ import ParentProfile from './components/ParentProfile/ParentProfile';
 
 function App() {
   const dispatch = useDispatch();
-  const [auth, setAuth] = useState(null);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -56,7 +55,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Navbar auth={auth} setAuth={setAuth} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/reasons-birds-make-perfect-pets" element={<BirdsPets />} />

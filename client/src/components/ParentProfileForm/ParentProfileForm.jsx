@@ -50,7 +50,7 @@ export default function ParentProfileForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...parentProfileForm, UserId: user.id }),
+      body: JSON.stringify({ ...parentProfileForm, UserId: user.auth.id }),
     })
       .then((res) => res.json())
       .then((res) => dispatch({ type: 'PARENT_PROFILE', payload: res }));
