@@ -8,7 +8,7 @@ export default function ParentProfile() {
   console.log(parent.pet);
   return (
     <div>
-      {parent.profile ? (
+      {parent?.profile ? (
         <div>
           <h3>Ваш профиль</h3>
           <div>ТУТ ФОТКИ ТИПА</div>
@@ -55,7 +55,7 @@ export default function ParentProfile() {
           <div>
             <h4>Ваши питомцы:</h4>
             <div className="petContainer">
-              {parent.pet.map((el) => (
+              {parent?.pet.map((el) => (
                 <>
                   <div>ФОТО ПИТОМЦА</div>
                   <p>{el.petName}</p>
@@ -64,6 +64,7 @@ export default function ParentProfile() {
               ))}
             </div>
           </div>
+
         </div>
       )
         : (

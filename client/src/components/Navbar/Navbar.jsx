@@ -14,7 +14,7 @@ export default function Navbar() {
   const handleLogout = () => {
     fetch('http://localhost:3001/logout', { credentials: 'include' })
       .then((res) => {
-        if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: null }); }
+        if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: {} }); }
       });
   };
   return (
@@ -40,7 +40,7 @@ export default function Navbar() {
         {user?.auth
           ? (
             <div className="dropdown">
-              <Link className="dropbtn" to={`/profile/${user.auth.role}`}>
+              <Link className="dropbtn" to={`/profile/${user?.auth.role}`}>
                 <div className="dropdown-content">
                   <Sidebar />
                 </div>

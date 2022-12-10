@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
 import Navbar from './components/Navbar/Navbar';
@@ -35,24 +35,27 @@ import ParentProfile from './components/ParentProfile/ParentProfile';
 
 function App() {
   const dispatch = useDispatch();
+  const auth = useSelector((store) => store.userStore.auth);
 
   useEffect(() => {
     const abortController = new AbortController();
-    fetch('http://localhost:3001/', {
-      credentials: 'include',
-      signal: abortController.signal,
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch({ type: 'USER', payload: res.auth });
-        dispatch({ type: 'PARENT_PROFILE', payload: res.parent });
-        dispatch({ type: 'PET', payload: res.pet });
-        dispatch({ type: 'SITTER_PROFILE', payload: res.sitter });
-      });
+    if (auth) {
+      fetch('http://localhost:3001/', {
+        credentials: 'include',
+        signal: abortController.signal,
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          // dispatch({ type: 'USER', payload: res.auth });
+          dispatch({ type: 'PARENT_PROFILE', payload: res.parent });
+          dispatch({ type: 'PET', payload: res.pet });
+          dispatch({ type: 'SITTER_PROFILE', payload: res.sitter });
+        });
+    }
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [auth]);
   return (
     <div className="App">
       <Navbar />

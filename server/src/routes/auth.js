@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
     }
   } else {
     console.log('error');
-    res.json({ auth: {}, parent: {} });
+    res.json({ auth: null });
   }
 });
 
@@ -77,7 +77,6 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  console.log('here');
   req.session.destroy();
   res.clearCookie('Username');
   res.sendStatus(200);
