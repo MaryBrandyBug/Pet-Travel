@@ -7,8 +7,8 @@ import './Navbar.css';
 import petImg from './Pet_1.png';
 
 export default function Navbar() {
-  const user = useSelector((store) => store.userStore);
-  console.log(user);
+  const user = useSelector((store) => store.userStore.auth);
+  // console.log('user', user);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -37,14 +37,14 @@ export default function Navbar() {
 
       <div className="nav-links">
         <Link to="/aboutus"><span>О нас</span></Link>
-        {user?.auth
+        {user
           ? (
             <div className="dropdown">
-              <Link className="dropbtn" to={`/profile/${user?.auth.role}`}>
+              <Link className="dropbtn" to={`/profile/${user?.role}`}>
                 <div className="dropdown-content">
                   <Sidebar />
                 </div>
-                <span>{user.auth.name}</span>
+                <span>{user?.name}</span>
               </Link>
               <button type="button" onClick={handleLogout}>Выход</button>
             </div>

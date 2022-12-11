@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SitterProfile.css';
 
 export default function SitterProfile() {
-  const sitter = useSelector((store) => store.sitterStore);
+  const sitter = useSelector((store) => store.sitterStore.sitter);
   const cats = sitter?.cats;
   const dogs = sitter?.dogs;
   const reptiles = sitter?.reptiles;
@@ -37,7 +37,7 @@ export default function SitterProfile() {
     }
     return pets;
   }
-  console.log(careAboute());
+  // console.log(careAboute());
 
   return (
     <div>
@@ -51,12 +51,12 @@ export default function SitterProfile() {
                 <span>{sitter?.city}, {sitter?.country}</span>
               </div>
               <div>
+                <div>
+                  <h4>Обо мне</h4>
+                  <p>{sitter?.aboutMe}</p>
+                </div>
                 <h4>Есть опыт ухода за: </h4>
                 <div className="petList">{careAboute().map((el) => <p className="pets">{el}</p>)}<div />
-                  <div>
-                    <h4>Обо мне</h4>
-                    <p>{sitter?.aboutMe}</p>
-                  </div>
                 </div>
               </div>
             </div>

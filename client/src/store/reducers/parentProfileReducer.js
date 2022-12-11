@@ -1,4 +1,4 @@
-export const parentProfileReducer = (state = { profile: {}, pet: [] }, action) => {
+export const parentProfileReducer = (state = { profile: null, pet: [] }, action) => { // null
   switch (action.type) {
     case 'PARENT_PROFILE':
       return { ...state, profile: action.payload };

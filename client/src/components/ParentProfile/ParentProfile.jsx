@@ -5,7 +5,7 @@ import './ParentProfile.css';
 
 export default function ParentProfile() {
   const parent = useSelector((store) => store.parentStore);
-  console.log(parent.pet);
+  // console.log('parent', parent.profile);
   return (
     <div>
       {parent?.profile ? (

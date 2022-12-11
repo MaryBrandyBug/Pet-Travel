@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './SitterProfileForm.css';
 
 export default function SitterProfileForm() {
-  const user = useSelector((store) => store.userStore);
+  const user = useSelector((store) => store.userStore.auth);
   const dispatch = useDispatch();
 
   // const [checked, setChecked] = useState(false);
@@ -30,7 +30,7 @@ export default function SitterProfileForm() {
       body: JSON.stringify({ ...sitterProfileForm, UserId: user.id }),
     })
       .then((res) => res.json())
-      .then((res) => dispatch({ type: 'SITTER_PROFILE', payload: res }));
+      .then((res) => dispatch({ type: 'SITTER_PROFILE', payload: res.sitter }));
   };
   console.log(sitterProfileForm);
   return (

@@ -4,9 +4,8 @@ import './ParentProfileForm.css';
 
 export default function ParentProfileForm() {
   const dispatch = useDispatch();
-  const user = useSelector((store) => store.userStore);
-  // const p = useSelector((store) => store.parentStore);
-  // console.log(p.pet[0]?.id);
+  const user = useSelector((store) => store.userStore.auth);
+  console.log('formpage', user);
 
   const [pets, setPets] = useState([{}]);
 
@@ -50,10 +49,13 @@ export default function ParentProfileForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...parentProfileForm, UserId: user.auth.id }),
+      body: JSON.stringify({ ...parentProfileForm, UserId: user.id }),
     })
       .then((res) => res.json())
-      .then((res) => dispatch({ type: 'PARENT_PROFILE', payload: res }));
+      .then((res) => {
+        dispatch({ type: 'PARENT_PROFILE', payload: res.profile });
+        dispatch({ type: 'PET', payload: res.pet });
+      });
   };
 
   const handlePet = (e, i) => {
