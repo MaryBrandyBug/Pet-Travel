@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const e = require('express');
+// const e = require('express');
 const {
-  ParentProfile, Pet, ParentReview, SitterProfile,
+  ParentProfile, Pet, ParentReview, SitterProfile, User,
 } = require('../../db/models');
 
 router.post('/create-parent-profile', async (req, res) => {
@@ -56,5 +56,56 @@ router.post('/create-sitter-profile', async (req, res) => {
     return res.status(400).json({ msg: error.message });
   }
 });
+
+router.put('/sitter', async (req, res) => {
+  try {
+    const { published, id } = req.body;
+    const profile = await SitterProfile.findOne({ where: { id } });
+    const prof = profile.get();
+    await profile.update({ published: !published });
+    console.log('prof', profile);
+    res.json({ sitter: profile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.put('/sitter/update-sitter-profile', async (req, res) => {
+  try {
+    const {
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+    } = req.body;
+    const sitterProfile = await SitterProfile.findOne({ where: { UserId } });
+    // console.log(req.body);
+    // console.log(sitterProfile);
+    const profile = sitterProfile.get();
+    await sitterProfile.update({
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
+    });
+    res.json({ sitter: sitterProfile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.put('/parent/update-parent-profile', async (req, res) => {
+  try {
+    const {
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+    } = req.body;
+    const sitterProfile = await SitterProfile.findOne({ where: { UserId } });
+    // console.log(req.body);
+    // console.log(sitterProfile);
+    const profile = sitterProfile.get();
+    await sitterProfile.update({
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
+    });
+    res.json({ sitter: sitterProfile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
 
 module.exports = router;

@@ -33,6 +33,7 @@ import SitterProfileForm from './components/SitterProfileForm/SitterProfileForm'
 import AboutUs from './components/AboutUs/AboutUs';
 import ParentProfile from './components/ParentProfile/ParentProfile';
 import ProfileProtectedRouter from './components/ProfileProtectedRouter/ProfileProtectedRouter';
+import UpdateSitter from './components/UpdateSitter/UpdateSitter';
 
 function App() {
   const dispatch = useDispatch();
@@ -91,6 +92,7 @@ function App() {
             <Route path="reviews" element={<ProfileReviews />} />
             <Route past="create-parent-profile" element={<ParentProfileForm />} />
             <Route path="create-sitter-profile" element={<SitterProfileForm />} />
+            <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
           </Route>
         </Route>
         {/* <Route path="/chat" element={<Chat />} /> */}

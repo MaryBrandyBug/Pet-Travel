@@ -7,7 +7,8 @@ export default function Setting() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector((store) => store.userStore);
+  const user = useSelector((store) => store.userStore.auth);
+  console.log(user);
 
   const [signUpForm, setSignUpForm] = useState({
     email: user?.email,
