@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
 import Navbar from './components/Navbar/Navbar';
@@ -32,31 +32,44 @@ import ProfileReviews from './components/ProfileReviews/ProfileReviews';
 import SitterProfileForm from './components/SitterProfileForm/SitterProfileForm';
 import AboutUs from './components/AboutUs/AboutUs';
 import ParentProfile from './components/ParentProfile/ParentProfile';
+import ProfileProtectedRouter from './components/ProfileProtectedRouter/ProfileProtectedRouter';
 
 function App() {
   const dispatch = useDispatch();
-  const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    const abortController = new AbortController();
     fetch('http://localhost:3001/', {
       credentials: 'include',
-      signal: abortController.signal,
     })
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
-        dispatch({ type: 'PARENT_PROFILE', payload: res.parent });
-        dispatch({ type: 'PET', payload: res.pet });
-        dispatch({ type: 'SITTER_PROFILE', payload: res.sitter });
       });
+  }, []);
+
+  const auth = useSelector((store) => store.userStore.auth);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    if (auth) {
+      fetch('http://localhost:3001/', {
+        credentials: 'include',
+        signal: abortController.signal,
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          dispatch({ type: 'PARENT_PROFILE', payload: res.parent });
+          dispatch({ type: 'PET', payload: res.pet });
+          dispatch({ type: 'SITTER_PROFILE', payload: res.sitter });
+        });
+    }
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [auth]);
   return (
     <div className="App">
-      <Navbar auth={auth} setAuth={setAuth} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/reasons-birds-make-perfect-pets" element={<BirdsPets />} />
@@ -70,15 +83,19 @@ function App() {
         <Route path="/dog-sitters" element={<DogSitterArticle />} />
         <Route path="/appreview" element={<AppReview />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/profile" element={<Profile />}>
-          <Route path="sitter" element={<SitterProfile />} />
-          <Route path="parent" element={<ParentProfile />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="reviews" element={<ProfileReviews />} />
+        <Route element={<ProfileProtectedRouter />}>
+          <Route path="/profile" element={<Profile />}>
+            <Route path="sitter" element={<SitterProfile />} />
+            <Route path="parent" element={<ParentProfile />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="reviews" element={<ProfileReviews />} />
+            <Route past="create-parent-profile" element={<ParentProfileForm />} />
+            <Route path="create-sitter-profile" element={<SitterProfileForm />} />
+          </Route>
         </Route>
         {/* <Route path="/chat" element={<Chat />} /> */}
-        <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} />
-        <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} />
+        {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
+        {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
         <Route element={<ProtectedRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />

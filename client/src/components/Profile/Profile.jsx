@@ -6,15 +6,16 @@ import SitterProfile from '../SitterProfile/SitterProfile';
 import './Profile.css';
 
 export default function Profile() {
-  const user = useSelector((store) => store.userStore);
+  const user = useSelector((store) => store.userStore.auth);
+  console.log(user);
   const sitter = useSelector((store) => store.sitterStore);
-  console.log(sitter);
+  // console.log(sitter);
   return (
     <div>
       <div className="link_bar">
         <div className="left_menu">
           <div className="side_text">
-            {user?.role === 'parent'
+            {user === 'parent'
               ? (
                 <Link to="/profile/parent">
                   <span className="span">Мой профиль</span>
