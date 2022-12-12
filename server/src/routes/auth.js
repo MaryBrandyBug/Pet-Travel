@@ -7,18 +7,22 @@ const {
 
 router.get('/', async (req, res) => {
   if (req.session?.auth) {
+    const user = await User.findByPk(req.session.auth.id);
+    if (!user) {
+      return res.json({ auth: null });
+    }
     if (req.session?.auth.role === 'parent') {
       const parentData = await ParentProfile.findOne({ where: { UserId: req.session?.auth.id }, raw: true });
       if (!parentData) {
-        return res.json({ auth: req.session?.auth, parent: null });// null
+        return res.json({ auth: user, parent: null });// null
       }
       const petData = await Pet.findAll({ where: { ParentProfileId: parentData.id }, raw: true });
       res.json({
-        auth: req.session?.auth, parent: parentData, pet: petData, sitter: null,
+        auth: user, parent: parentData, pet: petData, sitter: null,
       });
     } else {
       const sitterData = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id }, raw: true });
-      res.json({ auth: req.session?.auth, sitter: sitterData });
+      res.json({ auth: user, sitter: sitterData });
     }
   } else {
     console.log('error');
@@ -34,6 +38,7 @@ router.post('/signup', async (req, res) => {
     const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email } });
     console.log(req.body);
+    console.log('user post sign up', user);
     if (!user) {
       const newUser = await User.create({
         name, email, password: hashedPass, role,
