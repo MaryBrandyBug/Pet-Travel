@@ -1,7 +1,23 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const filemiddleware = require('../middlewares/file');
 const { User } = require('../../db/models');
 
+router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body.id);
+  try {
+    if (req.file) {
+      const userId = await User.findOne({ where: { id: req.body.id } });
+      const addPhoto = await userId.update({ mainPhoto: req.file.filename });
+      console.log('=====>>>> 👉👉👉 file: profileSettings.js:12 👉👉👉 router.post 👉👉👉 addPhoto', addPhoto);
+      console.log(req.file);
+
+      res.json(req.file.filename);
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: upload.route.js:10 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
 router.put('/settings', async (req, res) => {
   try {
     const {
