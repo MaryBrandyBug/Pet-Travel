@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// const e = require('express');
 const {
   ParentProfile, Pet, ParentReview, SitterProfile, User,
 } = require('../../db/models');
@@ -105,7 +104,5 @@ router.put('/parent/update-parent-profile', async (req, res) => {
     console.log(error);
   }
 });
-
-
 
 module.exports = router;
