@@ -22,8 +22,6 @@ export default function Navbar() {
     <div className="nav">
       <div className="nav-header">
         <div className="nav-title">
-          {/* <Link to="/">
-            </Link> */}
           <img src={petImg} alt="logo" />
         </div>
       </div>
@@ -43,12 +41,12 @@ export default function Navbar() {
         {user
           ? (
             <div className="dropdown">
-              <Link className="dropbtn" to={`/profile/${user?.role}`}>
-                <div className="dropdown-content">
-                  <Sidebar />
-                </div>
-                <span>{user?.name}</span>
-              </Link>
+              {/* <Link className="dropbtn" to={`/profile/${user?.role}`}> */}
+              <div className="dropdown-content">
+                <Sidebar />
+              </div>
+              <span>{user?.name}</span>
+              {/* </Link> */}
               <button type="button" onClick={handleLogout}>Выход</button>
             </div>
 

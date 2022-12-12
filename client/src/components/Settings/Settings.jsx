@@ -31,7 +31,6 @@ export default function Setting() {
           console.log(res);
           setAvatar(`http://localhost:3001/${res.data.photo}`);
           dispatch({ type: 'USER', payload: res.data.auth });
-          
         });
     } catch (error) {
       console.log(error);
@@ -121,7 +120,7 @@ export default function Setting() {
             </div>
             <div className="form-item">
               <span>Фамилия</span>
-              <input type="text" className="upd" value={signUpForm.surname} name="surname" onChange={handleInput} />
+              <input type="text" className="upd" value={(signUpForm.surname ? signUpForm.surname : 'Введите фамилию')} name="surname" onChange={handleInput} />
             </div>
             <div className="form-item">
               <span>Электронная почта</span>
@@ -152,11 +151,11 @@ export default function Setting() {
           <div className="basic_data">
             <div className="form-item">
               <span>Пароль</span>
-              <input type="password" className="upd" placeholder="****" value={pass.password} name="password" onChange={handlePassInput} />
+              <input type="password" className="upd" autoComplete="as" placeholder="****" name="password" onChange={handlePassInput} />
             </div>
             <div className="form-item">
               <span>Повторите пароль</span>
-              <input type="password" className="upd" placeholder="****" value={pass.confirmPassword} name="confirmPassword" onChange={handlePassInput} />
+              <input type="password" className="upd" autoComplete="as" placeholder="****" name="confirmPassword" onChange={handlePassInput} />
             </div>
           </div>
         </div>

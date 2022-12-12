@@ -54,10 +54,16 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
+
+        setInterval(() => {
+          setLoad(false);
+        }, 2000);
+
         setWs(new WebSocket('ws://localhost:3001'));
       })
       .catch((error) => console.log(error));
         setLoad(false);
+
       });
   }, []);
 
@@ -82,7 +88,28 @@ function App() {
     };
   }, [auth]);
   if (load) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <div className="body">
+          <span>
+            <span />
+            <span />
+            <span />
+            <span />
+          </span>
+          <div className="base">
+            <span />
+            <div className="face" />
+          </div>
+        </div>
+        <div className="longfazers">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+    );
   }
   return (
     <div className="App">
