@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function UpdateParent() {
-  const dispatch = useDispatch();
-  const user = useSelector((store) => store.userStore.auth);
+  // const dispatch = useDispatch();
+  // const user = useSelector((store) => store.userStore.auth);
   const parent = useSelector((store) => store.parentStore.profile);
 
   const [pets, setPets] = useState([{}]);

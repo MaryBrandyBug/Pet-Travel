@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Settings.css';
 // import imgg from '../Navbar/Pet_1.png';
@@ -9,12 +9,13 @@ export default function Setting() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const user = useSelector((store) => store.userStore.auth);
 
-  const user = useSelector((store) => store.userStore);
   const [img, setImg] = useState(null);
   const [avatar, setAvatar] = useState(null);
 
-  const sendFile = useCallback(async () => {
+  const sendFile = async (e) => {
+    e.preventDefault();
     try {
       const data = new FormData();
       data.append('avatar', img);
@@ -26,16 +27,15 @@ export default function Setting() {
         },
       })
         .then((res) => {
-          console.log(res.data);
-          setAvatar(`http://localhost:3001/${res.data}`);
-          console.log(avatar);
+          console.log(res);
+          setAvatar(`http://localhost:3001/${res.data.photo}`);
+          dispatch({ type: 'USER', payload: res.data.auth });
+          
         });
     } catch (error) {
       console.log(error);
     }
-  }, [img]);
-  const user = useSelector((store) => store.userStore.auth);
-  console.log(user);
+  };
 
   const [signUpForm, setSignUpForm] = useState({
     email: user?.email,
