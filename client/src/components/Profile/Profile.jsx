@@ -6,12 +6,10 @@ import Sidebar from '../Sidebar/Sidebar';
 // import SitterProfile from '../SitterProfile/SitterProfile';
 import './Profile.css';
 
-export default function Profile() {
-  const user = useSelector((store) => store.userStore);
-  // const sitter = useSelector((store) => store.sitterStore);
-  // console.log(sitter);
-
-import './Profile.css';
+// export default function Profile() {
+//   const user = useSelector((store) => store.userStore);
+//   // const sitter = useSelector((store) => store.sitterStore);
+//   // console.log(sitter);
 
 export default function Profile() {
   const user = useSelector((store) => store.userStore.auth);

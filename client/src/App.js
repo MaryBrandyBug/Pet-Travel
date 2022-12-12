@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
@@ -41,6 +41,7 @@ import ParentSearch from './components/ParentSearch/ParentSearch';
 
 function App() {
   const dispatch = useDispatch();
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     fetch('http://localhost:3001/', {
@@ -49,6 +50,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
+        setLoad(false);
       });
   }, []);
 
@@ -72,6 +74,9 @@ function App() {
       abortController.abort();
     };
   }, [auth]);
+  if (load) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="App">
       <Navbar />

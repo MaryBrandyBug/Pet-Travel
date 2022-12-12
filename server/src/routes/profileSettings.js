@@ -9,10 +9,10 @@ router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
     if (req.file) {
       const userId = await User.findOne({ where: { id: req.body.id } });
       const addPhoto = await userId.update({ mainPhoto: req.file.filename });
-      console.log('=====>>>> 👉👉👉 file: profileSettings.js:12 👉👉👉 router.post 👉👉👉 addPhoto', addPhoto);
-      console.log(req.file);
-
-      res.json(req.file.filename);
+      const result = addPhoto.get();
+      delete result.password;
+      // req.session.auth = result;
+      res.json({ photo: req.file.filename, auth: result });
     }
   } catch (error) {
     console.log('=====>>>> 👉👉👉 file: upload.route.js:10 👉👉👉 router.post 👉👉👉 error', error);
