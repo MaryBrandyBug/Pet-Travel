@@ -63,6 +63,11 @@ export default function ParentProfile() {
                 </>
               ))}
             </div>
+            <div>
+              <Link to="/profile/parent/update-parent-profile">
+                <button type="button">Изменить данные профиля</button>
+              </Link>
+            </div>
           </div>
 
         </div>

@@ -2,16 +2,15 @@ import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
+
 // import SitterProfile from '../SitterProfile/SitterProfile';
 import './Profile.css';
 
 export default function Profile() {
   const user = useSelector((store) => store.userStore.auth);
 
-  const sitter = useSelector((store) => store.sitterStore.sitter);
-  console.log(sitter);
   return (
-    <div>
+    <div className="container_profile">
       <div className="link_bar">
         <div className="left_menu">
           <div className="side_text">
@@ -31,7 +30,6 @@ export default function Profile() {
         </div>
         <div className="rigth_menu">
           <Outlet />
-          {/* <SitterProfile /> */}
         </div>
       </div>
     </div>

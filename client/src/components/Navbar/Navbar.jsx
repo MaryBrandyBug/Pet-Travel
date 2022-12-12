@@ -34,7 +34,10 @@ export default function Navbar() {
           <span />
         </label>
       </div>
-
+      <div className="findTestClass">
+        <Link to="/all-sitters"><span>Ситтеры</span></Link>
+        <Link to="/all-parents"><span>Владельцы</span></Link>
+      </div>
       <div className="nav-links">
         <Link to="/aboutus"><span>О нас</span></Link>
         {user

@@ -5,7 +5,6 @@ import './ParentProfileForm.css';
 export default function ParentProfileForm() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore.auth);
-  console.log('formpage', user);
 
   const [pets, setPets] = useState([{}]);
 

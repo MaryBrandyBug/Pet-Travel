@@ -1,13 +1,42 @@
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Settings.css';
+// import imgg from '../Navbar/Pet_1.png';
 
 export default function Setting() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { auth: user } = useSelector((store) => store.userStore);
+
+  const user = useSelector((store) => store.userStore.auth);
+
+  const [img, setImg] = useState(null);
+  const [avatar, setAvatar] = useState(null);
+
+  const sendFile = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append('avatar', img);
+      data.append('id', user.id);
+
+      await axios.post('http://localhost:3001/profile/upload', data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          setAvatar(`http://localhost:3001/${res.data.photo}`);
+          dispatch({ type: 'USER', payload: res.data.auth });
+          
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const [signUpForm, setSignUpForm] = useState({
     email: user?.email,
@@ -99,30 +128,15 @@ export default function Setting() {
               <input type="email" className="upd" value={signUpForm.email} name="email" onChange={handleInput} />
             </div>
           </div>
-          <div className="form-item">
-            {/* <img src="" alt="photo" name="mainPhoto"/> */}
+          <div className="form-itemm">
             <span>Фото</span>
-            <input type="file" name="mainPhoto" />
-            <button type="submit">Добавить фото</button>
-          </div>
-        </div>
-        <div className="social_set">
-          <div>
-            <h4>
-              Соцсети:
-            </h4>
-          </div>
-          <div className="form-item">
-            <span className="input-group-text" id="basic-addon1">@</span>
-            <input name="facebook" type="text" placeholder="Facebook" value={signUpForm.facebook} onChange={handleInput} />
-          </div>
-          <div className="form-item">
-            <span className="input-group-text" id="basic-addon1">@</span>
-            <input name="inst" type="text" placeholder="Instagram" value={signUpForm.inst} onChange={handleInput} />
-          </div>
-          <div className="form-item">
-            <span className="input-group-text" id="basic-addon1">@</span>
-            <input name="telegram" type="text" placeholder="Telegram" value={signUpForm.telegram} onChange={handleInput} />
+            {
+        avatar
+          ? <img className="logo" src={`${avatar}`} alt="avatar" />
+          : <img className="logo" src={`http://localhost:3001/${user?.mainPhoto}`} alt="avatar" />
+      }
+            <input type="file" onChange={(e) => setImg(e.target.files[0])} />
+            <button type="button" onClick={sendFile}>Добавить фото</button>
           </div>
         </div>
         <div className="btn">

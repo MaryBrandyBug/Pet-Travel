@@ -33,10 +33,19 @@ import SitterProfileForm from './components/SitterProfileForm/SitterProfileForm'
 import AboutUs from './components/AboutUs/AboutUs';
 import ParentProfile from './components/ParentProfile/ParentProfile';
 import ProfileProtectedRouter from './components/ProfileProtectedRouter/ProfileProtectedRouter';
+import UpdateSitter from './components/UpdateSitter/UpdateSitter';
+import ProtectedCreation from './components/ProtectedCreation/ProtectedCreation';
+import SitterSearch from './components/SitterSearch/SitterSearch';
+import UpdateParent from './components/UpdateParent/UpdateParent';
+import ParentSearch from './components/ParentSearch/ParentSearch';
 
 function App() {
   const dispatch = useDispatch();
+
   const [ws, setWs] = useState(null);
+
+  const [load, setLoad] = useState(true);
+
 
   useEffect(() => {
     fetch('http://localhost:3001/', {
@@ -48,6 +57,8 @@ function App() {
         setWs(new WebSocket('ws://localhost:3001'));
       })
       .catch((error) => console.log(error));
+        setLoad(false);
+      });
   }, []);
 
   const auth = useSelector((store) => store?.userStore?.auth);
@@ -70,6 +81,9 @@ function App() {
       abortController.abort();
     };
   }, [auth]);
+  if (load) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="App">
       <Navbar />
@@ -90,15 +104,25 @@ function App() {
           <Route path="/profile" element={<Profile />}>
             <Route path="sitter" element={<SitterProfile />} />
             <Route path="parent" element={<ParentProfile />} />
+            <Route element={<ProtectedCreation />}>
+              <Route path="create-parent-profile" element={<ParentProfileForm />} />
+              <Route path="create-sitter-profile" element={<SitterProfileForm />} />
+            </Route>
             <Route path="settings" element={<Settings />} />
             <Route path="reviews" element={<ProfileReviews />} />
-            <Route past="create-parent-profile" element={<ParentProfileForm />} />
-            <Route path="create-sitter-profile" element={<SitterProfileForm />} />
+            <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
+            <Route path="parent/update-parent-profile" element={<UpdateParent />} />
           </Route>
         </Route>
+
         <Route path="/chat" element={<Chat ws={ws} />} />
         {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
         {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
+
+        <Route path="/all-sitters" element={<SitterSearch />} />
+        <Route path="/all-parents" element={<ParentSearch />} />
+        {/* <Route path="/chat" element={<Chat />} /> */}
+
         <Route element={<ProtectedRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
