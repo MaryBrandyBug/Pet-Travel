@@ -76,8 +76,6 @@ router.put('/sitter/update-sitter-profile', async (req, res) => {
       status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
     } = req.body;
     const sitterProfile = await SitterProfile.findOne({ where: { UserId } });
-    // console.log(req.body);
-    // console.log(sitterProfile);
     const profile = sitterProfile.get();
     await sitterProfile.update({
       status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
@@ -91,19 +89,46 @@ router.put('/sitter/update-sitter-profile', async (req, res) => {
 router.put('/parent/update-parent-profile', async (req, res) => {
   try {
     const {
-      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+      title, country, city, introduction, location, responsibilities, dateSince1,
+      dateUntil1, dateSince2, dateUntil2, dateSince3, dateUntil3, UserId, pets,
     } = req.body;
-    const sitterProfile = await SitterProfile.findOne({ where: { UserId } });
-    // console.log(req.body);
-    // console.log(sitterProfile);
-    const profile = sitterProfile.get();
-    await sitterProfile.update({
-      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
+    const parentProfile = await ParentProfile.findOne({ where: { UserId } });
+    console.log(pets[0]);
+    // console.log(parentProfile);
+    const profile = parentProfile.get();
+    await parentProfile.update({
+      title,
+      country,
+      city,
+      introduction,
+      location,
+      responsibilities,
+      dateSince1,
+      dateUntil1,
+      dateSince2,
+      dateUntil2,
+      dateSince3,
+      dateUntil3,
     });
-    res.json({ sitter: sitterProfile });
+    if (pets[0].petName) {
+      const truePets = pets.filter((el) => el.type);
+      const ageNumber = truePets.map((el) => Number(el.petAge));
+      const addProfileId = truePets.map((el) => el.ParentProfileId = parentProfile.id);
+      await Pet.bulkCreate(truePets);
+    }
+    const pet = await Pet.findAll({ where: { ParentProfileId: parentProfile.id } });
+    res.json({ profile: parentProfile, pet });
   } catch (error) {
     console.log(error);
   }
+});
+
+router.delete('/parent/update-parent-profile', async (req, res) => {
+  const { id, ParentProfileId } = req.body;
+  console.log(req.body);
+  await Pet.destroy({ where: { id } });
+  const allPets = await Pet.findAll({ where: { ParentProfileId } });
+  res.json({ pet: allPets });
 });
 
 module.exports = router;
