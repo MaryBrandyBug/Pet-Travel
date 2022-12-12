@@ -40,10 +40,10 @@ export default function SignUp() {
             <form className="form" onSubmit={handleSubmit}>
               <div className="add_text">
                 <div className="form-item">
-                  <input type="email" id="login" className="form-input" placeholder="Email" name="email" onChange={handleInput} />
+                  <input type="email" id="email" className="form-input" placeholder="Email" name="email" onChange={handleInput} />
                 </div>
                 <div className="form-item">
-                  <input type="text" id="password" className="form-input" placeholder="Имя" name="name" onChange={handleInput} />
+                  <input type="text" id="name" className="form-input" placeholder="Имя" name="name" onChange={handleInput} />
                 </div>
                 <div className="form-item">
                   <input type="password" id="password" className="form-input" placeholder="Пароль" name="password" onChange={handleInput} />
