@@ -1,34 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './ParentProfileForm.css';
 
-export default function ParentProfileForm() {
+export default function UpdateParent() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore.auth);
+  const parent = useSelector((store) => store.parentStore.profile);
 
   const [pets, setPets] = useState([{}]);
 
   const [dateDiv2, setDateDiv2] = useState('hidden');
   const [dateDiv3, setDateDiv3] = useState('hidden');
-
-  const [parentProfileForm, setParentProfileForm] = useState({
-    title: '',
-    introduction: '',
-    location: '',
-    country: '',
-    city: '',
-    responsibilities: '',
-    dateSince1: '',
-    dateUntil1: '',
-    dateSince2: '',
-    dateUntil2: '',
-    dateSince3: '',
-    dateUntil3: '',
-  });
-
-  const handleInput = (e) => {
-    setParentProfileForm({ ...parentProfileForm, [e.target.name]: e.target.value });
-  };
 
   const handleAddDate2 = () => (
     setDateDiv2('visible')
@@ -37,25 +18,6 @@ export default function ParentProfileForm() {
   const handleAddDate3 = () => (
     setDateDiv3('visible')
   );
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(pets);
-    parentProfileForm.pets = pets;
-    fetch('http://localhost:3001/profile/create-parent-profile', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...parentProfileForm, UserId: user.id }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch({ type: 'PARENT_PROFILE', payload: res.profile });
-        dispatch({ type: 'PET', payload: res.pet });
-      });
-  };
 
   const handlePet = (e, i) => {
     console.log(e, i);
@@ -114,12 +76,27 @@ export default function ParentProfileForm() {
       </>
     );
   };
+  const [updateFormParent, setUpdateFormParent] = useState({
+    title: parent?.title,
+    introduction: parent?.introduction,
+    location: parent?.location,
+    country: parent?.country,
+    city: parent?.city,
+    responsibilities: parent?.responsibilities,
+    dateSince1: parent?.dateSince1,
+    dateUntil1: parent?.dateUntil1,
+    dateSince2: parent?.dateSince2,
+    dateUntil2: parent?.dateUntil2,
+    dateSince3: parent?.dateSince3,
+    dateUntil3: parent?.dateUntil3,
+  });
 
+  const handleInput = (e) => {
+    setUpdateFormParent({ ...updateFormParent, [e.target.name]: e.target.value });
+  };
   return (
     <div>
-      <form onSubmit={handleSubmit} className="form_parent">
-        <h3>Создание профиля</h3>
-        <button type="button">Добавить фото</button>
+      <form>
         <label>Заголовок</label>
         <input type="text" name="title" onChange={handleInput} />
         <label>Страна</label>

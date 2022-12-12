@@ -30,7 +30,6 @@ router.put('/settings', async (req, res) => {
       facebook,
       id,
     } = req.body;
-
     const userProfileData = await User.findOne({ where: { id } });
     const user = await userProfileData.update({
       id: req.body.id,

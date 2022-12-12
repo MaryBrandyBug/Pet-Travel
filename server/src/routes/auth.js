@@ -8,18 +8,21 @@ const {
 router.get('/', async (req, res) => {
   if (req.session?.auth) {
     if (req.session?.auth.role === 'parent') {
-      const parentData = await ParentProfile.findOne({ where: { UserId: req?.session.auth.id } });
-      const petData = await Pet.findAll({ where: { ParentProfileId: parentData.id } });
+      const parentData = await ParentProfile.findOne({ where: { UserId: req.session?.auth.id }, raw: true });
+      if (!parentData) {
+        return res.json({ auth: req.session?.auth, parent: null });// null
+      }
+      const petData = await Pet.findAll({ where: { ParentProfileId: parentData.id }, raw: true });
       res.json({
         auth: req.session?.auth, parent: parentData, pet: petData, sitter: null,
       });
     } else {
-      const sitterData = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id } });
-      // const sitterData = sitter.get();
-      res.json({ auth: req.session.auth, sitter: sitterData, profile: null });
+      const sitterData = await SitterProfile.findOne({ where: { UserId: req?.session.auth.id }, raw: true });
+      res.json({ auth: req.session?.auth, sitter: sitterData });
     }
   } else {
-    res.json({ auth: null, petParent: {} });
+    console.log('error');
+    res.json({ auth: null });
   }
 });
 
@@ -30,6 +33,7 @@ router.post('/signup', async (req, res) => {
     } = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email } });
+    console.log(req.body);
     if (!user) {
       const newUser = await User.create({
         name, email, password: hashedPass, role,
@@ -50,15 +54,15 @@ router.post('/signin', async (req, res) => {
   try {
     const { email, password } = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
-    const user = await User.findOne({ where: { email }, raw: true });
-    if (!user) {
+    const auth = await User.findOne({ where: { email }, raw: true });
+    if (!auth) {
       return res.status(401).json({ msg: 'Try again' });
     }
-    const isUser = await bcrypt.compare(password, user.password);
+    const isUser = await bcrypt.compare(password, auth.password);
     if (isUser) {
-      delete user.password;
-      req.session.auth = user;
-      return res.json(user);
+      delete auth.password;
+      req.session.auth = auth;
+      return res.json(auth);
     }
   } catch (error) {
     return res.status(400).json({ msg: error.message });
@@ -66,7 +70,6 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  console.log('here');
   req.session.destroy();
   res.clearCookie('Username');
   res.sendStatus(200);

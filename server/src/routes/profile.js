@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const e = require('express');
 const {
-  ParentProfile, Pet, ParentReview, SitterProfile,
+  ParentProfile, Pet, ParentReview, SitterProfile, User,
 } = require('../../db/models');
 
 router.post('/create-parent-profile', async (req, res) => {
@@ -11,6 +10,7 @@ router.post('/create-parent-profile', async (req, res) => {
       dateUntil1, dateSince2, dateUntil2, dateSince3, dateUntil3,
       pets,
     } = req.body;
+    console.log(req.body);
     const parent = await ParentProfile.create({
       UserId,
       title,
@@ -34,9 +34,8 @@ router.post('/create-parent-profile', async (req, res) => {
     // const addProfileId = truePets.map((el) => el.ParentProfileId = parent.id)
     const ageNumber = truePets.map((el) => Number(el.petAge));
     const addProfileId = truePets.map((el) => el.ParentProfileId = parent.id);
-    console.log(truePets);
     const pet = await Pet.bulkCreate(truePets);
-    return res.json({ parentData, pet });
+    return res.json({ profile: parentData, pet });
   } catch (error) {
     return res.status(400).json({ msg: error.message });
   }
@@ -47,13 +46,62 @@ router.post('/create-sitter-profile', async (req, res) => {
     const {
       status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
     } = req.body;
-    const sitter = await SitterProfile.create({
+    const sitterProfile = await SitterProfile.create({
       status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
     });
-    const sitterData = sitter.get();
-    res.json({ sitterData });
+    const sitterData = sitterProfile.get();
+    res.json({ sitter: sitterData });
   } catch (error) {
     return res.status(400).json({ msg: error.message });
+  }
+});
+
+router.put('/sitter', async (req, res) => {
+  try {
+    const { published, id } = req.body;
+    const profile = await SitterProfile.findOne({ where: { id } });
+    const prof = profile.get();
+    await profile.update({ published: !published });
+    console.log('prof', profile);
+    res.json({ sitter: profile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.put('/sitter/update-sitter-profile', async (req, res) => {
+  try {
+    const {
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+    } = req.body;
+    const sitterProfile = await SitterProfile.findOne({ where: { UserId } });
+    // console.log(req.body);
+    // console.log(sitterProfile);
+    const profile = sitterProfile.get();
+    await sitterProfile.update({
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
+    });
+    res.json({ sitter: sitterProfile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.put('/parent/update-parent-profile', async (req, res) => {
+  try {
+    const {
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+    } = req.body;
+    const sitterProfile = await SitterProfile.findOne({ where: { UserId } });
+    // console.log(req.body);
+    // console.log(sitterProfile);
+    const profile = sitterProfile.get();
+    await sitterProfile.update({
+      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets,
+    });
+    res.json({ sitter: sitterProfile });
+  } catch (error) {
+    console.log(error);
   }
 });
 

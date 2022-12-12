@@ -9,6 +9,7 @@ export default function Setting() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
   const user = useSelector((store) => store.userStore);
   const [img, setImg] = useState(null);
   const [avatar, setAvatar] = useState(null);
@@ -33,6 +34,8 @@ export default function Setting() {
       console.log(error);
     }
   }, [img]);
+  const user = useSelector((store) => store.userStore.auth);
+  console.log(user);
 
   const [signUpForm, setSignUpForm] = useState({
     email: user?.email,

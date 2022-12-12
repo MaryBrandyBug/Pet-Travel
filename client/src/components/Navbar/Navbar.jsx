@@ -7,13 +7,14 @@ import './Navbar.css';
 import petImg from './Pet_1.png';
 
 export default function Navbar() {
-  const user = useSelector((store) => store.userStore);
+  const user = useSelector((store) => store.userStore.auth);
+  // console.log('user', user);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     fetch('http://localhost:3001/logout', { credentials: 'include' })
       .then((res) => {
-        if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: null }); }
+        if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: {} }); }
       });
   };
   return (
@@ -33,17 +34,20 @@ export default function Navbar() {
           <span />
         </label>
       </div>
-
+      <div className="findTestClass">
+        <Link to="/all-sitters"><span>Ситтеры</span></Link>
+        <Link to="/all-parents"><span>Владельцы</span></Link>
+      </div>
       <div className="nav-links">
         <Link to="/aboutus"><span>О нас</span></Link>
         {user
           ? (
             <div className="dropdown">
-              <Link className="dropbtn" to="/profile">
+              <Link className="dropbtn" to={`/profile/${user?.role}`}>
                 <div className="dropdown-content">
                   <Sidebar />
                 </div>
-                <span>{user.name}</span>
+                <span>{user?.name}</span>
               </Link>
               <button type="button" onClick={handleLogout}>Выход</button>
             </div>

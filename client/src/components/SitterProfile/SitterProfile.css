@@ -1,0 +1,4 @@
+.petList {
+  display: flex;
+  flex-direction: column;
+}
