@@ -17,14 +17,14 @@ router.put('/settings', async (req, res) => {
 
     const userProfileData = await User.findOne({ where: { id } });
     const user = await userProfileData.update({
-      id: req.body.id,
-      email: req.body.email,
-      name: req.body.name,
-      role: req.body.role,
-      surname: req.body.surname,
-      inst: req.body.inst,
-      telegram: req.body.telegram,
-      facebook: req.body.facebook,
+      id,
+      email,
+      name,
+      role,
+      surname,
+      inst,
+      telegram,
+      facebook,
     });
     const result = user.get();
     delete result.password;

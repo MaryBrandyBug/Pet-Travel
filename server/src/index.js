@@ -6,10 +6,9 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const http = require('http');
-// const wss = require('./ws');
+const wss = require('../ws');
 
 // const WebSocket = require('ws');
-
 /* const wss = new WebSocket.Server({ port: 3232 });
 
 wss.on('connection', (ws) => {
@@ -26,11 +25,13 @@ wss.on('connection', (ws) => {
 const cors = require('./middlewares/cors');
 
 const app = express();
+const server = http.createServer(app);
 
 const { SERV_PORT, SESSION_SECRET } = process.env;
 
-const isAuth = require('./middlewares/isAuth');
+// const isAuth = require('./middlewares/isAuth');
 const authRouter = require('./routes/auth');
+// const chatRouter = require('./routes/Chat');
 
 const appReview = require('./routes/appReview');
 
@@ -61,28 +62,18 @@ app.use('/', authRouter);
 app.use('/profile', profileRouter);
 
 app.use('/', appReview);
+// app.use('/chat', chatRouter);
 
-// app.use('/profile', profileSetRouter);
+app.use('/profile', profileSetRouter);
 
 app.locals.wsClients = new Map();
 
-const server = http.createServer(app);
-
-// server.on('upgrade', (req, socket, head) => {
-//   console.log('Upgrade to WS');
-//   sessionParser(req, {}, () => {
-//     /*  if (!req.session.user) {
-//       console.log('error');
-//       socket.write('Error: No session');
-//       socket.end();
-//     } */
-
-//     wss.handleUpgrade(req, socket, head, (ws) => {
-//       console.log('emit');
-//       wss.emit('connection', ws, req);
-//     });
-//   });
-// });
+server.on('upgrade', (req, socket, head) => {
+  wss.handleUpgrade(req, socket, head, (ws) => {
+    console.log('emit');
+    wss.emit('connection', ws, req);
+  });
+});
 
 server.listen(SERV_PORT, () => {
   console.log(`Server started at PORT: ${SERV_PORT}`);

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const e = require('express');
+
 const {
   ParentProfile, Pet, ParentReview, SitterProfile,
 } = require('../../db/models');

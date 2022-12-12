@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
@@ -16,7 +16,7 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
-// import Chat from './components/Chat/Chat';
+import Chat from './components/Chat/Chat';
 
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
@@ -36,6 +36,7 @@ import ProfileProtectedRouter from './components/ProfileProtectedRouter/ProfileP
 
 function App() {
   const dispatch = useDispatch();
+  const [ws, setWs] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:3001/', {
@@ -44,17 +45,19 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
-      });
+        setWs(new WebSocket('ws://localhost:3001'));
+      })
+      .catch((error) => console.log(error));
   }, []);
 
-  const auth = useSelector((store) => store.userStore.auth);
+  const auth = useSelector((store) => store?.userStore?.auth);
 
   useEffect(() => {
     const abortController = new AbortController();
     if (auth) {
       fetch('http://localhost:3001/', {
         credentials: 'include',
-        signal: abortController.signal,
+        // signal: abortController.signal,
       })
         .then((res) => res.json())
         .then((res) => {
@@ -93,7 +96,7 @@ function App() {
             <Route path="create-sitter-profile" element={<SitterProfileForm />} />
           </Route>
         </Route>
-        {/* <Route path="/chat" element={<Chat />} /> */}
+        <Route path="/chat" element={<Chat ws={ws} />} />
         {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
         {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
         <Route element={<ProtectedRoute />}>

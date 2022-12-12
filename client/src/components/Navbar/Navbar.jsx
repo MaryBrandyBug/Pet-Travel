@@ -7,7 +7,7 @@ import './Navbar.css';
 import petImg from './Pet_1.png';
 
 export default function Navbar() {
-  const user = useSelector((store) => store.userStore.auth);
+  const user = useSelector((store) => store.userStore?.auth);
   // console.log('user', user);
   const dispatch = useDispatch();
 

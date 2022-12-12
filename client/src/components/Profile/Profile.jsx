@@ -2,14 +2,14 @@ import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
-import SitterProfile from '../SitterProfile/SitterProfile';
+// import SitterProfile from '../SitterProfile/SitterProfile';
 import './Profile.css';
 
 export default function Profile() {
   const user = useSelector((store) => store.userStore.auth);
-  console.log(user);
-  const sitter = useSelector((store) => store.sitterStore);
-  // console.log(sitter);
+
+  const sitter = useSelector((store) => store.sitterStore.sitter);
+  console.log(sitter);
   return (
     <div>
       <div className="link_bar">
