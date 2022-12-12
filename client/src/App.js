@@ -16,7 +16,7 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
-// import Chat from './components/Chat/Chat';
+import Chat from './components/Chat/Chat';
 
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
@@ -41,7 +41,11 @@ import ParentSearch from './components/ParentSearch/ParentSearch';
 
 function App() {
   const dispatch = useDispatch();
+
+  const [ws, setWs] = useState(null);
+
   const [load, setLoad] = useState(true);
+
 
   useEffect(() => {
     fetch('http://localhost:3001/', {
@@ -50,18 +54,21 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
+        setWs(new WebSocket('ws://localhost:3001'));
+      })
+      .catch((error) => console.log(error));
         setLoad(false);
       });
   }, []);
 
-  const auth = useSelector((store) => store.userStore.auth);
+  const auth = useSelector((store) => store?.userStore?.auth);
 
   useEffect(() => {
     const abortController = new AbortController();
     if (auth) {
       fetch('http://localhost:3001/', {
         credentials: 'include',
-        signal: abortController.signal,
+        // signal: abortController.signal,
       })
         .then((res) => res.json())
         .then((res) => {
@@ -107,9 +114,15 @@ function App() {
             <Route path="parent/update-parent-profile" element={<UpdateParent />} />
           </Route>
         </Route>
+
+        <Route path="/chat" element={<Chat ws={ws} />} />
+        {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
+        {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
+
         <Route path="/all-sitters" element={<SitterSearch />} />
         <Route path="/all-parents" element={<ParentSearch />} />
         {/* <Route path="/chat" element={<Chat />} /> */}
+
         <Route element={<ProtectedRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />

@@ -9,61 +9,65 @@ const wss = new WebSocketServer({
 });
 
 wss.on('connection', (ws, req, wsClientMap) => {
-  const { user } = req.session;
-  // wsClientMap.set(user.id, { user, ws });
+  // const { auth } = req.session; // auth === user
+  console.log('WS JS connection');
+  // console.log('PRIVET ', ws);
 
-  // console.log(user);
-
-  // message => {type: String, payload: Object}
+  // wsClientMap.set(auth.id, { auth, ws });
 
   ws.on('message', (msg) => {
     const message = JSON.parse(msg);
+    console.log('MESSAGE ws on', message);
 
-    const { type, payload } = message;
+    // const { type, payload } = message;
 
     // console.log(message, usersMap.size);
 
-    // const sender = wsClientMap.get(user.id);
+    // const sender = wsClientMap.get(auth.id);
     // const receiver = wsClientMap.get(+payload.chatWithUser);
 
-    switch (type) {
-      case 'message':
+    //     switch (type) {
+    //       case 'message':
 
-        Message.create({
-          text: payload.text,
-          userFrom: +payload.userFrom,
-          userTo: +payload.userTo,
-        })
-          .then((newMessage) => {
-            if (sender && receiver) {
-              sender.ws.send(JSON.stringify({ type: 'message', payload: { newMessage, auth: user.id } }));
-              receiver.ws.send(JSON.stringify({ type: 'message', payload: { newMessage } }));
-            } else {
-              sender.ws.send(JSON.stringify({ type: 'offline' }));
-              sender.ws.send(JSON.stringify({ type: 'message', payload: { newMessage, auth: user.id } }));
-            }
-          })
-          .catch(console.log);
+    //         message.create({
+    //           text: payload.text,
+    //           userFrom: +payload.userFrom,
+    //           userTo: +payload.userTo,
+    //         })
+    //           .then((newMessage) => {
+    //             if (sender /* && receiver */) {
+    //               sender.ws.send(JSON.stringify({ type: 'message', payload: { newMessage, auth: auth.id } }));
+    //               // receiver.ws.send(JSON.stringify({ type: 'message', payload: { newMessage } }));
+    //             } else {
+    //               sender.ws.send(JSON.stringify({ type: 'offline' }));
+    //               sender.ws.send(JSON.stringify({ type: 'message', payload: { newMessage, auth: auth.id } }));
+    //             }
+    //           })
+    //           .catch(console.log);
 
-        break;
-      case 'open':
-        if (sender && receiver) {
-          sender.ws.send(JSON.stringify({ type: 'online' }));
-          receiver.ws.send(JSON.stringify({ type: 'online' }));
-        }
-        break;
+    //         break;
+    //       case 'open':
+    //         if (sender /* && receiver */) {
+    //           sender.ws.send(JSON.stringify({ type: 'online' }));
+    //           // receiver.ws.send(JSON.stringify({ type: 'online' }));
+    //         } wsClientMap.delete(auth.id);
+    //         // const receiver = wsClientMap.get(+message.chatWithUser);
+    //         /* if (receiver) {
+    // receiver.ws.send(JSON.stringify({ type: 'offline' }));
+    // } */
+    //         break;
 
-      default:
-        break;
-    }
+    //       default:
+    //         break;
+    //     }
   });
   ws.on('close', (msg) => {
     const message = JSON.parse(msg);
-    wsClientMap.delete(user.id);
-    const receiver = wsClientMap.get(+message.chatWithUser);
-    if (receiver) {
+    // wsClientMap.delete(auth.id);
+    // const receiver = wsClientMap.get(+message.chatWithUser);
+    /*  if (receiver) {
       receiver.ws.send(JSON.stringify({ type: 'offline' }));
-    }
+    } */
   });
 });
 
