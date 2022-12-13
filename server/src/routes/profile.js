@@ -106,7 +106,6 @@ router.put('/parent/update-parent-profile', async (req, res) => {
     } = req.body;
     const parentProfile = await ParentProfile.findOne({ where: { UserId } });
     console.log(pets[0]);
-    // console.log(parentProfile);
     const profile = parentProfile.get();
     await parentProfile.update({
       title,
@@ -137,9 +136,9 @@ router.put('/parent/update-parent-profile', async (req, res) => {
 
 router.delete('/parent/update-parent-profile', async (req, res) => {
   const { id, ParentProfileId } = req.body;
-  console.log(req.body);
   await Pet.destroy({ where: { id } });
-  const allPets = await Pet.findAll({ where: { ParentProfileId } });
+  const allPets = await Pet.findAll({ where: { ParentProfileId }, raw: true });
+  console.log(allPets);
   res.json({ pet: allPets });
 });
 
