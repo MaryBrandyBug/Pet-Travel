@@ -14,8 +14,9 @@ router.get('/all-sitters', async (req, res) => {
 
 router.get('/all-parents', async (req, res) => {
   try {
-    const allParents = await ParentProfile.findAll(); // пока что не написана published колонка, добавляем пока все
-    res.json({ allParentsProfiles: allParents });
+    const allParents = await ParentProfile.findAll({ where: { published: true } });
+    const pets = await Pet.findAll();
+    res.json({ allParentsProfiles: allParents, allPets: pets });
   } catch (error) {
     console.log(error);
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +9,8 @@ export default function UpdateParent() {
 
   const parent = useSelector((store) => store.parentStore.profile);
   const allPets = useSelector((store) => store.parentStore.pet);
+
+  console.log('pets==>', allPets[0]);
 
   const [pets, setPets] = useState([{}]);
 
@@ -129,6 +131,7 @@ export default function UpdateParent() {
       },
       body: JSON.stringify({ id: i, ParentProfileId }),
     })
+      .then((res) => res.json())
       .then((res) => dispatch({ type: 'PET', payload: res.pet }));
   };
 
@@ -178,9 +181,9 @@ export default function UpdateParent() {
               ? (
                 <>
                   <label>С</label>
-                  <input type="date" name="dateSince2" value={updateFormParent.dateSince3} onChange={handleInput} />
+                  <input type="date" name="dateSince3" value={updateFormParent.dateSince3} onChange={handleInput} />
                   <label>По</label>
-                  <input type="date" name="dateUntil2" value={updateFormParent.dateUntil3} onChange={handleInput} />
+                  <input type="date" name="dateUntil3" value={updateFormParent.dateUntil3} onChange={handleInput} />
                 </>
               )
               : (
@@ -198,14 +201,14 @@ export default function UpdateParent() {
               )
           }
         <h4>Ваши питомцы:</h4>
-        {allPets
+        {allPets[0]
           ? (
             <div>
-              {allPets.map((el) => (
+              {allPets?.map((el) => (
                 <>
                   <div>ФОТО ПИТОМЦА</div>
-                  <p>{el.petName}</p>
-                  <p>{el.petAge} лет</p>
+                  <p>{el?.petName}</p>
+                  <p>{el?.petAge} лет</p>
                   <button type="button" onClick={() => deletePet(el.id, el.ParentProfileId)}>Удалить</button>
                 </>
               ))}

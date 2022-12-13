@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './SitterSearch.css';
@@ -18,16 +18,27 @@ export default function SitterSearch() {
 
   const allSitters = useSelector((store) => store.allSittersStore.allSittersProfiles);
   // добавить в бд имя ситтера
-  console.log(allSitters); // почему здесь auth??
+  console.log(allSitters?.map((el) => el.city)); // почему здесь auth??
+
+  const [value, setValue] = useState('');
+  const filteredSitters = allSitters?.filter((el) => el.city.toLowerCase().includes(value.toLowerCase()));
+
   return (
-    <div>
+    <div className="container_find">
       <form>
-        <input type="text" placeholder="поиск ситтера" />
+        <input
+          type="text"
+          placeholder="поиск ситтера"
+          className="findSetter"
+          onChange={(e) => setValue(e.target.value)}
+        />
         <button type="submit">Найти</button>
       </form>
       <div>
-        {allSitters?.map((el) => (
-          <div className="infoCard">  <div>ТУТ ФОТКА</div>
+
+        {filteredSitters?.map((el) => (
+          <>
+            <div>ТУТ ФОТКА</div>
             <div>{el.city}</div>
             <div>{el.country}</div>
             <Link to={`/all-sitters/${el.id}`}>Подробнее</Link>
