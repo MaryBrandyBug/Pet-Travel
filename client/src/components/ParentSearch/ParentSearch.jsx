@@ -11,11 +11,23 @@ export default function ParentSearch() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'ALL_PARENTS', payload: res.allParentsProfiles });
+        dispatch({ type: 'ALL_PETS', payload: res.allPets });
       });
   }, []);
 
   const parents = useSelector((store) => store.allParentsStore.allParentsProfiles);
-  console.log(parents);
+  const pets = useSelector((store) => store.allParentsStore.allPets);
+  console.log(pets);
+
+  const findPets = (id) => {
+    // const parent = parents?.filter((el) => el.id === id);
+    console.log(id, pets);
+    const pet = pets?.filter((el) => el.ParentProfileId === id);
+    console.log(pet);
+    const types = pet.map((el) => el.type);
+    return /* types.map((el) => <p>{el}</p>) */types;
+  };
+  // console.log('==>', findPets(3));
   return (
     <div>
       <form>
@@ -31,6 +43,9 @@ export default function ParentSearch() {
             <p>{el.dateSince1} - {el.dateUntil1}</p>
             <p>{el.city}</p>
             <p>{el.country}</p>
+            <div>
+              {findPets(el.id)}
+            </div>
             {/* {на одной строчке будут находиться даты С и ПО, город и страна } */}
             {/* {добавить количество животных картинкой + количество} */}
           </>
