@@ -4,12 +4,13 @@ import { useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
 import SitterProfile from '../SitterProfile/SitterProfile';
 import './Profile.css';
+import Map from '../Map/Map';
 
 export default function Profile() {
   const user = useSelector((store) => store.userStore.auth);
   console.log(user);
-  const sitter = useSelector((store) => store.sitterStore);
-  // console.log(sitter);
+  const sitter = useSelector((store) => store.sitterStore.sitter);
+  console.log();
   return (
     <div>
       <div className="link_bar">
@@ -33,6 +34,7 @@ export default function Profile() {
           <Outlet />
           {/* <SitterProfile /> */}
         </div>
+        <Map sitter={sitter}/>
       </div>
     </div>
   );
