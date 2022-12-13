@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React /* { useEffect } */ from 'react';
 import { useParams, Link } from 'react-router-dom';
 // import ChatForTwo from '../ChatForTwo.js/ChatForTwo';
 
@@ -10,15 +10,15 @@ export default function SitterPage() {
   const { id } = useParams();
   console.log(id);
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/all-sitters/${id}`, {
-      credentials: 'include',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        // dispatch({ type: 'ALL_SITTERS', payload: res.allSittersProfiles });
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/all-sitters/${id}`, {
+  //     credentials: 'include',
+  //   })
+  //     .then((res) => res.json())
+  //     // .then((res) => {
+  //       // dispatch({ type: 'ALL_SITTERS', payload: res.allSittersProfiles });
+  //     });
+  // }, []);
 
   /*  return () => {
      second
