@@ -1,4 +1,5 @@
-
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 
 export default function Map({ sitter }) {
@@ -7,7 +8,7 @@ export default function Map({ sitter }) {
     // console.log(window)
     // if (!map) {
     // console.log(`${sitter.city}, ${sitter.country}`);
-    ymaps.geocode(`${sitter.country}, ${sitter.city}`, { results: 1 })
+    ymaps.geocode(`${sitter?.country}, ${sitter?.city}`, { results: 1 })
 
       .then((res) => {
         // console.log(res);
@@ -25,7 +26,6 @@ export default function Map({ sitter }) {
               keyboardShortcuts: false,
             },
           });
-          // setMap(myMap);
           myMap.geoObjects.add(geoObject);
         }
         ymaps.ready(init);
@@ -35,4 +35,4 @@ export default function Map({ sitter }) {
   }, [map]);
 
   return <div id="map" style={{ width: '600px', height: '600px' }} />;
-
+}

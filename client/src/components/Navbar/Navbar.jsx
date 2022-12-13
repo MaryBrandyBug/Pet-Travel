@@ -42,12 +42,10 @@ export default function Navbar() {
         {user
           ? (
             <div className="dropdown">
-              {/* <Link className="dropbtn" to={`/profile/${user?.role}`}> */}
+              <button type="button" className="dropbtn">{user?.name}</button>
               <div className="dropdown-content">
                 <Sidebar />
               </div>
-              <span>{user?.name}</span>
-              {/* </Link> */}
               <button type="button" onClick={handleLogout}>Выход</button>
             </div>
 
