@@ -38,6 +38,8 @@ import ProtectedCreation from './components/ProtectedCreation/ProtectedCreation'
 import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
+import SitterPage from './components/SitterPage/SitterPage';
+import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 
 function App() {
   const dispatch = useDispatch();
@@ -138,11 +140,14 @@ function App() {
           </Route>
         </Route>
 
-        <Route path="/chat" element={<Chat ws={ws} />} />
+        {/* <Route path="/chat" element={<Chat ws={ws} />} /> */}
+        <Route path="all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
         {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
         {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
         <Route path="/all-sitters" element={<SitterSearch />} />
+        <Route path="/all-sitters/:id" element={<SitterPage />} />
+
         <Route path="/all-parents" element={<ParentSearch />} />
         {/* <Route path="/chat" element={<Chat />} /> */}
 
