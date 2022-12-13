@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../Map/Map';
+// import Map from '../Map/Map';
 import Slider from '../Slider/Slider';
 import './Main.css';
 

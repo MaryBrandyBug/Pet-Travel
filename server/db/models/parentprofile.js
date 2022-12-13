@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   ParentProfile.init({
     UserId: DataTypes.INTEGER,
+    name: DataTypes.STRING,
     country: DataTypes.STRING,
     city: DataTypes.STRING,
     title: DataTypes.STRING,
@@ -34,6 +35,8 @@ module.exports = (sequelize, DataTypes) => {
     dateUntil2: DataTypes.STRING,
     dateSince3: DataTypes.STRING,
     dateUntil3: DataTypes.STRING,
+    mainPhoto: DataTypes.STRING,
+    published: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'ParentProfile',

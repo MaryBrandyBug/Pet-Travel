@@ -1,10 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './SitterProfile.css';
 
 export default function SitterProfile() {
   const sitter = useSelector((store) => store.sitterStore.sitter);
+
+  const dispatch = useDispatch();
+
+  // console.log(sitter.published);
   const cats = sitter?.cats;
   const dogs = sitter?.dogs;
   const reptiles = sitter?.reptiles;
@@ -39,6 +43,22 @@ export default function SitterProfile() {
   }
   // console.log(careAboute());
 
+  const handlePublish = async () => {
+    await fetch('http://localhost:3001/profile/sitter', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ published: sitter.published, id: sitter.id }),
+    })
+      .then((res) => res.json())
+      .then((res) => dispatch({ type: 'SITTER_PROFILE', payload: res.sitter }));
+    // if (response === 200) {
+    //   alert('Профиль опубликован!');
+    // }
+  };
+
   return (
     <div>
       {sitter
@@ -46,6 +66,7 @@ export default function SitterProfile() {
           <div>
             <div>
               <h3>Ваш профиль</h3>
+              <p>{sitter?.published ? 'Опубликовано' : 'Не опубликовано'}</p>
               <div>ТУТ ФОТКИ ТИПА</div>
               <div>
                 <span>{sitter?.city}, {sitter?.country}</span>
@@ -58,6 +79,14 @@ export default function SitterProfile() {
                 <h4>Есть опыт ухода за: </h4>
                 <div className="petList">{careAboute().map((el) => <p className="pets">{el}</p>)}<div />
                 </div>
+              </div>
+              <div>
+                <button type="button" onClick={handlePublish}>Опубликовать</button>
+              </div>
+              <div>
+                <Link to="/profile/sitter/update-sitter-profile">
+                  <button type="button">Изменить данные профиля</button>
+                </Link>
               </div>
             </div>
           </div>

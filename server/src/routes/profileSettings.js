@@ -1,7 +1,23 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const filemiddleware = require('../middlewares/file');
 const { User } = require('../../db/models');
 
+router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body.id);
+  try {
+    if (req.file) {
+      const userId = await User.findOne({ where: { id: req.body.id } });
+      const addPhoto = await userId.update({ mainPhoto: req.file.filename });
+      const result = addPhoto.get();
+      delete result.password;
+      // req.session.auth = result;
+      res.json({ photo: req.file.filename, auth: result });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: upload.route.js:10 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
 router.put('/settings', async (req, res) => {
   try {
     const {
@@ -14,17 +30,16 @@ router.put('/settings', async (req, res) => {
       facebook,
       id,
     } = req.body;
-
     const userProfileData = await User.findOne({ where: { id } });
     const user = await userProfileData.update({
-      id: req.body.id,
-      email: req.body.email,
-      name: req.body.name,
-      role: req.body.role,
-      surname: req.body.surname,
-      inst: req.body.inst,
-      telegram: req.body.telegram,
-      facebook: req.body.facebook,
+      id,
+      email,
+      name,
+      role,
+      surname,
+      inst,
+      telegram,
+      facebook,
     });
     const result = user.get();
     delete result.password;

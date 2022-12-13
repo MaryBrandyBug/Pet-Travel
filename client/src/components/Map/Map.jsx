@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 export default function Map({ sitter }) {
@@ -34,4 +35,4 @@ export default function Map({ sitter }) {
   }, [map]);
 
   return <div id="map" style={{ width: '600px', height: '600px' }} />;
-}
+
