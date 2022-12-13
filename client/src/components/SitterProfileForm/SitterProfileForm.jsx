@@ -10,10 +10,22 @@ export default function SitterProfileForm() {
 
   // const [checked, setChecked] = useState(false);
   const [sitterProfileForm, setSitterProfileForm] = useState({
-    status: '', country: '', city: '', aboutMe: '', cats: false, dogs: false, fish: false, horses: false, birds: false, reptiles: false, smallPets: false,
+    status: '',
+    country: '',
+    city: '',
+    aboutMe: '',
+    cats: false,
+    dogs: false,
+    fish: false,
+    horses: false,
+    birds: false,
+    reptiles: false,
+    smallPets: false,
   });
+  console.log('=====>>>> 👉👉👉 file: SitterProfileForm.jsx:15 👉👉👉 SitterProfileForm 👉👉👉 sitterProfileForm', sitterProfileForm);
 
   const handleInput = (e) => {
+    console.log(e.target.files);
     if (e.target.type === 'checkbox') {
       setSitterProfileForm({ ...sitterProfileForm, [e.target.name]: e.target.checked });
       return;
@@ -40,7 +52,7 @@ export default function SitterProfileForm() {
     <div>
       <form onSubmit={handleSubmit} className="form_sitter">
         <h3>Создание профиля</h3>
-        <button type="button">Добавить фото</button>
+        {/* <input type="file" name="avatar" onChange={handleInputFiles} /> */}
         <label>Статус</label>
         <input type="text" name="status" onChange={handleInput} />
         <label>Страна</label>

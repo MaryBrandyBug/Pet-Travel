@@ -112,53 +112,55 @@ function App() {
   }
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/reasons-birds-make-perfect-pets" element={<BirdsPets />} />
-        <Route path="/how-to-take-great-pet-photos" element={<GreatPhotosTips />} />
-        <Route path="/7-top-tips-for-senior-pets" element={<TipsForSeniorPets />} />
-        <Route path="/male-vs-female-dogs" element={<MaleVsFemaleDogs />} />
-        <Route path="/dogs-that-dont-shed" element={<DogsThatDontShed />} />
-        <Route path="/how-to-show-love-in-dog-language" element={<LoveInDogLanguage />} />
-        <Route path="/top-5-dog-sitting-tips" element={<DogSittingTips />} />
-        <Route path="/cat-sitters" element={<CatSitterArticle />} />
-        <Route path="/dog-sitters" element={<DogSitterArticle />} />
-        <Route path="/appreview" element={<AppReview />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route element={<ProfileProtectedRouter />}>
-          <Route path="/profile" element={<Profile />}>
-            <Route path="sitter" element={<SitterProfile />} />
-            <Route path="parent" element={<ParentProfile />} />
-            <Route element={<ProtectedCreation />}>
-              <Route path="create-parent-profile" element={<ParentProfileForm />} />
-              <Route path="create-sitter-profile" element={<SitterProfileForm />} />
+      <header className="top_bar">
+        <Navbar />
+      </header>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/reasons-birds-make-perfect-pets" element={<BirdsPets />} />
+          <Route path="/how-to-take-great-pet-photos" element={<GreatPhotosTips />} />
+          <Route path="/7-top-tips-for-senior-pets" element={<TipsForSeniorPets />} />
+          <Route path="/male-vs-female-dogs" element={<MaleVsFemaleDogs />} />
+          <Route path="/dogs-that-dont-shed" element={<DogsThatDontShed />} />
+          <Route path="/how-to-show-love-in-dog-language" element={<LoveInDogLanguage />} />
+          <Route path="/top-5-dog-sitting-tips" element={<DogSittingTips />} />
+          <Route path="/cat-sitters" element={<CatSitterArticle />} />
+          <Route path="/dog-sitters" element={<DogSitterArticle />} />
+          <Route path="/appreview" element={<AppReview />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route element={<ProfileProtectedRouter />}>
+            <Route path="/profile" element={<Profile />}>
+              <Route path="sitter" element={<SitterProfile />} />
+              <Route path="parent" element={<ParentProfile />} />
+              <Route element={<ProtectedCreation />}>
+                <Route path="create-parent-profile" element={<ParentProfileForm />} />
+                <Route path="create-sitter-profile" element={<SitterProfileForm />} />
+              </Route>
+              <Route path="settings" element={<Settings />} />
+              <Route path="reviews" element={<ProfileReviews />} />
+              <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
+              <Route path="parent/update-parent-profile" element={<UpdateParent />} />
             </Route>
-            <Route path="settings" element={<Settings />} />
-            <Route path="reviews" element={<ProfileReviews />} />
-            <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
-            <Route path="parent/update-parent-profile" element={<UpdateParent />} />
           </Route>
-        </Route>
+          <Route path="/chat" element={<Chat ws={ws} />} />
+          {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
+          {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
-        {/* <Route path="/chat" element={<Chat ws={ws} />} /> */}
-        <Route path="all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
-        {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
-        {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
+          <Route path="/all-sitters" element={<SitterSearch />} />
+          <Route path="/all-parents" element={<ParentSearch />} />
+          {/* <Route path="/chat" element={<Chat />} /> */}
 
-        <Route path="/all-sitters" element={<SitterSearch />} />
-        <Route path="/all-sitters/:id" element={<SitterPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+          </Route>
+        </Routes>
+      </div>
+      <div className="Footer_bar">
+        <Footer />
+      </div>
 
-        <Route path="/all-parents" element={<ParentSearch />} />
-        <Route path="/all-parents/:id" element={<ParentPage />} />
-        {/* <Route path="/chat" element={<Chat />} /> */}
-
-        <Route element={<ProtectedRoute />}>
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-        </Route>
-      </Routes>
-      <Footer />
     </div>
   );
 }

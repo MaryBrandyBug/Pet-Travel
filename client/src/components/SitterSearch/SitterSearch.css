@@ -1,4 +1,11 @@
 
+.container_find {
+    width: 1280px;
+    position: relative;
+    margin: auto;
+}
+
+
 .container_SitterSearch_card {
   /* background-color: red; */
   border: 2px solid black;
@@ -73,6 +80,4 @@
   height: 25px;
   text-align: center;
 }
-
-
 
