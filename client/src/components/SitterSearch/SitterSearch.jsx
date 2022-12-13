@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './SitterSearch.css';
 // import search from '../../icons/search.png';
+import { Link } from 'react-router-dom';
 
 export default function SitterSearch() {
   const dispatch = useDispatch();
@@ -48,14 +49,16 @@ export default function SitterSearch() {
               <div className="SitterSearch_card_photo">
                 {el.User.mainPhoto
                   ? <img src={`http://localhost:3001/${el.User.mainPhoto}`} alt="" />
-                  : <div className="SitterSearch_card_photo">TEXT</div>}
-
+                  : <div className="SitterSearch_card_photo">TEXT</div>
+                  <Link to={`/all-sitters/${el.id}`}>Подробнее</Link>
+                  }
               </div>
               <div className="SitterSearch_card_name"><span>ИМЯ</span></div>
               <div className="SitterSearch_card_location"><span>{el.country}, {el.city}</span></div>
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );

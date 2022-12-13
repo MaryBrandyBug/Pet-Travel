@@ -38,6 +38,8 @@ const appReview = require('./routes/appReview');
 const profileRouter = require('./routes/profile');
 const profileSetRouter = require('./routes/profileSettings');
 const searchRouter = require('./routes/search');
+const sitterPageRouter = require('./routes/sitterPageRouter');
+const parentPageRouter = require('./routes/parentPageRouter');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -61,13 +63,16 @@ const sessionParser = session({
 app.use(sessionParser);
 
 app.use('/', searchRouter);
+app.use('/', sitterPageRouter);
 app.use('/', authRouter);
 app.use('/', appReview);
+app.use('/', parentPageRouter);
 
 // app.use('/chat', chatRouter);
 
 app.use('/profile', profileRouter);
 app.use('/profile', profileSetRouter);
+
 
 app.locals.wsClients = new Map();
 
