@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import './SitterSearch.css';
 
 export default function SitterSearch() {
   const dispatch = useDispatch();
@@ -33,12 +35,14 @@ export default function SitterSearch() {
         <button type="submit">Найти</button>
       </form>
       <div>
+
         {filteredSitters?.map((el) => (
           <>
             <div>ТУТ ФОТКА</div>
             <div>{el.city}</div>
             <div>{el.country}</div>
-          </>
+            <Link to={`/all-sitters/${el.id}`}>Подробнее</Link>
+          </div>
         ))}
       </div>
     </div>
