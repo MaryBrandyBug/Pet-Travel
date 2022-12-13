@@ -1,4 +1,5 @@
 import React from 'react';
+import girlOrBoy from '../../../imgArticles/girlOrBoy.jpg';
 
 export default function MaleVsFemaleDogs() {
   return (
@@ -6,7 +7,11 @@ export default function MaleVsFemaleDogs() {
       <div>
         <div>
           <h1>ВЫБИРАЕМ ДРУГА: КАКОГО ПОЛА СОБАКА ПОДОЙДЕМ ВАМ</h1>
-          <div>ФОТО</div>
+
+          <div className="div_article_img">
+            <img className="article_img" src={girlOrBoy} alt="dog" />
+          </div>
+
           <p>
             Думаете о том, чтобы приветствовать четвероногого друга в своей жизни? Хороший выбор!
             Итак, вы решились, но столкнулись со следующей дилеммой: какие собаки вам больше подходят: самцы или самки?

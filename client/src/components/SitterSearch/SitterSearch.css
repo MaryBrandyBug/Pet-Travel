@@ -1,5 +1,83 @@
+
 .container_find {
     width: 1280px;
     position: relative;
     margin: auto;
 }
+
+
+.container_SitterSearch_card {
+  /* background-color: red; */
+  border: 2px solid black;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly
+}
+
+.SitterSearch_card_photo>img{
+  background-color: green;
+  height: 60%;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.SitterSearch_card_photo{
+  background-color: green;
+  height: 60%;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.SitterSearch_card_location{
+  background-color: yellow;
+  height: 15%;
+  text-align: center;
+}
+
+.SitterSearch_card_name {
+  background-color: aqua;
+  height: 15%;
+  text-align: center;
+}
+
+.container_SitterSearch_cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container_SitterSearch_form form {
+  text-align: center;
+  background-color: pink;
+  width: 80%;
+}
+
+.container_SitterSearch_form {
+  background-color: greenyellow;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_SitterSearch_form input {
+  text-align: center;
+  width: 70%;
+  height: 40px;
+  border-radius: 30px;
+}
+
+.container_SitterSearch_form button {
+  width: 70px;
+  height: 50px;
+  height: 25px;
+  text-align: center;
+}
+

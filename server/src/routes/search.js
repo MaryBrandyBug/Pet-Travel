@@ -5,7 +5,7 @@ const {
 
 router.get('/all-sitters', async (req, res) => {
   try {
-    const allSitters = await SitterProfile.findAll({ where: { published: true } });
+    const allSitters = await SitterProfile.findAll({ where: { published: true }, include: User });
     res.json({ allSittersProfiles: allSitters });
   } catch (error) {
     console.log(error);

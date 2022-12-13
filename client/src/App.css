@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:300); */
+
 
 .top_bar {
   background-color: #4d4d4d;
@@ -12,6 +13,7 @@
 .container {
   min-height: 1000px;
   margin: auto;
+
 }
 
 .body {
@@ -20,6 +22,9 @@
   margin-left: -50px;
   left: 50%;
   animation: speeder 0.4s linear infinite;
+  /* font-family: 'Caveat'; */
+  font-family: 'Didact Gothic', sans-serif;
+  /* font-weight: 400; */
 }
 .body > span {
   height: 5px;

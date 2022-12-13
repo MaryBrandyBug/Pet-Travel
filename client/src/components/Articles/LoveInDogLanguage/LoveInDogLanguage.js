@@ -1,11 +1,14 @@
 import React from 'react';
+import love from '../../../imgArticles/love.webp';
 
 export default function LoveInDogLanguage() {
   return (
     <div>
       <div>
         <h1>КАК ПОКАЗАТЬ ЛЮБОВЬ СВОЕЙ СОБАКЕ</h1>
-        <div>ФОТО</div>
+        <div className="div_article_img">
+          <img className="article_img" src={love} alt="dogs" />
+        </div>
         <p>
           Мы все видели одно из тех приятных видео, где собака воет «Я люблю тебя». Но как собаки проявляют привязанность?
         </p>

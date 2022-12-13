@@ -16,7 +16,7 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
-import Chat from './components/Chat/Chat';
+// import Chat from './components/Chat/Chat';
 
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
@@ -38,6 +38,9 @@ import ProtectedCreation from './components/ProtectedCreation/ProtectedCreation'
 import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
+import SitterPage from './components/SitterPage/SitterPage';
+import ChatForTwo from './components/ChatForTwo/ChatForTwo';
+import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -140,7 +143,6 @@ function App() {
               <Route path="parent/update-parent-profile" element={<UpdateParent />} />
             </Route>
           </Route>
-
           <Route path="/chat" element={<Chat ws={ws} />} />
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
@@ -158,6 +160,7 @@ function App() {
       <div className="Footer_bar">
         <Footer />
       </div>
+
     </div>
   );
 }

@@ -1,0 +1,60 @@
+.sliderContainer {
+    border: 2px solid darkgreen;
+    margin: 10px;
+    padding: 5px;
+
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.slide-s1 {
+    background-image:
+        /*url(../../img/SubmissionUrination.jpg)*/
+    ;
+    background-size: 100%;
+    background-position: center;
+
+}
+
+.slide-s2 {
+    background-image:
+        /* url(../../img/hike-3.jpeg) */
+    ;
+    background-size: 100%;
+    background-position: center;
+}
+
+.slide-s3 {
+    background-image:
+        /* url(../../img/Mission.jpg) */
+    ;
+    background-size: 100%;
+    background-position: center;
+}
+
+.reviews {
+    border: solid 2px darkgreen;
+    padding: 5px;
+    margin: 10px;
+}
+
+.sitterInfo {
+    border: solid 2px darkgreen;
+    padding: 5px;
+    margin: 10px;
+}
+
+.sitterInfo>a {
+    color: black;
+}
+
+.details {
+    border: solid 2px darkgreen;
+    padding: 5px;
+    margin: 10px;
+}
