@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -8,14 +8,15 @@ import petImg from './Pet_1.png';
 
 export default function Navbar() {
   const user = useSelector((store) => store.userStore?.auth);
-  // console.log('user', user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     fetch('http://localhost:3001/logout', { credentials: 'include' })
       .then((res) => {
         if (res.status === 200) { dispatch({ type: 'USER_SIGNOUT', payload: {} }); }
       });
+    navigate('/');
   };
   return (
 

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function UpdateParent() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore.auth);
+  const navigate = useNavigate();
 
   const parent = useSelector((store) => store.parentStore.profile);
   const allPets = useSelector((store) => store.parentStore.pet);

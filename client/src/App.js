@@ -46,7 +46,6 @@ function App() {
 
   const [load, setLoad] = useState(true);
 
-
   useEffect(() => {
     fetch('http://localhost:3001/', {
       credentials: 'include',
@@ -57,8 +56,7 @@ function App() {
         setWs(new WebSocket('ws://localhost:3001'));
       })
       .catch((error) => console.log(error));
-        setLoad(false);
-      });
+    setLoad(false);
   }, []);
 
   const auth = useSelector((store) => store?.userStore?.auth);

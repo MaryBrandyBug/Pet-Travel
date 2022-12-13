@@ -5,6 +5,7 @@ import './ParentProfile.css';
 
 export default function ParentProfile() {
   const parent = useSelector((store) => store.parentStore);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,11 +23,25 @@ export default function ParentProfile() {
   };
   // пофиксить исчезновение pet из стора (появляется после перезагрузки)
 
+  const handlePublish = async () => {
+    await fetch('http://localhost:3001/profile/parent', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ published: parent.profile.published, id: parent.profile.id }),
+    })
+      .then((res) => res.json())
+      .then((res) => dispatch({ type: 'PARENT_PROFILE', payload: res.profile }));
+  };
+
   return (
     <div>
       {parent?.profile ? (
         <div>
           <h3>Ваш профиль</h3>
+          <p>{parent?.profile.published ? 'Опубликовано' : 'Не опубликовано'}</p>
           <div>ТУТ ФОТКИ ТИПА</div>
           <div>
             <span>{parent.profile.city}, {parent.profile.country}</span>
@@ -79,6 +94,9 @@ export default function ParentProfile() {
                   <button type="button" onClick={() => deletePet(el?.id, el?.ParentProfileId)}>Удалить</button>
                 </>
               ))}
+            </div>
+            <div>
+              <button type="button" onClick={handlePublish}>Опубликовать</button>
             </div>
             <div>
               <Link to="/profile/parent/update-parent-profile">

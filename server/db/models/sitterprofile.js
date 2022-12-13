@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   SitterProfile.init({
     UserId: DataTypes.INTEGER,
+    name: DataTypes.STRING,
     status: DataTypes.STRING,
     country: DataTypes.STRING,
     city: DataTypes.STRING,
@@ -33,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     sitterPh3: DataTypes.STRING,
     sitterPh4: DataTypes.STRING,
     sitterPh5: DataTypes.STRING,
+    mainPhoto: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'SitterProfile',
