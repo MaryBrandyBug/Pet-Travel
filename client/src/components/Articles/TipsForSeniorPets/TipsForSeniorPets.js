@@ -1,9 +1,13 @@
 import React from 'react';
+import seniorDog1 from '../../../imgArticles/seniorDog1.jpg';
 
 export default function TipsForSeniorPets() {
   return (
     <div>
       <h1>УХОД ЗА ПОЖИЛЫМИ ЖИВОТНЫМИ: 7 ОСНОВНЫХ СОВЕТОВ</h1>
+      <div className="div_article_img">
+        <img className="article_img" src={seniorDog1} alt="dog" />
+      </div>
       <p>
         От их способности всегда смешить нас до их бесконечной любви, преданности, заботы и привязанности, это правда: домашние животные так много дают нам на протяжении всей своей жизни.
         Итак, когда ваш питомец достигает преклонного возраста, кажется правильным задуматься о том, как мы можем отблагодарить его, верно?

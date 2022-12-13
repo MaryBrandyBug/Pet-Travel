@@ -1,11 +1,14 @@
 import React from 'react';
+import catSitters from '../../../imgArticles/catSitters.webp';
 
 export default function CatSitterArticle() {
   return (
     <div>
       <div>
         <h1>СИТТЕРЫ ДЛЯ КОШЕК</h1>
-        <div>ФОТО</div>
+        <div className="div_article_img">
+          <img className="article_img" src={catSitters} alt="dog" />
+        </div>
         <p>
           Поиск няни для кошек, которой вы доверяете, может сделать отдых лучше для вас и вашего питомца.
           Пока вас нет, ваша кошка может расслабиться на своем любимом диване и побродить по знакомой территории.

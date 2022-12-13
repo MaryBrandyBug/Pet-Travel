@@ -1,8 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+/* @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Comfortaa:wght@500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Serif:wght@100;200;400&family=Raleway:wght@200&family=Roboto:wght@100&family=Source+Serif+Pro:wght@300&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Serif:wght@100;200;400&family=Raleway:wght@200&family=Roboto:wght@100&family=Source+Serif+Pro:wght@300&display=swap'); */
 
 h1 {
   position: absolute;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -17,6 +19,7 @@ h1 {
   margin-left: -50px;
   left: 50%;
   animation: speeder 0.4s linear infinite;
+  font-family: 'Caveat';
 }
 .body > span {
   height: 5px;

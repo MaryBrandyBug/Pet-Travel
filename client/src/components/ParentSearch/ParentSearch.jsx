@@ -1,5 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import fish from '../../icons/fish.png';
+import cat from '../../icons/cat.png';
+import dog from '../../icons/dog.png';
+// import horse from '../../icons/horse.png';
+import reptile from '../../icons/reptile.png';
+import bird from '../../icons/bird.png';
+import rabbit from '../../icons/rabbit.png';
+import horse from '../../icons/horse.png';
+import './ParentSearch.css';
 
 export default function ParentSearch() {
   const dispatch = useDispatch();
@@ -20,12 +29,33 @@ export default function ParentSearch() {
   console.log(pets);
 
   const findPets = (id) => {
-    // const parent = parents?.filter((el) => el.id === id);
-    console.log(id, pets);
     const pet = pets?.filter((el) => el.ParentProfileId === id);
-    console.log(pet);
     const types = pet.map((el) => el.type);
-    return /* types.map((el) => <p>{el}</p>) */types;
+    for (let i = 0; i < types.length; i += 1) {
+      if (types[i] === 'fish') {
+        types[i] = fish;
+      }
+      if (types[i] === 'bird') {
+        types[i] = bird;
+      }
+      if (types[i] === 'cat') {
+        types[i] = cat;
+      }
+      if (types[i] === 'dog') {
+        types[i] = dog;
+      }
+      if (types[i] === 'reptile') {
+        types[i] = reptile;
+      }
+      if (types[i] === 'rabbit') {
+        types[i] = rabbit;
+      }
+      if (types[i] === 'horse') {
+        types[i] = horse;
+      }
+    }
+    console.log(types);
+    return types.map((el) => <img className="img_animal" src={el} alt="" />);
   };
   // console.log('==>', findPets(3));
   return (
@@ -40,7 +70,7 @@ export default function ParentSearch() {
             <div>1 ФОТО дома</div>
             <div>АВА ВЛАДЕЛЬЦА</div>
             <p>{el.title}</p>
-            <p>{el.dateSince1} - {el.dateUntil1}</p>
+            <p>{el.dateSince1} {el.dateUntil1}</p>
             <p>{el.city}</p>
             <p>{el.country}</p>
             <div>
