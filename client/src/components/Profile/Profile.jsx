@@ -5,13 +5,13 @@ import Sidebar from '../Sidebar/Sidebar';
 
 // import SitterProfile from '../SitterProfile/SitterProfile';
 import './Profile.css';
-import Map from '../Map/Map';
+// import Map from '../Map/Map';
 
 export default function Profile() {
   const user = useSelector((store) => store.userStore.auth);
 
   console.log(user);
-  const sitter = useSelector((store) => store.sitterStore.sitter);
+  // const sitter = useSelector((store) => store.sitterStore.sitter);
   console.log();
 
   return (
@@ -36,7 +36,7 @@ export default function Profile() {
         <div className="rigth_menu">
           <Outlet />
         </div>
-        <Map sitter={sitter} />
+        {/* <Map sitter={sitter} /> */}
       </div>
     </div>
   );
