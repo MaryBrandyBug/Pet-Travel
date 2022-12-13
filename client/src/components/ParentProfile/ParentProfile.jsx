@@ -1,28 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ParentProfile.css';
 
 export default function ParentProfile() {
   const parent = useSelector((store) => store.parentStore);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const deletePet = (i, ParentProfileId) => {
-    fetch('http://localhost:3001/profile/parent/update-parent-profile', {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: i, ParentProfileId }),
-    })
-      .then((res) => dispatch({ type: 'PET', payload: res.pet }));
-    navigate('/profile/parent');
-  };
-  // пофиксить исчезновение pet из стора (появляется после перезагрузки)
-
   const handlePublish = async () => {
     await fetch('http://localhost:3001/profile/parent', {
       method: 'PUT',
@@ -91,7 +75,6 @@ export default function ParentProfile() {
                   <div>ФОТО ПИТОМЦА</div>
                   <p>{el?.petName}</p>
                   <p>{el?.petAge} лет</p>
-                  <button type="button" onClick={() => deletePet(el?.id, el?.ParentProfileId)}>Удалить</button>
                 </>
               ))}
             </div>
