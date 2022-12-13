@@ -38,6 +38,7 @@ const appReview = require('./routes/appReview');
 const profileRouter = require('./routes/profile');
 const profileSetRouter = require('./routes/profileSettings');
 const searchRouter = require('./routes/search');
+const sitterPageRouter = require('./routes/sitterPageRouter');
 const parentPageRouter = require('./routes/parentPageRouter');
 
 app.use(logger('dev'));
@@ -62,6 +63,7 @@ const sessionParser = session({
 app.use(sessionParser);
 
 app.use('/', searchRouter);
+app.use('/', sitterPageRouter);
 app.use('/', authRouter);
 app.use('/', appReview);
 app.use('/', parentPageRouter);
