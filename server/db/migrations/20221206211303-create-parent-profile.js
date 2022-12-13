@@ -16,6 +16,9 @@ module.exports = {
           key: 'id',
         },
       },
+      name: {
+        type: Sequelize.STRING,
+      },
       country: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -71,6 +74,12 @@ module.exports = {
       },
       dateUntil3: {
         type: Sequelize.STRING,
+      },
+      mainPhoto: {
+        type: Sequelize.STRING,
+      },
+      published: {
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,

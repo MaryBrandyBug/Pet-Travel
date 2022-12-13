@@ -15,6 +15,9 @@ module.exports = {
           key: 'id',
         },
       },
+      name: {
+        type: Sequelize.STRING,
+      },
       status: {
         type: Sequelize.STRING,
       },
@@ -74,6 +77,9 @@ module.exports = {
         type: Sequelize.STRING,
       },
       sitterPh5: {
+        type: Sequelize.STRING,
+      },
+      mainPhoto: {
         type: Sequelize.STRING,
       },
       createdAt: {

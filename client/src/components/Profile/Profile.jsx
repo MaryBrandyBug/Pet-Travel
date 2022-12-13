@@ -14,7 +14,7 @@ export default function Profile() {
       <div className="link_bar">
         <div className="left_menu">
           <div className="side_text">
-            {user === 'parent'
+            {user.role === 'parent'
               ? (
                 <Link to="/profile/parent">
                   <span className="span">Мой профиль</span>

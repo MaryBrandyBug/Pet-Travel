@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './SitterProfileForm.css';
 
 export default function SitterProfileForm() {
   const user = useSelector((store) => store.userStore.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const [checked, setChecked] = useState(false);
   const [sitterProfileForm, setSitterProfileForm] = useState({
@@ -31,6 +33,7 @@ export default function SitterProfileForm() {
     })
       .then((res) => res.json())
       .then((res) => dispatch({ type: 'SITTER_PROFILE', payload: res.sitter }));
+    navigate('/profile/sitter');
   };
   console.log(sitterProfileForm);
   return (

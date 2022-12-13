@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function UpdateSitter() {
   const user = useSelector((store) => store.userStore.auth);
   const sitter = useSelector((store) => store.userStore.sitter);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -31,6 +33,7 @@ export default function UpdateSitter() {
     })
       .then((res) => res.json())
       .then((res) => dispatch({ type: 'SITTER_PROFILE', payload: res.sitter }));
+    navigate('/profile/sitter');
   };
 
   return (

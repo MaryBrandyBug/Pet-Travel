@@ -70,6 +70,18 @@ router.put('/sitter', async (req, res) => {
   }
 });
 
+router.put('/parent', async (req, res) => {
+  try {
+    const { published, id } = req.body;
+    const parentProfile = await ParentProfile.findOne({ where: { id } });
+    const prof = parentProfile.get();
+    await parentProfile.update({ published: !published });
+    res.json({ profile: parentProfile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.put('/sitter/update-sitter-profile', async (req, res) => {
   try {
     const {
