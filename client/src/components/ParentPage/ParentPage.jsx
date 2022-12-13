@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Map from '../Map/Map';
+// import Map from '../Map/Map';
 
 export default function ParentPage() {
   const { id } = useParams();
@@ -13,6 +13,7 @@ export default function ParentPage() {
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
+  console.log('🚀🚀🚀 =>=>=> file: ParentPage.jsx:8 =>=>=> ParentPage =>=>=> parent', parent);
   return (
     <div>
       <div className="parentInfo">

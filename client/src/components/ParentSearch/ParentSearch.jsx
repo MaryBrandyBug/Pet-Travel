@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import fish from '../../icons/fish.png';
 import cat from '../../icons/cat.png';
@@ -9,9 +10,6 @@ import bird from '../../icons/bird.png';
 import rabbit from '../../icons/rabbit.png';
 import horse from '../../icons/horse.png';
 import './ParentSearch.css';
-
-import { Link } from 'react-router-dom';
-
 
 export default function ParentSearch() {
   const dispatch = useDispatch();
