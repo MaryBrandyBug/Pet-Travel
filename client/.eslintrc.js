@@ -31,5 +31,6 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 0,
     'react/jsx-one-expression-per-line': 0,
     'react/no-unescaped-entities': 0,
+    'next-line no-undef': 0,
   },
 };
