@@ -38,6 +38,7 @@ import ProtectedCreation from './components/ProtectedCreation/ProtectedCreation'
 import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
+import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -144,6 +145,7 @@ function App() {
 
         <Route path="/all-sitters" element={<SitterSearch />} />
         <Route path="/all-parents" element={<ParentSearch />} />
+        <Route path="/all-parents/:id" element={<ParentPage />} />
         {/* <Route path="/chat" element={<Chat />} /> */}
 
         <Route element={<ProtectedRoute />}>

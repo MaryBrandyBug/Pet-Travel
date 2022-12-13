@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import './ParentSerch.css';
 
 export default function ParentSearch() {
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ export default function ParentSearch() {
   }, []);
 
   const parents = useSelector((store) => store.allParentsStore.allParentsProfiles);
-  console.log(parents);
+  console.log('parents', parents);
   return (
     <div>
       <form>
@@ -24,16 +26,17 @@ export default function ParentSearch() {
       </form>
       <div>
         {parents?.map((el) => (
-          <>
+          <div className="infoCard">
             <div>1 ФОТО дома</div>
             <div>АВА ВЛАДЕЛЬЦА</div>
             <p>{el.title}</p>
             <p>{el.dateSince1} - {el.dateUntil1}</p>
             <p>{el.city}</p>
             <p>{el.country}</p>
+            <Link to={`/all-parents/${el.id}`}>Подробнее</Link>
             {/* {на одной строчке будут находиться даты С и ПО, город и страна } */}
             {/* {добавить количество животных картинкой + количество} */}
-          </>
+          </div>
         ))}
       </div>
     </div>
