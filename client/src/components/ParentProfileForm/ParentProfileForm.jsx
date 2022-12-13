@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
 import './ParentProfileForm.css';
 
 export default function ParentProfileForm() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userStore.auth);
+  const navigate = useNavigate();
 
   const [pets, setPets] = useState([{}]);
 
@@ -55,6 +57,7 @@ export default function ParentProfileForm() {
         dispatch({ type: 'PARENT_PROFILE', payload: res.profile });
         dispatch({ type: 'PET', payload: res.pet });
       });
+    navigate('/profile/parent');
   };
 
   const handlePet = (e, i) => {

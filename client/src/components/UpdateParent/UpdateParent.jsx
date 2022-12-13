@@ -166,7 +166,7 @@ export default function UpdateParent() {
                 <label>С</label>
                 <input type="date" name="dateSince2" value={updateFormParent.dateSince2} onChange={handleInput} />
                 <label>По</label>
-                <input type="date" name="dateUntil2" value={updateFormParent.dateSince2} onChange={handleInput} />
+                <input type="date" name="dateUntil2" value={updateFormParent.dateUntil2} onChange={handleInput} />
               </div>
               <div>
                 <button type="button" onClick={handleAddDate2}>Добавить дату</button>
