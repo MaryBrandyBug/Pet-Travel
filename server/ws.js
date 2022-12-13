@@ -1,4 +1,6 @@
+const router = require('express').Router();
 const WebSocket = require('ws');
+const { SitterProfile, User, Message } = require('./db/models');
 // const {Message} = require(DB MODEL)
 
 const { WebSocketServer } = WebSocket;
@@ -15,9 +17,29 @@ wss.on('connection', (ws, req, wsClientMap) => {
 
   // wsClientMap.set(auth.id, { auth, ws });
 
-  ws.on('message', (msg) => {
-    const message = JSON.parse(msg);
-    console.log('MESSAGE ws on', message);
+  ws.on('message', async (arg) => {
+    const newMessage = JSON.parse(arg);
+
+    // console.log('MESSAGE ws on', message);
+    // console.log('MESSAGE ws on', message);
+
+    const { receiverProfileId, senderId, message } = newMessage;
+    // router.get('/save-chat-messages', async (req, res) => {
+    // console.log(receiverProfileId);
+    try {
+      const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
+      const receiverId = receiverProfile.id;
+      await Message.create({
+        UserId: senderId,
+        receiverId,
+        message,
+      });
+      // console.log(receiverId);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // });
 
     // const { type, payload } = message;
 
