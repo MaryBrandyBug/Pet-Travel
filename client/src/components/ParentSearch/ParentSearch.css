@@ -1,21 +1,28 @@
-/* .infoCard>a{
-  color: black;
-} */
-
 .img_animal {
-  width: 27px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.ParentSearch_card_title {
+  font-size: 27px;
+}
+
+.ParentSearch_card_date {
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .container_ParentSearch {
   width: 1500px;
   position: relative;
   margin: auto;
+  padding-top: 60px;
 }
 
 .container_ParentSearch_card {
   border: 2px solid black;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 550px;
   border-radius: 40px;
   padding: 20px;
   margin: 15px;
@@ -43,6 +50,7 @@
   width: 150px;
   height: 150px;
 } */
+
 .ParentSearch_card_link {
   color:black;
 }
@@ -51,31 +59,30 @@
   background-color: #FFCC00;
   height: 60%;
   border-radius: 10px;
-  width: 290px;
-  height: 150px;
+  width: 400px;
+  height: 300px;
 }
 
 .ParentSearch_card_location{
-  /* background-color: yellow; */
-  height: 15%;
+  height: 10%;
   text-align: center;
-  font-size: x-large;
+  font-size: 30px;
+  margin-top: 4px
 }
 
 .container_ParentSearch_cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 60px;
 }
 
 .container_ParentSearch_form form {
   text-align: center;
-  /* background-color: pink; */
   width: 80%;
 }
 
 .container_ParentSearch_form {
-  /* background-color: greenyellow; */
   height: 60px;
   display: flex;
   align-items: center;

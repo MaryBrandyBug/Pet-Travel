@@ -28,11 +28,12 @@ export default function ParentSearch() {
   const parents = useSelector((store) => store.allParentsStore.allParentsProfiles);
 
   const pets = useSelector((store) => store.allParentsStore.allPets);
-  console.log(pets);
+  // console.log(pets);
 
   const findPets = (id) => {
     const pet = pets?.filter((el) => el.ParentProfileId === id);
-    const types = pet.map((el) => el.type);
+    const allPets = pet.map((el) => el.type);
+    const types = allPets.filter((e, i, a) => a.indexOf(e) === i);
     for (let i = 0; i < types.length; i += 1) {
       if (types[i] === 'fish') {
         types[i] = fish;
@@ -73,7 +74,11 @@ export default function ParentSearch() {
           {parents?.map((el) => (
             <div className="container_ParentSearch_card">
               <div className="ParentSearch_card_photo">ФОТО ДОМА ВЛАДЕЛЬЦА</div>
-              <div className="ParentSearch_card_title"><span>{el.title}</span></div>
+              <div className="ParentSearch_card_title">
+                <span>
+                  {el.title.length < 20 ? el.title : `${el.title.substring(0, 20)}...`}
+                </span>
+              </div>
               <div className="ParentSearch_card_date"><span>{el.dateSince1} {el.dateUntil1}</span></div>
               <div className="ParentSearch_card_location"><span>{el.country}, {el.city}</span></div>
 
