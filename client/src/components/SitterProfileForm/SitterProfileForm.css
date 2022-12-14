@@ -3,3 +3,16 @@
   flex-direction: column;
   width: 25vw;
 }
+.form-itemmm {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-itemmm>img{
+  background-color: black;
+  margin: 10px;
+  height: 15em;
+  width: 15em;
+}

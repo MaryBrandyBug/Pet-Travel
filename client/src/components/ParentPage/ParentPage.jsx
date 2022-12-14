@@ -13,6 +13,7 @@ export default function ParentPage() {
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
+  console.log('🚀🚀🚀 =>=>=> file: ParentPage.jsx:8 =>=>=> ParentPage =>=>=> parent', parent);
   return (
     <div>
       <div className="parentInfo">

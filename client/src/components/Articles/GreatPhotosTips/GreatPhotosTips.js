@@ -1,10 +1,15 @@
 import React from 'react';
+import photoTips from '../../../imgArticles/photoTips.webp';
 
 export default function GreatPhotosTips() {
   return (
     <div>
       <h1>СОВЕТЫ ПО СЪЕМКЕ ДОМАШНИХ ЖИВОТНЫХ ДЛЯ НАЧИНАЮЩИХ: КАК СДЕЛАТЬ ОТЛИЧНЫЕ ФОТОГРАФИИ ВАШЕГО ЛЮБИМЦА</h1>
-      <div>ФОТО</div>
+      <div>
+        <div className="div_article_img">
+          <img className="article_img" src={photoTips} alt="dog" />
+        </div>
+      </div>
       <div>
         <p>
           Вы можете лично убедиться, насколько очарователен ваш пушистый компаньон, но запечатлеть его на камеру, чтобы поделиться с остальным миром, часто бывает непросто.

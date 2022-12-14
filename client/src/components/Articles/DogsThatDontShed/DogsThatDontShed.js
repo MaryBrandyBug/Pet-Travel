@@ -1,11 +1,14 @@
 import React from 'react';
+import dogShed from '../../../imgArticles/dogShed.webp';
 
 export default function DogsThatDontShed() {
   return (
     <div>
       <div>
         <h1>8 ПОРОД СОБАК КОТОРЫЕ ПОЧТИ НЕ ЛИНЯЮТ</h1>
-        <div>ФОТО</div>
+        <div className="div_article_img">
+          <img className="article_img" src={dogShed} alt="dog" />
+        </div>
         <p>
           Мечтаете разделить свой дом с милым собачьим компаньоном, но чихаете при одном только его виде?
           Вы не одиноки. Конечно, вместо того, чтобы посвятить жизнь таблеткам от аллергии, вы всегда можете подумать о собаках, которые не линяют.
