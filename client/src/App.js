@@ -44,9 +44,7 @@ import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
-
   const [ws, setWs] = useState(null);
-
   const [load, setLoad] = useState(true);
 
   useEffect(() => {

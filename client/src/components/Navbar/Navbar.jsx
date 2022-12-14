@@ -24,15 +24,14 @@ export default function Navbar() {
         <img src={petImg} alt="logo" />
       </div>
       <div className="findTestClass">
-        <div>
-          <Link to="/all-sitters"><span>Ситтеры</span></Link>
-        </div>
-        <div>
-          <Link to="/all-parents"><span>Владельцы</span></Link>
-        </div>
-        <div>
-          <Link to="/aboutus"><span>О нас</span></Link>
-        </div>
+
+        <Link to="/all-sitters"><span>Ситтеры</span></Link>
+        <Link to="/all-parents"><span>Владельцы</span></Link>
+      </div>
+      <div className="nav-links">
+        <Link to="/"><span>Главная</span></Link>
+        <Link to="/aboutus"><span>О нас</span></Link>
+
         {user
           ? (
             <div className="a">

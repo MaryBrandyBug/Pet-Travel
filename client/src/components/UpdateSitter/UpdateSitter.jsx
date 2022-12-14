@@ -40,40 +40,40 @@ export default function UpdateSitter() {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Статус</label>
-        <input type="text" name="status" onChange={handleInput} />
+        <input type="text" name="status" value={updateFormSitter.status} onChange={handleInput} />
         <label>Страна</label>
-        <input type="text" name="country" onChange={handleInput} />
+        <input type="text" name="country" value={updateFormSitter.country} onChange={handleInput} />
         <label>Город</label>
-        <input type="text" name="city" onChange={handleInput} />
+        <input type="text" name="city" value={updateFormSitter.city} onChange={handleInput} />
         <label>Обо мне</label>
-        <input type="text" name="aboutMe" onChange={handleInput} />
+        <input type="text" name="aboutMe" value={updateFormSitter.aboutMe} onChange={handleInput} />
         <fieldset>
           <label>
-            <input type="checkbox" name="cats" onChange={handleInput} />
+            <input type="checkbox" name="cats" value={updateFormSitter?.cats} onChange={handleInput} />
             Кошки
           </label>
           <label>
-            <input type="checkbox" name="dogs" onChange={handleInput} />
+            <input type="checkbox" name="dogs" value={updateFormSitter?.dogs} onChange={handleInput} />
             Собаки
           </label>
           <label>
-            <input type="checkbox" name="fish" onChange={handleInput} />
+            <input type="checkbox" name="fish" value={updateFormSitter?.fish} onChange={handleInput} />
             Рыбы
           </label>
           <label>
-            <input type="checkbox" name="birds" onChange={handleInput} />
+            <input type="checkbox" name="birds" value={updateFormSitter?.birds} onChange={handleInput} />
             Птицы
           </label>
           <label>
-            <input type="checkbox" name="horses" onChange={handleInput} />
+            <input type="checkbox" name="horses" value={updateFormSitter?.horses} onChange={handleInput} />
             Лошади
           </label>
           <label>
-            <input type="checkbox" name="reptiles" onChange={handleInput} />
+            <input type="checkbox" name="reptiles" value={updateFormSitter?.reptiles} onChange={handleInput} />
             Рептилии
           </label>
           <label>
-            <input type="checkbox" name="smallPets" onChange={handleInput} />
+            <input type="checkbox" name="smallPets" value={updateFormSitter?.smallPets} onChange={handleInput} />
             Мелкие животные
           </label>
           <button type="submit">Изменить</button>

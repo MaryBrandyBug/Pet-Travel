@@ -31,6 +31,7 @@ export default function SitterSearch() {
   // };
 
   return (
+
     <div className="container_SitterSearch">
       <div className="container_SitterSearch_form">
         <form>
@@ -58,8 +59,7 @@ export default function SitterSearch() {
             </div>
           ))}
         </div>
-
-      </div>
+     </div>
     </div>
   );
 }
