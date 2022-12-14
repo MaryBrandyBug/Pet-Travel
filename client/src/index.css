@@ -1,6 +1,5 @@
 body {
   margin: 0;
-}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Comfortaa', cursive;
@@ -8,7 +7,6 @@ body {
 
 .App {
   min-height: 80%;
-  max-width: 1280px;
   margin: auto;
 }
 

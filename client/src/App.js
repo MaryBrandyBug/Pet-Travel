@@ -39,13 +39,13 @@ import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
 import SitterPage from './components/SitterPage/SitterPage';
-import ChatForTwo from './components/ChatForTwo/ChatForTwo';
+// import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
 
-  const [ws, setWs] = useState(null);
+  // const [ws, setWs] = useState(null);
 
   const [load, setLoad] = useState(true);
 
@@ -56,12 +56,11 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
-
         setInterval(() => {
           setLoad(false);
         }, 2000);
 
-        setWs(new WebSocket('ws://localhost:3001'));
+        // setWs(new WebSocket('ws://localhost:3001'));
       })
       .catch((error) => console.log(error));
   }, []);
@@ -143,12 +142,15 @@ function App() {
               <Route path="parent/update-parent-profile" element={<UpdateParent />} />
             </Route>
           </Route>
-          <Route path="/chat" element={<Chat ws={ws} />} />
+          {/* <Route path="/chat" element={<Chat ws={ws} />} /> */}
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
           <Route path="/all-sitters" element={<SitterSearch />} />
           <Route path="/all-parents" element={<ParentSearch />} />
+          <Route path="/all-parents/:id" element={<ParentPage />} />
+          <Route path="/all-sitters/:id" element={<SitterPage />} />
+
           {/* <Route path="/chat" element={<Chat />} /> */}
 
           <Route element={<ProtectedRoute />}>
