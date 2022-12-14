@@ -29,10 +29,7 @@ export default function SignUp() {
       .then(
         (res) => {
           dispatch({ type: 'USER', payload: res.auth });
-          // setError(res.error);
-          // заменила на алерт,
-          // так как сообщение в <p></p> уходит за футер
-          alert(res.error);
+          setError(res.error);
         },
       );
   };
