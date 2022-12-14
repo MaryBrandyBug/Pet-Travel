@@ -5,6 +5,8 @@ import './SignUp.css';
 export default function SignUp() {
   const dispatch = useDispatch();
 
+  const [error, setError] = useState(null);
+
   const [signUpForm, setSignUpForm] = useState({
     email: '', name: '', password: '', role: '',
   });
@@ -24,7 +26,15 @@ export default function SignUp() {
       body: JSON.stringify(signUpForm),
     })
       .then((res) => res.json())
-      .then((res) => dispatch({ type: 'USER', payload: res }));
+      .then(
+        (res) => {
+          dispatch({ type: 'USER', payload: res.auth });
+          // setError(res.error);
+          // заменила на алерт,
+          // так как сообщение в <p></p> уходит за футер
+          alert(res.error);
+        },
+      );
   };
   return (
     <div>
@@ -71,7 +81,7 @@ export default function SignUp() {
                 <button type="submit">Зарегистрироваться</button>
               </div>
             </form>
-
+            <p>{error}</p>
           </div>
         </div>
 
