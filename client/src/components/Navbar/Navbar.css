@@ -50,6 +50,10 @@
   justify-content: space-between;
   font-size: 25px;
 }
+#FFD700,
+/* #FFCF48 */
+/* FAD201 */
+
 
 .nav>.nav-header {
   width: 80px;
@@ -70,12 +74,6 @@
 }
 
 
-.nav>.nav-links>a {
-  display: inline-block;
-  padding: 13px 10px 13px 10px;
-  text-decoration: none;
-  color: #efefef;
-}
 
 .nav>.nav-links>a:hover {
   background-color: rgba(0, 0, 0, 0.3);

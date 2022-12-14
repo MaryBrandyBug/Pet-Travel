@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import Map from '../Map/Map';
+import Map from '../Map/Map';
 
 export default function ParentPage() {
   const { id } = useParams();
@@ -47,7 +47,7 @@ export default function ParentPage() {
 
       <div className="map">
         <div>Карта</div>
-        {/* <Map parent={parent} /> */}
+        <Map parent={parent} />
       </div>
     </div>
   );
