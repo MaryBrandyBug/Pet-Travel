@@ -60,7 +60,7 @@ function App() {
           setLoad(false);
         }, 2000);
 
-        // setWs(new WebSocket('ws://localhost:3001'));
+        setWs(new WebSocket('ws://localhost:3001'));
       })
       .catch((error) => console.log(error));
   }, []);

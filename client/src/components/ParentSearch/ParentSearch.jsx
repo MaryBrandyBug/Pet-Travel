@@ -72,7 +72,7 @@ export default function ParentSearch() {
         <div className="container_ParentSearch_cards">
           {parents?.map((el) => (
             <div className="container_ParentSearch_card">
-              <div className="ParentSearch_card_photo">АВА ВЛАДЕЛЬЦА</div>
+              <div className="ParentSearch_card_photo">ФОТО ДОМА ВЛАДЕЛЬЦА</div>
               <div className="ParentSearch_card_title"><span>{el.title}</span></div>
               <div className="ParentSearch_card_date"><span>{el.dateSince1} {el.dateUntil1}</span></div>
               <div className="ParentSearch_card_location"><span>{el.country}, {el.city}</span></div>
