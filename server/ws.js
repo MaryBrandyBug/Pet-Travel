@@ -19,25 +19,50 @@ wss.on('connection', (ws, req, wsClientMap) => {
 
   ws.on('message', async (arg) => {
     const newMessage = JSON.parse(arg);
-
-    // console.log('MESSAGE ws on', message);
-    // console.log('MESSAGE ws on', message);
-
-    const { receiverProfileId, senderId, message } = newMessage;
-    // router.get('/save-chat-messages', async (req, res) => {
-    // console.log(receiverProfileId);
-    try {
-      const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
-      const receiverId = receiverProfile.id;
-      await Message.create({
-        UserId: senderId,
-        receiverId,
-        message,
-      });
-      // console.log(receiverId);
-    } catch (error) {
-      console.log(error);
+    if (newMessage.receiverProfileId === undefined) {
+      console.log('proverka');
+      const { receiverId, senderId, message } = newMessage;
+      try {
+        await Message.create({
+          UserId: senderId,
+          receiverId,
+          message,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      const { receiverProfileId, senderId, message } = newMessage;
+      try {
+        const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
+        const receiverId = receiverProfile.id;
+        await Message.create({
+          UserId: senderId,
+          receiverId,
+          message,
+        });
+        // console.log(receiverId);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    // console.log('MESSAGE ws on', message);
+    // console.log('MESSAGE ws on', newMessage.receiverProfileId);
+
+    // const { receiverProfileId, senderId, message } = newMessage;
+
+    // try {
+    //   const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
+    //   const receiverId = receiverProfile.id;
+    //   await Message.create({
+    //     UserId: senderId,
+    //     receiverId,
+    //     message,
+    //   });
+    //   // console.log(receiverId);
+    // } catch (error) {
+    //   console.log(error);
+    // }
 
     // });
 
