@@ -19,7 +19,6 @@ wss.on('connection', (ws, req, wsClientMap) => {
 
   ws.on('message', async (arg) => {
     const newMessage = JSON.parse(arg);
-    console.log('BAAAAACK', newMessage);
     if (newMessage.receiverProfileId === undefined) {
       console.log('proverka');
       const { receiverId, senderId, message } = newMessage;
@@ -34,9 +33,11 @@ wss.on('connection', (ws, req, wsClientMap) => {
       }
     } else {
       const { receiverProfileId, senderId, message } = newMessage;
+      console.log('message iz poiska', newMessage);
       try {
         const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
         const receiverId = receiverProfile.id;
+        console.log('receiverid', receiverId);
         await Message.create({
           UserId: senderId,
           receiverId,
