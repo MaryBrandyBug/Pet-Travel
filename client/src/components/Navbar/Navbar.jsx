@@ -34,12 +34,14 @@ export default function Navbar() {
         </label>
       </div>
       <div className="findTestClass">
+
         <Link to="/all-sitters"><span>Ситтеры</span></Link>
         <Link to="/all-parents"><span>Владельцы</span></Link>
       </div>
       <div className="nav-links">
         <Link to="/"><span>Главная</span></Link>
         <Link to="/aboutus"><span>О нас</span></Link>
+
         {user
           ? (
             <div className="dropdown">
@@ -64,7 +66,15 @@ export default function Navbar() {
                 {' '}
               </Link>
             </div>
+
           )}
+
+          )
+          : null}
+        {user
+          ? <div><button className="dropbtn" type="button" onClick={handleLogout}>Выход</button></div>
+          : null}
+
       </div>
     </div>
 

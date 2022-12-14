@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -18,19 +18,6 @@ export default function Profile() {
     <div className="container_profile">
       <div className="link_bar">
         <div className="left_menu">
-          <div className="side_text">
-            {user.role === 'parent'
-              ? (
-                <Link to="/profile/parent">
-                  <span className="span">Мой профиль</span>
-                </Link>
-              )
-              : (
-                <Link to="/profile/sitter">
-                  <span className="span">Мой профиль</span>
-                </Link>
-              )}
-          </div>
           <Sidebar />
         </div>
         <div className="rigth_menu">

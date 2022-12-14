@@ -1,3 +1,51 @@
+.container_ParentProfile_info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  width: 900px;
+}
+
 .petContainer {
+  display: flex;
+}
+
+.petContainer_photo {
+  border-radius: 50%;
+  background-color: aqua;
+  width: 100px;
+  height: 100px;
+}
+
+.petContainer_card {
+  margin: 10px;
+}
+
+.petContainer_petName {
+  background-color: greenyellow;
+}
+
+.petContainer_petAge {
+  background-color: yellow;
+}
+
+.ParentProfile_published {
   border: 2px solid black;
+  width: 200px;
+  display: flex;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.info_published_true {
+  color: green;
+}
+
+.info_published_false {
+  color: red;
+}
+
+.ParentProfile_info_title {
+  display: flex;
+  flex-direction: column;
 }

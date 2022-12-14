@@ -9,8 +9,8 @@ export default function Sidebar() {
   return (
     <div className="side_text">
       {user?.role === 'parent'
-        ? <Link className="dropbtn" to={`/profile/${user?.role}`}>Мой профиль</Link>
-        : <Link className="dropbtn" to={`/profile/${user?.role}`}>Мой профиль</Link>}
+        ? <Link to={`/profile/${user?.role}`}><span className="span">Мой профиль</span></Link>
+        : <Link to={`/profile/${user?.role}`}><span className="span">Мой профиль</span></Link>}
       {' '}
       <Link to="/chat"><span className="span">Чат</span></Link>
       {' '}

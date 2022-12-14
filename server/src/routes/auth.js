@@ -37,8 +37,6 @@ router.post('/signup', async (req, res) => {
     } = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email } });
-    console.log(req.body);
-    console.log('user post sign up', user);
     if (!user) {
       const newUser = await User.create({
         name, email, password: hashedPass, role,
@@ -48,10 +46,11 @@ router.post('/signup', async (req, res) => {
       delete auth.createdAt;
       delete auth.updatedAt;
       req.session.auth = auth;
-      return res.json(auth);
+      return res.json({ auth });
     }
+    return res.json({ error: 'Такой пользователь уже зарегистрирован' });
   } catch (error) {
-    return res.status(400).json({ msg: error.message });
+    console.log(error);
   }
 });
 
@@ -59,18 +58,19 @@ router.post('/signin', async (req, res) => {
   try {
     const { email, password } = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
-    const auth = await User.findOne({ where: { email }, raw: true });
-    if (!auth) {
-      return res.status(401).json({ msg: 'Try again' });
+    const user = await User.findOne({ where: { email }, raw: true });
+    if (!user) {
+      return res.json({ error: 'Неверная почта или пароль' });
     }
-    const isUser = await bcrypt.compare(password, auth.password);
+    const isUser = await bcrypt.compare(password, user.password);
     if (isUser) {
-      delete auth.password;
-      req.session.auth = auth;
-      return res.json(auth);
+      delete user.password;
+      req.session.auth = user;
+      return res.json({ auth: user });
     }
+    return res.json({ error: 'Неверная почта или пароль' });
   } catch (error) {
-    return res.status(400).json({ msg: error.message });
+    return console.log(error);
   }
 });
 

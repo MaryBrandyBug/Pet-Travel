@@ -1,14 +1,17 @@
 body {
   margin: 0;
-}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   font-family: 'Comfortaa', cursive;
+
+
+  font-family: 'Comfortaa',
+    cursive;
+}
 
 
 .App {
   min-height: 80%;
-  max-width: 1280px;
   margin: auto;
 }
-

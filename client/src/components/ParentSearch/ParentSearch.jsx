@@ -48,10 +48,10 @@ export default function ParentSearch() {
       if (types[i] === 'dog') {
         types[i] = dog;
       }
-      if (types[i] === 'reptile') {
+      if (types[i] === 'reptiles') {
         types[i] = reptile;
       }
-      if (types[i] === 'rabbit') {
+      if (types[i] === 'small') {
         types[i] = rabbit;
       }
       if (types[i] === 'horse') {
@@ -63,31 +63,33 @@ export default function ParentSearch() {
   };
 
   return (
-    <div>
-      <form>
-        <input type="text" placeholder="поиск" />
-        <button type="submit">Найти</button>
-      </form>
-      <div>
-        {parents?.map((el) => (
-          <div className="infoCard">
-            <div>1 ФОТО дома</div>
-            <div>АВА ВЛАДЕЛЬЦА</div>
-            <p>{el.title}</p>
-            <p>{el.dateSince1} {el.dateUntil1}</p>
-            <p>{el.city}</p>
-            <p>{el.country}</p>
+    <div className="container_ParentSearch">
+      <div className="container_ParentSearch_form">
+        <form>
+          <input type="text" placeholder="поиск" />
+          <button type="submit" id="btn">Найти</button>
+        </form>
+      </div>
+      <div className="container_ParentSearch_content">
+        <div className="container_ParentSearch_cards">
+          {parents?.map((el) => (
+            <div className="container_ParentSearch_card">
+              <div className="ParentSearch_card_photo">ФОТО ДОМА ВЛАДЕЛЬЦА</div>
+              <div className="ParentSearch_card_title"><span>{el.title}</span></div>
+              <div className="ParentSearch_card_date"><span>{el.dateSince1} {el.dateUntil1}</span></div>
+              <div className="ParentSearch_card_location"><span>{el.country}, {el.city}</span></div>
 
-            <Link to={`/all-parents/${el.id}`}>Подробнее</Link>
+              <Link to={`/all-parents/${el.id}`}><span className="ParentSearch_card_link">Подробнее</span></Link>
 
-            <div>
-              {findPets(el.id)}
+              <div className="ParentSearch_card_pets">
+                {findPets(el.id)}
+              </div>
+
+              {/* {на одной строчке будут находиться даты С и ПО, город и страна } */}
+              {/* {добавить количество животных картинкой + количество} */}
             </div>
-
-            {/* {на одной строчке будут находиться даты С и ПО, город и страна } */}
-            {/* {добавить количество животных картинкой + количество} */}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       {/* <Map parents={parents} /> */}
     </div>

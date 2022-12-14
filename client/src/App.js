@@ -44,7 +44,11 @@ import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
+
+  // eslint-disable-next-line no-unused-vars
+
   const [ws, setWs] = useState(null);
+
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
@@ -54,7 +58,6 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch({ type: 'USER', payload: res.auth });
-
         setInterval(() => {
           setLoad(false);
         }, 2000);
@@ -142,12 +145,20 @@ function App() {
             </Route>
           </Route>
           {/* <Route path="/chat" element={<Chat ws={ws} />} /> */}
+
+
+          <Route path="/chat" element={<ChatForTwo ws={ws} />} />
+
+
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
           <Route path="/all-sitters" element={<SitterSearch />} />
           <Route path="/all-parents" element={<ParentSearch />} />
+
           <Route path="/all-parents/:id" element={<ParentPage />} />
+          <Route path="/all-sitters/:id" element={<SitterPage />} />
+
           {/* <Route path="/chat" element={<Chat />} /> */}
 
           <Route element={<ProtectedRoute />}>

@@ -5,6 +5,8 @@ import './SignIn.css';
 export default function SignIn() {
   const dispatch = useDispatch();
 
+  const [error, setError] = useState(null);
+
   const [signInForm, setSignInForm] = useState({ email: '', password: '' });
 
   const handleInput = (e) => {
@@ -20,7 +22,12 @@ export default function SignIn() {
       body: JSON.stringify(signInForm),
     })
       .then((res) => res.json())
-      .then((res) => dispatch({ type: 'USER', payload: res }));
+      .then(
+        (res) => {
+          dispatch({ type: 'USER', payload: res.auth });
+          setError(res.error);
+        },
+      );
   };
   return (
     <div>
@@ -53,7 +60,7 @@ export default function SignIn() {
                 <button type="submit">Войти</button>
               </div>
             </form>
-
+            <p>{error}</p>
           </div>
         </div>
       </div>

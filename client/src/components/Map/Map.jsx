@@ -1,14 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
 
+
 export default function Map({ parent }) {
-  // console.log('parents>>>>>>>>>', parents);
+
   const [map, setMap] = useState(null);
   useEffect(() => {
     ymaps.geocode(`${parent?.country}, ${parent?.city}`, { results: 1 })
+  
 
-      .then((res) => {
+
+        .then((res) => {
         // console.log(res);
+
         const geoObject = res.geoObjects.get(0);
         // console.log(geoObject);
         const coords = geoObject.geometry.getCoordinates();
@@ -34,6 +38,8 @@ export default function Map({ parent }) {
       .catch((error) => console.log(error));
     // }
   }, [parent]);
+
+         
 
   return <div id="map" style={{ width: '400px', height: '600px' }} />;
 }

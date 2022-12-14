@@ -1,15 +1,24 @@
+.container_profile {
+    width: 1280px;
+    margin: auto;
+}
 .link_bar {
     display: flex;
-}
-.left_menu {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 20%;
-    border-right: 2px solid #4d4d4d;
+    margin-bottom: 15px;
+}
+.left_menu {    
+    display: flex;
+    margin: 15px;
+    margin-bottom: 0;
 
 }
 
 .rigth_menu {
-    width: 80%;
+    width: 1200px;
+    margin: auto;
+    border: 4px solid #4d4d4d;
+    border-top: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
