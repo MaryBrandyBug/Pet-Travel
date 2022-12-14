@@ -57,7 +57,7 @@ router.post('/signup', async (req, res) => {
 router.post('/signin', async (req, res) => {
   try {
     const { email, password } = req.body;
-    // const hashedPass = await bcrypt.hash(password, 10);
+    const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email }, raw: true });
     if (!user) {
       return res.json({ error: 'Неверная почта или пароль' });

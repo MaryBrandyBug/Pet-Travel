@@ -60,33 +60,38 @@ export default function SitterProfile() {
   };
 
   return (
-    <div>
+    <div className="container_SitterProfile">
       {sitter
         ? (
-          <div>
-            <div>
+          <div className="container_SitterProfile_info">
+            <div className="SitterProfile_info_main">
               <h3>Ваш профиль</h3>
-              <p>{sitter?.published ? 'Опубликовано' : 'Не опубликовано'}</p>
-              <div>ТУТ ФОТКИ ТИПА</div>
-              <div>
+              <div className="SitterProfile_published">
+                {sitter?.published ? <span className="info_published_true">Опубликовано</span>
+                  : <span className="info_published_false">Не опубликовано</span>}
+              </div>
+              <div className="SitterProfile_photos">ТУТ ФОТКИ ТИПА</div>
+              <div className="SitterProfile_location">
                 <span>{sitter?.city}, {sitter?.country}</span>
               </div>
               <div>
-                <div>
+                <div className="SitterProfile_about">
                   <h4>Обо мне</h4>
                   <p>{sitter?.aboutMe}</p>
                 </div>
-                <h4>Есть опыт ухода за: </h4>
-                <div className="petList">{careAboute().map((el) => <p className="pets">{el}</p>)}<div />
+                <div className="SitterProfile_careAbout">
+                  <h4>Есть опыт ухода за: </h4>
+                  <div className="petList">{careAboute().map((el) => <div><span className="pets">{el}</span></div>)}<div />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <button type="button" onClick={handlePublish}>Опубликовать</button>
-              </div>
-              <div>
-                <Link to="/profile/sitter/update-sitter-profile">
-                  <button type="button">Изменить данные профиля</button>
-                </Link>
+                <div>
+                  <button type="button" onClick={handlePublish}>Опубликовать</button>
+                </div>
+                <div>
+                  <Link to="/profile/sitter/update-sitter-profile">
+                    <button type="button">Изменить данные профиля</button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
