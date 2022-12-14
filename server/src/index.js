@@ -40,6 +40,7 @@ const profileSetRouter = require('./routes/profileSettings');
 const searchRouter = require('./routes/search');
 const sitterPageRouter = require('./routes/sitterPageRouter');
 const parentPageRouter = require('./routes/parentPageRouter');
+const dialogRouter = require('./routes/diaolgsRouter');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -67,12 +68,12 @@ app.use('/', sitterPageRouter);
 app.use('/', authRouter);
 app.use('/', appReview);
 app.use('/', parentPageRouter);
+app.use('/', dialogRouter);
 
 // app.use('/chat', chatRouter);
 
 app.use('/profile', profileRouter);
 app.use('/profile', profileSetRouter);
-
 
 app.locals.wsClients = new Map();
 

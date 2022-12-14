@@ -12,7 +12,7 @@ export default function Sidebar() {
         ? <Link className="dropbtn" to={`/profile/${user?.role}`}>Мой профиль</Link>
         : <Link className="dropbtn" to={`/profile/${user?.role}`}>Мой профиль</Link>}
       {' '}
-      <Link to="/chat"><span className="span">Чат</span></Link>
+      <Link to="/my-chats"><span className="span">Мои диалоги</span></Link>
       {' '}
       <Link to="/profile/reviews"><span className="span">Отзывы</span></Link>
       {' '}

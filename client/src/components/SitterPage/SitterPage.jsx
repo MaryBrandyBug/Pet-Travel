@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './SitterPage.css';
+import { useSelector } from 'react-redux';
 import Slider from '../Slider/Slider';
 
 export default function SitterPage() {
   const { id } = useParams();
   const [sitter, setSitter] = useState({});
+
+  const user = useSelector((store) => store.userStore.auth);
+
   useEffect(() => {
     fetch(`http://localhost:3001/all-sitters/${id}`, {
       credentials: 'include',
@@ -15,6 +19,19 @@ export default function SitterPage() {
   }, []);
   console.log('sitter', sitter);
 
+  const handleCreateChat = () => {
+    // e.preventDefault();
+    fetch(`http://localhost:3001/all-sitters/chat/${id}`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userFrom: user.id, userTo: sitter.UserId }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
 
@@ -48,7 +65,7 @@ export default function SitterPage() {
                 <div className="verification">
                   <h4>Прошел проверку документов</h4>
                 </div>
-                <Link to={`/all-sitters/chat/${id}`}>Чат</Link>
+                <Link to={`/all-sitters/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
               </div>
             </div>
 
