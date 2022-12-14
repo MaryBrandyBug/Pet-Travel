@@ -170,7 +170,6 @@ function App() {
       <div className="Footer_bar">
         <Footer />
       </div>
-
     </div>
   );
 }
