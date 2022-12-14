@@ -39,12 +39,12 @@ import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
 import SitterPage from './components/SitterPage/SitterPage';
-// import ChatForTwo from './components/ChatForTwo/ChatForTwo';
+import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
-  
+
   const [ws, setWs] = useState(null);
 
   const [load, setLoad] = useState(true);
@@ -154,7 +154,6 @@ function App() {
 
           <Route path="/all-parents/:id" element={<ParentPage />} />
           <Route path="/all-sitters/:id" element={<SitterPage />} />
-
 
           {/* <Route path="/chat" element={<Chat />} /> */}
 

@@ -2,7 +2,7 @@
     width: 1280px;
     position: relative;
     margin: auto;
-
+}
 .container_SitterSearch_card {
   border: 2px solid black;
   width: 300px;
@@ -79,4 +79,8 @@
   height: 50px;
   height: 25px;
   text-align: center;
+}
+
+.link_span {
+  color: black;
 }

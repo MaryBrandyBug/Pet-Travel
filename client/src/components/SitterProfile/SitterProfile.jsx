@@ -70,10 +70,10 @@ export default function SitterProfile() {
                 {sitter?.published ? <span className="info_published_true">Опубликовано</span>
                   : <span className="info_published_false">Не опубликовано</span>}
               </div>
-              <div className="SitterProfile_photos">ТУТ ФОТКИ ТИПА</div>
               <div className="SitterProfile_location">
                 <span>{sitter?.city}, {sitter?.country}</span>
               </div>
+              <div className="SitterProfile_photos">ТУТ ФОТКИ ТИПА</div>
               <div>
                 <div className="SitterProfile_about">
                   <h4>Обо мне</h4>

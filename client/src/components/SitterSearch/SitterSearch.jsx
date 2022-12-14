@@ -51,10 +51,10 @@ export default function SitterSearch() {
                 {el.User.mainPhoto
                   ? <img src={`http://localhost:3001/${el.User.mainPhoto}`} alt="" />
                   : <div className="SitterSearch_card_photo">TEXT</div>}
-                <Link to={`/all-sitters/${el.id}`}>Подробнее</Link>
               </div>
               <div className="SitterSearch_card_name"><span>ИМЯ</span></div>
               <div className="SitterSearch_card_location"><span>{el.country}, {el.city}</span></div>
+              <Link to={`/all-sitters/${el.id}`}><span className="link_span">Подробнее</span></Link>
             </div>
           ))}
         </div>

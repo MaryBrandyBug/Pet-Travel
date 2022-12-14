@@ -2,3 +2,19 @@
   display: flex;
   flex-direction: column;
 }
+
+.container_SitterProfile_info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  width: 900px;
+}
+
+.SitterProfile_published {
+  border: 2px solid black;
+  width: 200px;
+  display: flex;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+}
