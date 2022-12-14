@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Map from '../Map/Map';
 
 export default function ParentPage() {
   const { id } = useParams();
   const [parent, setParent] = useState({});
+
+  const user = useSelector((store) => store.userStore.auth);
+
   useEffect(() => {
     fetch(`http://localhost:3001/all-parents/${id}`, {
       credentials: 'include',
     })
-      // .then((res) => console.log(res))
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
-  console.log('🚀🚀🚀 =>=>=> file: ParentPage.jsx:8 =>=>=> ParentPage =>=>=> parent', parent);
+
+  const handleCreateChat = () => {
+    fetch(`http://localhost:3001/all-parents/chat/${id}`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userFrom: user.id, userTo: parent.UserId }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       <div className="parentInfo">
@@ -23,8 +38,8 @@ export default function ParentPage() {
         <div className="date">
           <h4>Требуется няня:</h4>
           <h5>{parent.dateSince1} - {parent.dateUntil1}</h5>
-          {/* <button type="button">Начать чат</button> */}
         </div>
+        <Link to={`/all-parents/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
       </div>
       <div className="title">
         <h4>Введение</h4>

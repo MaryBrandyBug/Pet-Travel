@@ -147,6 +147,8 @@ function App() {
           </Route>
 
           <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
+          <Route path="/all-parents/chat/:id" element={<ChatForTwo ws={ws} />} />
+          {/* /all-parents/chat/${id} */}
           <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
 
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}

@@ -17,10 +17,8 @@ export default function SitterPage() {
       .then((res) => res.json())
       .then((data) => setSitter(data));
   }, []);
-  console.log('sitter', sitter);
 
   const handleCreateChat = () => {
-    // e.preventDefault();
     fetch(`http://localhost:3001/all-sitters/chat/${id}`, {
       method: 'POST',
       credentials: 'include',
@@ -34,7 +32,6 @@ export default function SitterPage() {
   };
   return (
     <div>
-
       <div className="sliderContainer">
         <Slider
           sliderItems={[
@@ -68,7 +65,6 @@ export default function SitterPage() {
                 <Link to={`/all-sitters/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
               </div>
             </div>
-            {/* to={`/all-sitters/chat/${id}`} */}
           </div>
 
         </div>
