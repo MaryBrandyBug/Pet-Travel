@@ -183,7 +183,7 @@ export default function SitterProfile() {
         )
         : (
           <div className="btn_add_prifile">
-            <div>
+            <div className="btn_add_prifile_p">
               <p>
                 У вас еще нет заполеннной анкеты.
               </p>
