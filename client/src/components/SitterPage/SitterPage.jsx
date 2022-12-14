@@ -68,7 +68,7 @@ export default function SitterPage() {
                 <Link to={`/all-sitters/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
               </div>
             </div>
-
+            {/* to={`/all-sitters/chat/${id}`} */}
           </div>
 
         </div>

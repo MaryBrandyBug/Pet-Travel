@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
+import './MyDialogs.css';
 
 export default function MyDialogs() {
   const user = useSelector((store) => store.userStore.auth);
-
-  console.log('MyDialogs', user.id);
   const [dialogs, setDialogs] = useState(null);
 
   useEffect(() => {
@@ -15,11 +14,18 @@ export default function MyDialogs() {
       .then((res) => res.json())
       .then((data) => setDialogs(data));
   }, []);
-  console.log('dialogs state front', dialogs);
 
   return (
     <div>
       <h4>Мои диалоги</h4>
+
+      {dialogs?.map((el) => (
+        <div className="dialogLinks">
+          {/* <h3>{el.User.name}</h3> */}
+
+          <Link to={`/chat/${el.User.id}`}><h3 className="link">{el.User.name}</h3></Link>
+        </div>
+      ))}
 
     </div>
   );

@@ -19,6 +19,7 @@ wss.on('connection', (ws, req, wsClientMap) => {
 
   ws.on('message', async (arg) => {
     const newMessage = JSON.parse(arg);
+    console.log('BAAAAACK', newMessage);
     if (newMessage.receiverProfileId === undefined) {
       console.log('proverka');
       const { receiverId, senderId, message } = newMessage;

@@ -41,6 +41,7 @@ import SitterPage from './components/SitterPage/SitterPage';
 import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import ParentPage from './components/ParentPage/ParentPage';
 import MyDialogs from './components/MyDialogs/MyDialogs';
+import MyDialogsChat from './components/MyDialogsChat/MyDialogsChat';
 
 function App() {
   const dispatch = useDispatch();
@@ -145,13 +146,13 @@ function App() {
             </Route>
           </Route>
 
-          <Route path="/chat" element={<ChatForTwo ws={ws} />} />
+          <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
+          <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
 
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
           <Route path="/all-sitters" element={<SitterSearch />} />
-          <Route path="all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
           <Route path="/my-chats" element={<MyDialogs />} />
           <Route path="/all-parents" element={<ParentSearch />} />
 

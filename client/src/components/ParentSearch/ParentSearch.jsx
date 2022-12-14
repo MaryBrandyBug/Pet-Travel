@@ -28,7 +28,7 @@ export default function ParentSearch() {
   const parents = useSelector((store) => store.allParentsStore.allParentsProfiles);
 
   const pets = useSelector((store) => store.allParentsStore.allPets);
-  console.log(pets);
+  // console.log(pets);
 
   const findPets = (id) => {
     const pet = pets?.filter((el) => el.ParentProfileId === id);
@@ -56,7 +56,7 @@ export default function ParentSearch() {
         types[i] = horse;
       }
     }
-    console.log(types);
+    // console.log(types);
     return types.map((el) => <img className="img_animal" src={el} alt="" />);
   };
 
