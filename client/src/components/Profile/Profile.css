@@ -1,12 +1,15 @@
+.container_profile {
+    width: 1280px;
+    margin: auto;
+}
 .link_bar {
     display: flex;
-}
-.left_menu {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 20%;
-    border-right: 2px solid #4d4d4d;
+}
+.left_menu {    
+    width: 1280px;
+    display: flex;
+    margin: 15px
 
 }
 
