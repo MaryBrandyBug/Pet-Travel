@@ -10,7 +10,7 @@ import bird from '../../icons/bird.png';
 import rabbit from '../../icons/rabbit.png';
 import horse from '../../icons/horse.png';
 import './ParentSearch.css';
-import Map from '../Map/Map';
+// import Map from '../Map/Map';
 
 export default function ParentSearch() {
   const dispatch = useDispatch();
