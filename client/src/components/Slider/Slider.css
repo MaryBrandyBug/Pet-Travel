@@ -1,19 +1,20 @@
-.slider-container{
+.slider-container {
   height: 300px;
-  width: 1280px;
+  min-width: 600px;
+  max-width: 1280;
 
   display: flex;
   align-items: center;
 }
 
-.window{
+.window {
   height: 100%;
   width: 100%;
   overflow: hidden;
 
 }
 
-.all-pages-container{
+.all-pages-container {
   height: 100%;
   display: flex;
 
@@ -22,6 +23,6 @@
   transition-duration: 300ms;
 }
 
-.arrow{
+.arrow {
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState /* useEffect  */ } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -177,29 +177,29 @@ export default function UpdateParent() {
             </>
           )}
         {
-            parent?.dateSince3
-              ? (
-                <>
+          parent?.dateSince3
+            ? (
+              <>
+                <label>С</label>
+                <input type="date" name="dateSince3" value={updateFormParent.dateSince3} onChange={handleInput} />
+                <label>По</label>
+                <input type="date" name="dateUntil3" value={updateFormParent.dateUntil3} onChange={handleInput} />
+              </>
+            )
+            : (
+              <>
+                <div style={{ visibility: `${dateDiv3}` }}>
                   <label>С</label>
                   <input type="date" name="dateSince3" value={updateFormParent.dateSince3} onChange={handleInput} />
                   <label>По</label>
                   <input type="date" name="dateUntil3" value={updateFormParent.dateUntil3} onChange={handleInput} />
-                </>
-              )
-              : (
-                <>
-                  <div style={{ visibility: `${dateDiv3}` }}>
-                    <label>С</label>
-                    <input type="date" name="dateSince3" value={updateFormParent.dateSince3} onChange={handleInput} />
-                    <label>По</label>
-                    <input type="date" name="dateUntil3" value={updateFormParent.dateUntil3} onChange={handleInput} />
-                  </div>
-                  <div>
-                    <button type="button" onClick={handleAddDate3}>Добавить дату</button>
-                  </div>
-                </>
-              )
-          }
+                </div>
+                <div>
+                  <button type="button" onClick={handleAddDate3}>Добавить дату</button>
+                </div>
+              </>
+            )
+        }
         <h4>Ваши питомцы:</h4>
         {allPets[0]
           ? (

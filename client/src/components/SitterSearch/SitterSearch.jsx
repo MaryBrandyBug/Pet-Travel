@@ -37,7 +37,7 @@ export default function SitterSearch() {
       <div>
 
         {filteredSitters?.map((el) => (
-          <>
+          <div className="infoCard">
             <div>ТУТ ФОТКА</div>
             <div>{el.city}</div>
             <div>{el.country}</div>

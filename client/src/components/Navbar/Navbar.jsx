@@ -38,6 +38,7 @@ export default function Navbar() {
         <Link to="/all-parents"><span>Владельцы</span></Link>
       </div>
       <div className="nav-links">
+        <Link to="/"><span>Главная</span></Link>
         <Link to="/aboutus"><span>О нас</span></Link>
         {user
           ? (

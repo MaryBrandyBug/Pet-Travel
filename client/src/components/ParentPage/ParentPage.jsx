@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Map from '../Map/Map';
+// import Map from '../Map/Map';
 
 export default function ParentPage() {
   const { id } = useParams();
@@ -9,7 +9,7 @@ export default function ParentPage() {
     fetch(`http://localhost:3001/all-parents/${id}`, {
       credentials: 'include',
     })
-    // .then((res) => console.log(res))
+      // .then((res) => console.log(res))
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
