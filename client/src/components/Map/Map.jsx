@@ -1,14 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
+
 import React, { useState, useEffect } from 'react';
 
-export default function Map({ sitter }) {
+export default function Map({ parent }) {
+  // console.log('parents>>>>>>>>>', parents);
   const [map, setMap] = useState(null);
   useEffect(() => {
-    // console.log(window)
-    // if (!map) {
-    // console.log(`${sitter.city}, ${sitter.country}`);
-    ymaps.geocode(`${sitter?.country}, ${sitter?.city}`, { results: 1 })
+    ymaps.geocode(`${parent?.country}, ${parent?.city}`, { results: 1 })
 
       .then((res) => {
         // console.log(res);
@@ -26,13 +23,17 @@ export default function Map({ sitter }) {
               keyboardShortcuts: false,
             },
           });
+
+          // parents.forEach((el) => {
+          //   console.log(el);
+          // });
           myMap.geoObjects.add(geoObject);
         }
         ymaps.ready(init);
       })
       .catch((error) => console.log(error));
     // }
-  }, [map]);
+  }, [parent]);
 
-  return <div id="map" style={{ width: '600px', height: '600px' }} />;
+  return <div id="map" style={{ width: '400px', height: '600px' }} />;
 }

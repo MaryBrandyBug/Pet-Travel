@@ -105,23 +105,11 @@ body {
 
 @media (max-width:600px) {
   .nav>.nav-btn {
-
-
-  .dropbtn {
-    background-color: #4d4d4d;
-    color: #f1f1f1;
-    font-size: 25px;
-    border: none;
-  }
-  
-  .dropdown {
-    position: relative;
     display: inline-block;
     position: absolute;
     right: 0px;
     top: 0px;
   }
-
 
   .nav>.nav-btn>label {
     display: inline-block;
@@ -133,50 +121,6 @@ body {
   .nav>.nav-btn>label:hover,
   .nav #nav-check:checked~.nav-btn>label {
     background-color: rgba(0, 0, 0, 0.3);
-
-  
-  .dropdown-content a {
-    color: #f1f1f1;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: rgba(0, 0, 0, 0.3);}
-  
-  
-  .nav {
-    height: 70px;
-    width: 1280px;
-    background-color: #4d4d4d;
-    position: relative;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: 25px;
-  }
-  
-  .nav > .nav-header {
-    width: 80px;
-    display: inline;
-    left: 0;
-    display: flex;
-  }
-
-  .nav > .nav-btn {
-    display: none;
-  }
-  
-  .nav > .nav-links {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-
   }
 
   .nav>.nav-btn>label>span {
@@ -213,11 +157,6 @@ body {
   }
 }
 
-  .findTestClass {
+.findTestClass {
   margin-left: 100px;
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
+}
