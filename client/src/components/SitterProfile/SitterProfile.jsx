@@ -151,6 +151,7 @@ export default function SitterProfile() {
                   </div>
                 </div>
               </div>
+              <div className="SitterProfile_photos">ТУТ ФОТКИ ТИПА</div>
               <div>
                 <div className="SitterProfile_about">
                   <div>

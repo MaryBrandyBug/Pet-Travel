@@ -46,6 +46,7 @@ function App() {
   const dispatch = useDispatch();
 
   // eslint-disable-next-line no-unused-vars
+
   const [ws, setWs] = useState(null);
 
   const [load, setLoad] = useState(true);
@@ -61,7 +62,7 @@ function App() {
           setLoad(false);
         }, 2000);
 
-        // setWs(new WebSocket('ws://localhost:3001'));
+        setWs(new WebSocket('ws://localhost:3001'));
       })
       .catch((error) => console.log(error));
   }, []);
