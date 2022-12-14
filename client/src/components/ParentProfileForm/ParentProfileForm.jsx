@@ -119,7 +119,7 @@ export default function ParentProfileForm() {
   };
 
   return (
-    <div>
+    <div className="Update_sitter_profile">
       <form onSubmit={handleSubmit} className="form_parent">
         <h3>Создание профиля</h3>
         <button type="button">Добавить фото</button>
