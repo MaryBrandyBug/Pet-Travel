@@ -134,7 +134,9 @@ export default function Setting() {
                 : <img className="logo" src={`http://localhost:3001/${user?.mainPhoto}`} alt="avatar" />
             }
             <input type="file" onChange={(e) => setImg(e.target.files[0])} />
-            <button type="button" onClick={sendFile}>Добавить фото</button>
+            <div className="btn_sub">
+              <button type="button" onClick={sendFile}>Добавить фото</button>
+            </div>
           </div>
         </div>
         <div className="btn">
