@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import './UpdateSitter.css';
 
 export default function UpdateSitter() {
   const user = useSelector((store) => store.userStore.auth);
@@ -37,47 +38,85 @@ export default function UpdateSitter() {
   };
 
   return (
-    <div>
+    <div className="Update_sitter_profile">
       <form onSubmit={handleSubmit}>
-        <label>Статус</label>
-        <input type="text" name="status" value={updateFormSitter.status} onChange={handleInput} />
-        <label>Страна</label>
-        <input type="text" name="country" value={updateFormSitter.country} onChange={handleInput} />
-        <label>Город</label>
-        <input type="text" name="city" value={updateFormSitter.city} onChange={handleInput} />
-        <label>Обо мне</label>
-        <input type="text" name="aboutMe" value={updateFormSitter.aboutMe} onChange={handleInput} />
-        <fieldset>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Статус</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="status" value={updateFormSitter.status} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Страна</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="country" value={updateFormSitter.country} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Город</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="city" value={updateFormSitter.city} onChange={handleInput} />
+          </div>
+
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Обо мне</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <textarea type="text" name="aboutMe" value={updateFormSitter.aboutMe} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="cats" value={updateFormSitter?.cats} onChange={handleInput} />
             Кошки
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="dogs" value={updateFormSitter?.dogs} onChange={handleInput} />
             Собаки
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="fish" value={updateFormSitter?.fish} onChange={handleInput} />
             Рыбы
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="birds" value={updateFormSitter?.birds} onChange={handleInput} />
             Птицы
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="horses" value={updateFormSitter?.horses} onChange={handleInput} />
             Лошади
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="reptiles" value={updateFormSitter?.reptiles} onChange={handleInput} />
             Рептилии
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="smallPets" value={updateFormSitter?.smallPets} onChange={handleInput} />
             Мелкие животные
           </label>
-          <button type="submit">Изменить</button>
-        </fieldset>
+        </div>
+
+        <button type="submit">Изменить</button>
       </form>
     </div>
   );
