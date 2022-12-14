@@ -4,9 +4,9 @@ import React, {
 import './Slider.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-const pageWidth = 1280;
+// const pageWidth = 1280;
 
-export default function Slider({ sliderItems }) {
+export default function Slider({ pageWidth, sliderItems }) {
   const [pages, setPages] = useState([]);
   const [offset, setOffset] = useState(0);
 

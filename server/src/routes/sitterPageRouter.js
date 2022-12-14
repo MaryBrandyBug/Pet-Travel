@@ -3,9 +3,9 @@ const { SitterProfile, User } = require('../../db/models');
 
 router.get('/all-sitters/:id', async (req, res) => {
   try {
-    const sitter = await SitterProfile.findOne({ where: { id: req.params.id } });
+    const sitter = await SitterProfile.findOne({ where: { id: req.params.id }, include: User });
     const sitterData = sitter.get();
-    console.log(sitterData);
+    res.json(sitterData);
   } catch (error) {
     console.log(error);
   }

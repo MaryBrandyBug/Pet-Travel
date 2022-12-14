@@ -1,10 +1,7 @@
-
 .container_SitterSearch {
     width: 1280px;
     position: relative;
     margin: auto;
-}
-
 
 .container_SitterSearch_card {
   border: 2px solid black;
@@ -18,7 +15,11 @@
   justify-content: space-evenly
 }
 
-.SitterSearch_card_photo>img{
+.SitterSearch_card_photo>a {
+  color: black;
+}
+
+.SitterSearch_card_photo>img {
   background-color: green;
   height: 60%;
   border-radius: 10px;
@@ -26,7 +27,7 @@
   height: 150px;
 }
 
-.SitterSearch_card_photo{
+.SitterSearch_card_photo {
   background-color: green;
   height: 60%;
   border-radius: 10px;
@@ -34,7 +35,7 @@
   height: 150px;
 }
 
-.SitterSearch_card_location{
+.SitterSearch_card_location {
   background-color: yellow;
   height: 15%;
   text-align: center;
@@ -79,4 +80,3 @@
   height: 25px;
   text-align: center;
 }
-

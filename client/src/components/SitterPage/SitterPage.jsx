@@ -1,56 +1,61 @@
-import React /* { useEffect } */ from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-// import ChatForTwo from '../ChatForTwo.js/ChatForTwo';
-
-import Slider from '../Slider/Slider';
-
 import './SitterPage.css';
+import Slider from '../Slider/Slider';
 
 export default function SitterPage() {
   const { id } = useParams();
-  console.log(id);
+  const [sitter, setSitter] = useState({});
+  useEffect(() => {
+    fetch(`http://localhost:3001/all-sitters/${id}`, {
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((data) => setSitter(data));
+  }, []);
+  console.log('sitter', sitter);
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:3001/all-sitters/${id}`, {
-  //     credentials: 'include',
-  //   })
-  //     .then((res) => res.json())
-  //     // .then((res) => {
-  //       // dispatch({ type: 'ALL_SITTERS', payload: res.allSittersProfiles });
-  //     });
-  // }, []);
-
-  /*  return () => {
-     second
-   } */
-  /* const handleChatBtn = () => {
-    <Link to={`/all-sitters/${id}`} />;
-  }; */
   return (
     <div>
+
       <div className="sliderContainer">
-        <Slider sliderItems={[
-          <div className="slide slide-s1">slide 1</div>,
-          <div className="slide slide-s2">slide 2</div>,
-          <div className="slide slide-s3">slide 3</div>,
-        ]}
+        <Slider
+          sliderItems={[
+            <div className="slide slide-s1">slide 1</div>,
+            <div className="slide slide-s2">slide 2</div>,
+            <div className="slide slide-s3">slide 3</div>,
+            <div className="slide slide-s2">slide 4</div>,
+            <div className="slide slide-s3">slide 5</div>,
+          ]}
+          pageWidth={600}
         />
       </div>
-      <div className="sitterInfo">
-        <div className="sitterName">
-          <h3>ИМЯ</h3>
+
+      <div className="sticky">
+        <div className="sticky_flex">
+          <div className="sticky_half">
+            <div className="sticky_body">
+              <div className="sitterInfo">
+                <div className="sitterName">
+                  <h3>{sitter?.User?.name}</h3>
+                </div>
+                <div className="rating" />
+                <h4>Рейтинг</h4>
+                <div className="location">
+                  <h5>{sitter?.country}</h5>
+                  <h5>{sitter?.city}</h5>
+                </div>
+                <div className="verification">
+                  <h4>Прошел проверку документов</h4>
+                </div>
+                <Link to={`/all-sitters/chat/${id}`}>Чат</Link>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-        <div className="rating" />
-        <h4>Рейтинг</h4>
-        <div className="location">
-          <h5>Страна</h5>
-          <h5>Город</h5>
-        </div>
-        <div className="verification">
-          <h4>Прошел проверку документов</h4>
-        </div>
-        <Link to={`/all-sitters/chat/${id}`}>Чат</Link>
-        {/* <button type="button" onClick={handleChatBtn}>Начать чат</button> */}
+
       </div>
 
       <div className="reviews">
@@ -70,9 +75,27 @@ export default function SitterPage() {
         </div>
         <div className="pets">
           <h3>Есть опыт ухода за:</h3>
-          <p>Собака(пример, связать с БД)</p>
-          <p>Кот</p>
-          <p>Рыбки</p>
+          {sitter?.birds ? (
+            <div><h4>Птицы</h4></div>
+          ) : (<div />)}
+          {sitter?.cats ? (
+            <div><h4>Кошки</h4></div>
+          ) : (<div />)}
+          {sitter?.dogs ? (
+            <div><h4>Собаки</h4></div>
+          ) : (<div />)}
+          {sitter?.fish ? (
+            <div><h4>Рыбы</h4></div>
+          ) : (<div />)}
+          {sitter?.horses ? (
+            <div><h4>Лошади</h4></div>
+          ) : (<div />)}
+          {sitter?.reptiles ? (
+            <div><h4>Рептилии</h4></div>
+          ) : (<div />)}
+          {sitter?.smallPets ? (
+            <div><h4>Мелкие животные</h4></div>
+          ) : (<div />)}
         </div>
       </div>
 

@@ -129,10 +129,10 @@ export default function Setting() {
           <div className="form-itemm">
             <span>Фото</span>
             {
-        avatar
-          ? <img className="logo" src={`${avatar}`} alt="avatar" />
-          : <img className="logo" src={`http://localhost:3001/${user?.mainPhoto}`} alt="avatar" />
-      }
+              avatar
+                ? <img className="logo" src={`${avatar}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${user?.mainPhoto}`} alt="avatar" />
+            }
             <input type="file" onChange={(e) => setImg(e.target.files[0])} />
             <button type="button" onClick={sendFile}>Добавить фото</button>
           </div>

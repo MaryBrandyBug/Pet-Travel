@@ -44,8 +44,8 @@ import ParentPage from './components/ParentPage/ParentPage';
 
 function App() {
   const dispatch = useDispatch();
-
-  // const [ws, setWs] = useState(null);
+  
+  const [ws, setWs] = useState(null);
 
   const [load, setLoad] = useState(true);
 
@@ -143,13 +143,18 @@ function App() {
             </Route>
           </Route>
           {/* <Route path="/chat" element={<Chat ws={ws} />} /> */}
+
+          <Route path="/chat" element={<ChatForTwo ws={ws} />} />
+
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
           <Route path="/all-sitters" element={<SitterSearch />} />
           <Route path="/all-parents" element={<ParentSearch />} />
+
           <Route path="/all-parents/:id" element={<ParentPage />} />
           <Route path="/all-sitters/:id" element={<SitterPage />} />
+
 
           {/* <Route path="/chat" element={<Chat />} /> */}
 

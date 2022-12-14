@@ -9,7 +9,7 @@ export default function ParentPage() {
     fetch(`http://localhost:3001/all-parents/${id}`, {
       credentials: 'include',
     })
-    // .then((res) => console.log(res))
+      // .then((res) => console.log(res))
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);

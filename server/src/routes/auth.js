@@ -37,7 +37,6 @@ router.post('/signup', async (req, res) => {
     } = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { email } });
-    console.log('user post sign up', user);
     if (!user) {
       const newUser = await User.create({
         name, email, password: hashedPass, role,
@@ -47,10 +46,11 @@ router.post('/signup', async (req, res) => {
       delete auth.createdAt;
       delete auth.updatedAt;
       req.session.auth = auth;
-      return res.json(auth);
+      return res.json({ auth });
     }
+    return res.json({ error: 'Такой пользователь уже зарегистрирован' });
   } catch (error) {
-    return res.status(400).json({ msg: error.message });
+    console.log(error);
   }
 });
 
