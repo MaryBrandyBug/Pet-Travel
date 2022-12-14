@@ -12,9 +12,8 @@ export default function Main() {
           <div className="slide slide-2">slide 2</div>,
           <div className="slide slide-3">slide 3</div>,
         ]}
-        pageWidth={1280}
+        pageWidth={1900}
       />
-      {/* <Map /> */}
     </div>
   );
 }

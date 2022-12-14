@@ -10,6 +10,7 @@ import bird from '../../icons/bird.png';
 import rabbit from '../../icons/rabbit.png';
 import horse from '../../icons/horse.png';
 import './ParentSearch.css';
+import Map from '../Map/Map';
 
 export default function ParentSearch() {
   const dispatch = useDispatch();
@@ -26,9 +27,10 @@ export default function ParentSearch() {
   }, []);
 
   const parents = useSelector((store) => store.allParentsStore.allParentsProfiles);
+  // console.log('parents', parents);
 
   const pets = useSelector((store) => store.allParentsStore.allPets);
-  console.log(pets);
+  // console.log(pets);
 
   const findPets = (id) => {
     const pet = pets?.filter((el) => el.ParentProfileId === id);
@@ -56,7 +58,7 @@ export default function ParentSearch() {
         types[i] = horse;
       }
     }
-    console.log(types);
+    // console.log(types);
     return types.map((el) => <img className="img_animal" src={el} alt="" />);
   };
 
@@ -89,6 +91,7 @@ export default function ParentSearch() {
           ))}
         </div>
       </div>
+      {/* <Map parents={parents} /> */}
     </div>
   );
 }
