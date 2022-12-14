@@ -45,6 +45,8 @@ import ParentPage from './components/ParentPage/ParentPage';
 function App() {
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line no-unused-vars
+
   const [ws, setWs] = useState(null);
 
   const [load, setLoad] = useState(true);

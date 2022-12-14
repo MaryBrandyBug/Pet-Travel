@@ -67,27 +67,112 @@ export default function SitterProfile() {
             <div className="SitterProfile_info_main">
               <h3>Ваш профиль</h3>
               <div className="SitterProfile_published">
-                {sitter?.published ? <span className="info_published_true">Опубликовано</span>
-                  : <span className="info_published_false">Не опубликовано</span>}
+                <div className="SitterProfile_published_text">
+                  <span>Статус публикации:</span>
+                </div>
+                <div className="SitterProfile_published_text">
+                  {sitter?.published
+                    ? <button className="published_false" type="button" onClick={handlePublish}>Не публиковать</button>
+                    : <button className="published_true" type="button" onClick={handlePublish}>Публиковать</button>}
+                </div>
+              </div>
+              <div className="SitterProfile_photos">
+                <div className="SitterProfile_photos_addPhoto">
+                  <div className="SitterProfile_photo">
+                    <div />
+                  </div>
+                  <div>
+                    <input type="file" />
+                  </div>
+                  <div>
+                    <button type="button">Добавить</button>
+                  </div>
+                </div>
+                <div className="SitterProfile_photos_addPhoto">
+                  <div className="SitterProfile_photo">
+                    <div />
+                  </div>
+                  <div>
+                    <input type="file" />
+                  </div>
+                  <div>
+                    <button type="button">Добавить</button>
+                  </div>
+                </div>
+                <div className="SitterProfile_photos_addPhoto">
+                  <div className="SitterProfile_photo">
+                    <div />
+                  </div>
+                  <div>
+                    <input type="file" />
+                  </div>
+                  <div>
+                    <button type="button">Добавить</button>
+                  </div>
+                </div>
+                <div className="SitterProfile_photos_addPhoto">
+                  <div className="SitterProfile_photo">
+                    <div />
+                  </div>
+                  <div>
+                    <input type="file" />
+                  </div>
+                  <div>
+                    <button type="button">Добавить</button>
+                  </div>
+                </div>
+                <div className="SitterProfile_photos_addPhoto">
+                  <div className="SitterProfile_photo">
+                    <div />
+                  </div>
+                  <div>
+                    <input type="file" />
+                  </div>
+                  <div>
+                    <button type="button">Добавить</button>
+                  </div>
+                </div>
               </div>
               <div className="SitterProfile_location">
-                <span>{sitter?.city}, {sitter?.country}</span>
+                <div className="SitterProfile_location_text">
+                  <div className="SitterProfile_location_text_head">
+                    Ваш город:
+                  </div>
+                  <div>
+                    {sitter?.city}
+                  </div>
+                </div>
+                <div className="SitterProfile_location_text">
+                  <div className="SitterProfile_location_text_head">
+                    Ваша страна:
+                  </div>
+                  <div>
+                    {sitter?.country}
+                  </div>
+                </div>
               </div>
               <div className="SitterProfile_photos">ТУТ ФОТКИ ТИПА</div>
               <div>
                 <div className="SitterProfile_about">
-                  <h4>Обо мне</h4>
-                  <p>{sitter?.aboutMe}</p>
+                  <div>
+                    <h4>Обо мне</h4>
+                  </div>
+                  <div>
+                    <p>{sitter?.aboutMe}</p>
+                  </div>
                 </div>
                 <div className="SitterProfile_careAbout">
                   <h4>Есть опыт ухода за: </h4>
-                  <div className="petList">{careAboute().map((el) => <div><span className="pets">{el}</span></div>)}<div />
+                  <div className="petList">
+                    {careAboute().map((el) => (
+                      <div className="pets">
+                        <span>{el}</span>
+                      </div>
+                    ))}
+                    <div />
                   </div>
                 </div>
-                <div>
-                  <button type="button" onClick={handlePublish}>Опубликовать</button>
-                </div>
-                <div>
+                <div className="btn_update">
                   <Link to="/profile/sitter/update-sitter-profile">
                     <button type="button">Изменить данные профиля</button>
                   </Link>

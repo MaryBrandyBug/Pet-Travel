@@ -1,6 +1,60 @@
+.container_SitterProfile {
+  padding: 50px;
+}
 .petList {
   display: flex;
+}
+.SitterProfile_published {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.SitterProfile_published_text {
+  margin-right: 15px;
+}
+.SitterProfile_photos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.SitterProfile_photos_addPhoto {
+  width: 200px;
+  height: 280px;
+  display: flex;
   flex-direction: column;
+  justify-content: space-around;
+}
+.SitterProfile_photo {
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+}
+.SitterProfile_location_text {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px; 
+}
+.SitterProfile_location_text_head {
+  margin-right: 15px;
+}
+.published_true {
+  background-color: rgb(43, 133, 43);
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+}
+.published_false {
+  background-color: rgb(164, 70, 70);
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+}
+.pets {
+  margin-top: 15px;
+  margin-bottom: 15px; 
+  margin-right: 15px;
 }
 
 .container_SitterProfile_info {
@@ -18,3 +72,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.btn_update {
+  margin-top: 15px;
+  margin-bottom: 15px; 
+}
+
