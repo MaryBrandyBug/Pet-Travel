@@ -1,4 +1,6 @@
+
 import React, { useEffect, useState } from 'react';
+
 import { useParams, Link } from 'react-router-dom';
 import './SitterPage.css';
 import Slider from '../Slider/Slider';
@@ -6,6 +8,7 @@ import Slider from '../Slider/Slider';
 export default function SitterPage() {
   const { id } = useParams();
   const [sitter, setSitter] = useState({});
+
 
   useEffect(() => {
     fetch(`http://localhost:3001/all-sitters/${id}`, {
@@ -15,6 +18,7 @@ export default function SitterPage() {
       .then((data) => setSitter(data));
   }, []);
   console.log('sitter', sitter);
+
   return (
     <div>
 

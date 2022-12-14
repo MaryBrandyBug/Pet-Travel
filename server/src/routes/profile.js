@@ -45,10 +45,32 @@ router.post('/create-parent-profile', async (req, res) => {
 router.post('/create-sitter-profile', async (req, res) => {
   try {
     const {
-      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+      status,
+      country,
+      city,
+      aboutMe,
+      cats,
+      dogs,
+      fish,
+      horses,
+      birds,
+      reptiles,
+      smallPets,
+      UserId,
     } = req.body;
     const sitterProfile = await SitterProfile.create({
-      status, country, city, aboutMe, cats, dogs, fish, horses, birds, reptiles, smallPets, UserId,
+      status,
+      country,
+      city,
+      aboutMe,
+      cats,
+      dogs,
+      fish,
+      horses,
+      birds,
+      reptiles,
+      smallPets,
+      UserId,
     });
     const sitterData = sitterProfile.get();
     res.json({ sitter: sitterData });

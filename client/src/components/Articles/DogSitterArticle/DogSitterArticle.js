@@ -1,11 +1,16 @@
 import React from 'react';
+import dogSitters from '../../../imgArticles/dogSitters.webp';
 
 export default function DogSitterArticle() {
   return (
     <div>
       <div>
         <h1>СИТТЕРЫ ДЛЯ СОБАК</h1>
-        <div>ФОТО</div>
+        <div>
+          <div className="div_article_img">
+            <img className="article_img" src={dogSitters} alt="dog" />
+          </div>
+        </div>
         <p>
           Есть ли что-нибудь лучше, чем найти ситтера, которому можно доверять?
           Ваш питомец может наслаждаться своими любимыми игрушками (и собственным диваном), а вы можете наслаждаться своим временем вдали от дома, зная, что о вашем лучшем друге заботятся должным образом.
