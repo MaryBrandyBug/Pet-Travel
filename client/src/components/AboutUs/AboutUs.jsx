@@ -4,7 +4,7 @@ import Pictures from './Elbrus.png';
 
 export default function AboutUs() {
   return (
-    <div>
+    <div className="About_container">
       <div className="About_text">
         <div>
           <p>
