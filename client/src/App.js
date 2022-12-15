@@ -125,8 +125,12 @@ function App() {
                 <Route path="create-parent-profile" element={<ParentProfileForm />} />
                 <Route path="create-sitter-profile" element={<SitterProfileForm />} />
               </Route>
+              <Route path="my-chats" element={<MyDialogs />} />
               <Route path="settings" element={<Settings />} />
               <Route path="reviews" element={<ProfileReviews />} />
+              <Route path="my-chats" element={<MyDialogs />} />
+              <Route path="my-chats/chat/:id" element={<MyDialogsChat ws={ws} />} />
+
               <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
               <Route path="parent/update-parent-profile" element={<UpdateParent />} />
             </Route>
@@ -134,17 +138,19 @@ function App() {
 
           <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
           <Route path="/all-parents/chat/:id" element={<ChatForTwo ws={ws} />} />
-          <Route path="/my-chats" element={<MyDialogs />} />
+
+          {/* <Route path="/my-chats" element={<MyDialogs />} /> */}
+          {/* <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} /> */}
+
           <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
 
-          {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
-          {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
           <Route path="/all-sitters" element={<SitterSearch />} />
           <Route path="/all-parents" element={<ParentSearch />} />
 
           <Route path="/all-parents/:id" element={<ParentPage />} />
           <Route path="/all-sitters/:id" element={<SitterPage />} />
+
           <Route path="/review-parent/:id" element={<FormReviews />} />
 
           <Route element={<ProtectedRoute />}>

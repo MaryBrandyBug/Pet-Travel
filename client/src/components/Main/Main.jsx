@@ -22,10 +22,10 @@ export default function Main() {
 
   return (
     <div>
-      <div>
+      <div className="slider">
         <Slider
           sliderItems={[
-            <div className="slide slide-1">slide 1</div>,
+            <div className="slide slide-1"><div className="slide_txt">Команда Pet&Travel поздравляет Вас с наступающим Новым Годом!</div></div>,
             <div className="slide slide-2">slide 2</div>,
             <div className="slide slide-3">slide 3</div>,
           ]}
@@ -70,17 +70,20 @@ export default function Main() {
       </div>
       <div className="div_reviews">
         <h3>Отзывы наших пользователей</h3>
-        <div className="reviews">
+        <div className="reviews_app">
           {reviews?.map((el) => (
             <div className="one_review">
               <div className="one_review_content">
                 <span>{el.raiting}</span>
-                <span>{el.User.name}</span>
-                <span>{el.title}</span>
+                <span className="span_name">{el.User.name}, {el.createdAt?.toLocaleString().substring(0, 11).split('T').join(' ')}</span>
+                <span className="span_title">{el.title}</span>
                 <span>{el.reviewText}</span>
               </div>
             </div>
           ))}
+        </div>
+        <div className="review_btn">
+          <Link to="/appreview"><div><span>Оставить отзыв о нас</span></div></Link>
         </div>
       </div>
       <div className="read_article">
@@ -102,9 +105,6 @@ export default function Main() {
           <Link to="/all-sitters"><div><span>Найти ситтера</span></div></Link>
           <Link to="/all-parents"><div><span>Найти дом</span></div></Link>
         </div>
-      </div>
-      <div className="review_btn">
-        <Link to="/appreview"><div><span>Оставить отзыв о нас</span></div></Link>
       </div>
     </div>
   );

@@ -27,10 +27,9 @@
   justify-content: space-around;
   margin-right: 15px;
 }
-.SitterProfile_photo {
+.SitterProfile_photo>img {
   width: 200px;
   height: 200px;
-  background-color: aqua;
 }
 .SitterProfile_location_text {
   display: flex;
