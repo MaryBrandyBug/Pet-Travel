@@ -1,5 +1,5 @@
 .dropbtn {
-  background-color: #4d4d4d;
+  background-color: #FFCF48;
   color: #f1f1f1;
   font-size: 25px;
   border: none;
@@ -43,7 +43,7 @@
 .nav {
   height: 70px;
   width: 1280px;
-  background-color: #4d4d4d;
+  background-color: #FFCF48;
   position: relative;
   margin: auto;
   display: flex;
@@ -142,8 +142,12 @@
 }
 
 .findTestClass {
+
+  margin-left: 100px;
+
   width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
 }

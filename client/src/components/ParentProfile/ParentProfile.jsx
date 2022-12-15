@@ -29,20 +29,26 @@ export default function ParentProfile() {
             <h3>Ваш профиль</h3>
             <div className="ParentProfile_published">
               {parent?.profile.published
-                ? <span className="info_published_true">Опубликовано</span>
-                : <span className="info_published_false">Не опубликовано</span>}
+                ? <button className="published_false" type="button" onClick={handlePublish}>Не публиковать</button>
+                : <button className="published_true" type="button" onClick={handlePublish}>Публиковать</button>}
             </div>
-            <div className="ParentProfile_photos">ТУТ ФОТКИ ТИПА</div>
           </div>
           <div className="ParentProfile_info_title">
             <h4>Заголовок</h4>
             <span>{parent.profile.title}</span>
-            <span>{parent.profile.city}, {parent.profile.country}</span>
           </div>
           <div className="ParentProfile_info_list">
             <div className="list_introduction">
               <h4>О себе</h4>
               <p>{parent.profile.introduction}</p>
+            </div>
+            <div className="list_introduction">
+              <h4>Ваша страна</h4>
+              <p>{parent.profile.country}</p>
+            </div>
+            <div className="list_introduction">
+              <h4>Ваш город</h4>
+              <p>{parent.profile.city}</p>
             </div>
             <div className="list_ilocation">
               <h4>Дом&Локация</h4>
@@ -72,14 +78,21 @@ export default function ParentProfile() {
             <div className="petContainer">
               {parent.pet?.map((el) => (
                 <div className="petContainer_card">
-                  <div className="petContainer_photo">ФОТО ПИТОМЦА</div>
+                  <div className="petContainer_photo">
+                    <div className="petContainer_photo_pet_photo">
+                      <div />
+                    </div>
+                    <div>
+                      <input type="file" />
+                    </div>
+                    <div>
+                      <button type="button">Добавить</button>
+                    </div>
+                  </div>
                   <div className="petContainer_petName"><p>{el?.petName}</p></div>
                   <div className="petContainer_petAge"><p>{el?.petAge} лет</p></div>
                 </div>
               ))}
-            </div>
-            <div>
-              <button type="button" onClick={handlePublish}>Опубликовать</button>
             </div>
             <div>
               <Link to="/profile/parent/update-parent-profile">
@@ -91,9 +104,18 @@ export default function ParentProfile() {
         </div>
       )
         : (
-          <Link to="/profile/create-parent-profile">
-            <button type="button">Заполнить анкету</button>
-          </Link>
+          <div className="btn_add_prifile">
+            <div className="btn_add_prifile_p">
+              <p>
+                У вас еще нет заполеннной анкеты.
+              </p>
+            </div>
+            <div>
+              <Link to="/profile/create-parent-profile">
+                <button type="button">Заполнить анкету</button>
+              </Link>
+            </div>
+          </div>
         )}
     </div>
   );

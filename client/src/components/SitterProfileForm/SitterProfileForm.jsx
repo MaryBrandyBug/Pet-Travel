@@ -49,49 +49,88 @@ export default function SitterProfileForm() {
   };
   console.log(sitterProfileForm);
   return (
-    <div>
+    <div className="Update_sitter_profile">
       <form onSubmit={handleSubmit} className="form_sitter">
-        <h3>Создание профиля</h3>
-        {/* <input type="file" name="avatar" onChange={handleInputFiles} /> */}
-        <label>Статус</label>
-        <input type="text" name="status" onChange={handleInput} />
-        <label>Страна</label>
-        <input type="text" name="country" onChange={handleInput} />
-        <label>Город</label>
-        <input type="text" name="city" onChange={handleInput} />
-        <label>Обо мне</label>
-        <input type="text" name="aboutMe" onChange={handleInput} />
-        <fieldset>
+        <div>
+          <h3>Создание профиля</h3>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Статус</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <textarea type="text" name="status" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Страна</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="country" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Город</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="city" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Обо мне</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <textarea type="text" name="aboutMe" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="cats" onChange={handleInput} />
             Кошки
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="dogs" onChange={handleInput} />
             Собаки
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="fish" onChange={handleInput} />
             Рыбы
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="birds" onChange={handleInput} />
             Птицы
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="horses" onChange={handleInput} />
             Лошади
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="reptiles" onChange={handleInput} />
             Рептилии
           </label>
+        </div>
+        <div className="Update_sitter_input">
           <label>
             <input type="checkbox" name="smallPets" onChange={handleInput} />
             Мелкие животные
           </label>
-        </fieldset>
-        <button type="submit">Создать</button>
+        </div>
+        <div className="Update_sitter_input">
+          <button type="submit">Создать</button>
+        </div>
       </form>
     </div>
   );

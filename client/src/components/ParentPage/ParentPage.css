@@ -1,0 +1,36 @@
+.parentInfo {
+  border: 2px solid darkgreen;
+  margin: 10px;
+  padding: 5px;
+  /*   display: block;
+  position: sticky; */
+  top: 90px;
+  right: 325px;
+
+  width: 600px;
+  height: 200px;
+
+}
+
+.info-one{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.info-2{
+  border: 2px solid darkgreen;
+  margin: 10px;
+  padding: 5px;
+  top: 90px;
+  right: 325px;
+
+  width: 800px;
+  height: 400px;
+
+}
+.container-parentPage{
+  display: flex;
+  flex-wrap: wrap
+  
+}

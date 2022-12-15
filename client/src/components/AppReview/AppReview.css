@@ -58,5 +58,11 @@ fieldset, label { margin: 0; padding: 0; }
   height: 30px;
 }
 
-
+.text_review button {
+  background-color: #FFCF48;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
 

@@ -10,8 +10,8 @@ export default function ParentProfileForm() {
 
   const [pets, setPets] = useState([{}]);
 
-  const [dateDiv2, setDateDiv2] = useState('hidden');
-  const [dateDiv3, setDateDiv3] = useState('hidden');
+  // const [dateDiv2, setDateDiv2] = useState('hidden');
+  // const [dateDiv3, setDateDiv3] = useState('hidden');
 
   const [parentProfileForm, setParentProfileForm] = useState({
     title: '',
@@ -32,13 +32,13 @@ export default function ParentProfileForm() {
     setParentProfileForm({ ...parentProfileForm, [e.target.name]: e.target.value });
   };
 
-  const handleAddDate2 = () => (
-    setDateDiv2('visible')
-  );
+  // const handleAddDate2 = () => (
+  //   setDateDiv2('visible')
+  // );
 
-  const handleAddDate3 = () => (
-    setDateDiv3('visible')
-  );
+  // const handleAddDate3 = () => (
+  //   setDateDiv3('visible')
+  // );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,83 +81,176 @@ export default function ParentProfileForm() {
     console.log(i);
     return (
       <>
-        <button type="button">Добавить фото питомца</button>
-        <label>Имя питомца</label>
-        <input type="text" name="petName" onChange={(e) => handlePet(e, i)} />
-        <label>Возраст питомца</label>
-        <input type="text" name="petAge" onChange={(e) => handlePet(e, i)} />
-        <p>
-          <input type="radio" name={`type${i}`} value="cat" onChange={(e) => handlePet(e, i)} />
-          Кошка
-        </p>
-        <p>
-          <input type="radio" name={`type${i}`} value="dog" onChange={(e) => handlePet(e, i)} />
-          Собака
-        </p>
-        <p>
-          <input type="radio" name={`type${i}`} value="bird" onChange={(e) => handlePet(e, i)} />
-          Птица
-        </p>
-        <p>
-          <input type="radio" name={`type${i}`} value="fish" onChange={(e) => handlePet(e, i)} />
-          Рыбки
-        </p>
-        <p>
-          <input type="radio" name={`type${i}`} value="horse" onChange={(e) => handlePet(e, i)} />
-          Лошадь
-        </p>
-        <p>
-          <input type="radio" name={`type${i}`} value="small" onChange={(e) => handlePet(e, i)} />
-          Малкие животные
-        </p>
-        <p>
-          <input type="radio" name={`type${i}`} value="reptiles" onChange={(e) => handlePet(e, i)} />
-          Рептилия
-        </p>
+        {/* <button type="button">Добавить фото питомца</button> */}
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Имя питомца</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="petName" onChange={(e) => handlePet(e, i)} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Возраст питомца</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="petAge" onChange={(e) => handlePet(e, i)} />
+          </div>
+        </div>
+        <div className="radio_input_pet">
+
+          <p>
+            <input type="radio" name={`type${i}`} value="cat" onChange={(e) => handlePet(e, i)} />
+            Кошка
+          </p>
+          <p>
+            <input type="radio" name={`type${i}`} value="dog" onChange={(e) => handlePet(e, i)} />
+            Собака
+          </p>
+          <p>
+            <input type="radio" name={`type${i}`} value="bird" onChange={(e) => handlePet(e, i)} />
+            Птица
+          </p>
+          <p>
+            <input type="radio" name={`type${i}`} value="fish" onChange={(e) => handlePet(e, i)} />
+            Рыбки
+          </p>
+          <p>
+            <input type="radio" name={`type${i}`} value="horse" onChange={(e) => handlePet(e, i)} />
+            Лошадь
+          </p>
+          <p>
+            <input type="radio" name={`type${i}`} value="small" onChange={(e) => handlePet(e, i)} />
+            Малкие животные
+          </p>
+          <p>
+            <input type="radio" name={`type${i}`} value="reptiles" onChange={(e) => handlePet(e, i)} />
+            Рептилия
+          </p>
+        </div>
       </>
     );
   };
 
   return (
-    <div>
+    <div className="Update_sitter_profile">
       <form onSubmit={handleSubmit} className="form_parent">
-        <h3>Создание профиля</h3>
-        <button type="button">Добавить фото</button>
-        <label>Заголовок</label>
-        <input type="text" name="title" onChange={handleInput} />
-        <label>Страна</label>
-        <input type="text" name="country" onChange={handleInput} />
-        <label>Город</label>
-        <input type="text" name="city" onChange={handleInput} />
-        <label>Введение</label>
-        <input type="text" name="introduction" onChange={handleInput} />
-        <label>Дом & Локация</label>
-        <input type="text" name="location" onChange={handleInput} />
-        <label>Обязанности</label>
-        <input type="text" name="responsibilities" onChange={handleInput} />
-        <label>С</label> {/* дата 1 */}
-        <input type="date" name="dateSince1" onChange={handleInput} />
-        <label>По</label>
-        <input type="date" name="dateUntil1" onChange={handleInput} />
-        <div style={{ visibility: `${dateDiv2}` }}>
-          <label>С</label> {/* дата 2 */}
-          <input type="date" name="dateSince2" value="" onChange={handleInput} />
-          <label>По</label>
-          <input type="date" name="dateUntil2" value="" onChange={handleInput} />
+        <div>
+          <h3>Создание профиля</h3>
+        </div>
+        {/* <button type="button">Добавить фото</button> */}
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Заголовок</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="title" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Страна</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="country" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Город</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="city" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Введение</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="introduction" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Дом & Локация</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="location" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Обязанности</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="responsibilities" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>С</label> {/* дата 1 */}
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="date" name="dateSince1" onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>По</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="date" name="dateUntil1" onChange={handleInput} />
+          </div>
+        </div>
+        {/* <div style={{ visibility: `${dateDiv2}` }}>
+          <div className="Update_sitter_input">
+            <div className="Update_sitter_input_text">
+              <label>С</label>
+            </div>
+            <div className="Update_sitter_input_text">
+              <input type="date" name="dateSince2" value="" onChange={handleInput} />
+            </div>
+          </div>
+          <div className="Update_sitter_input">
+            <div className="Update_sitter_input_text">
+              <label>По</label>
+            </div>
+            <div className="Update_sitter_input_text">
+              <input type="date" name="dateUntil2" value="" onChange={handleInput} />
+            </div>
+          </div>
         </div>
         <div style={{ visibility: `${dateDiv3}` }}>
-          <label>С</label> {/* дата 3 */}
-          <input type="date" name="dateSince3" value="" onChange={handleInput} />
-          <label>По</label>
-          <input type="date" name="dateUntil3" value="" onChange={handleInput} />
-        </div>
-        <button type="button" onClick={handleAddDate2}>Добавить дату</button>
-        <button type="button" onClick={handleAddDate3}>Добавить дату</button>
+          <div className="Update_sitter_input">
+            <div className="Update_sitter_input_text">
+              <label>С</label>
+            </div>
+            <div className="Update_sitter_input_text">
+              <input type="date" name="dateSince3" value="" onChange={handleInput} />
+            </div>
+          </div>
+          <div className="Update_sitter_input">
+            <div className="Update_sitter_input_text">
+              <label>По</label>
+            </div>
+            <div className="Update_sitter_input_text">
+              <input type="date" name="dateUntil3" value="" onChange={handleInput} />
+            </div>
+          </div>
+        </div> */}
+        {/* <button type="button" onClick={handleAddDate2}>Добавить дату</button>
+        <button type="button" onClick={handleAddDate3}>Добавить дату</button> */}
         <h4>Ваши питомцы:</h4>
         {pets.map((el, i) => pet(i))}
         {/* pet */}
-        <button type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
-        <button type="submit">Создать</button>
+        <div className="Update_sitter_input">
+          <button type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
+        </div>
+        <div className="Update_sitter_input">
+          <button type="submit">Создать</button>
+        </div>
       </form>
     </div>
   );
