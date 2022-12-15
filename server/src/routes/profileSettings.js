@@ -4,6 +4,7 @@ const filemiddleware = require('../middlewares/file');
 const { User, SitterProfile } = require('../../db/models');
 
 router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
+
   try {
     if (req.file) {
       const userId = await User.findOne({ where: { id: req.body.id } });

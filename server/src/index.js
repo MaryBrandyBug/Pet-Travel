@@ -5,6 +5,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
+
 const http = require('http');
 const wss = require('../ws');
 
@@ -42,6 +43,7 @@ const sitterPageRouter = require('./routes/sitterPageRouter');
 const parentPageRouter = require('./routes/parentPageRouter');
 const dialogRouter = require('./routes/diaolgsRouter');
 const dialogChatRouter = require('./routes/dialogsChatRouter');
+const formReviewsRouter = require('./routes/formReviewsRouter');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -71,6 +73,7 @@ app.use('/', appReview);
 app.use('/', parentPageRouter);
 app.use('/', dialogRouter);
 app.use('/', dialogChatRouter);
+app.use('/', formReviewsRouter);
 
 // app.use('/chat', chatRouter);
 

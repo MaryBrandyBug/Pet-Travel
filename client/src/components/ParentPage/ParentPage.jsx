@@ -63,6 +63,12 @@ export default function ParentPage() {
         </div>
         <Link to={`/all-parents/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
       </div>
+      <div>
+
+        <Link to={`/review-parent/${id}`}><button type="button">Оставить отзыв</button></Link>
+
+      </div>
+
       <div className="info-2">
         <div className="title-1">
           <h4>Введение</h4>

@@ -7,7 +7,7 @@ const {
 router.get('/all-parents/:id', async (req, res) => {
   try {
     const parent = await ParentProfile.findOne({ where: { id: req.params.id }, include: [User, Pet] });
-    console.log(parent);
+    // console.log(parent);
     const parentData = parent.get();
     res.json(parentData);
   } catch (error) {

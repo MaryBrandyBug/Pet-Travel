@@ -17,7 +17,7 @@ module.exports = {
       },
       raiting: {
         type: Sequelize.FLOAT,
-        allowNull: false,
+        allowNull: true,
       },
       reviewText: {
         type: Sequelize.TEXT,
@@ -25,7 +25,7 @@ module.exports = {
       },
       ParentProfileId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'ParentProfiles',
           key: 'id',

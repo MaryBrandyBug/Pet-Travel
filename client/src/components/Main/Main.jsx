@@ -18,7 +18,7 @@ export default function Main() {
       .then((res) => setReviews(res));
   }, []);
 
-  console.log('🚀🚀🚀 =>=>=> file: Main.jsx:12 =>=>=> Main =>=>=> reviews', reviews);
+  // console.log('🚀🚀🚀 =>=>=> file: Main.jsx:12 =>=>=> Main =>=>=> reviews', reviews);
 
   return (
     <div>
