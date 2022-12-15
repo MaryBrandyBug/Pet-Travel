@@ -2,7 +2,9 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { where } = require('sequelize');
 const filemiddleware = require('../middlewares/file');
-const { User, SitterProfile, Pet } = require('../../db/models');
+const {
+  User, SitterProfile, Pet, ParentProfile,
+} = require('../../db/models');
 
 router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
   try {
@@ -73,6 +75,18 @@ router.post('/uploadsitter5', filemiddleware.single('avatar'), async (req, res) 
       const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
       const addPhoto5 = await sitterId.update({ sitterPh5: req.file.filename });
       res.json({ addPhoto5 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadparent1', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body);
+  try {
+    if (req.file) {
+      const sitterId = await ParentProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto1 = await sitterId.update({ parentPh1: req.file.filename });
+      res.json({ addPhoto1 });
     }
   } catch (error) {
     console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
