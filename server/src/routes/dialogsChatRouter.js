@@ -19,9 +19,9 @@ router.post('/get-all-messages', async (req, res) => {
           { UserId: trueReceiverId, receiverId: UserId },
         raw: true,
       });
-      const AllMessages = [];
-      AllMessages.push(messagesReceived, messagesSent);
-      // const AllMessages = [...messagesSent, ...messagesReceived];
+      // const AllMessages = [];
+      // AllMessages.push(messagesReceived, messagesSent);
+      const AllMessages = [...messagesSent, ...messagesReceived];
       res.json(AllMessages);
     } catch (error) {
       console.log(error);
@@ -41,9 +41,9 @@ router.post('/get-all-messages', async (req, res) => {
           { UserId: trueReceiverId, receiverId: UserId },
         raw: true,
       });
-      const AllMessages = [];
-      AllMessages.push(messagesReceived, messagesSent);
-      // const AllMessages = [...messagesSent, ...messagesReceived];
+      // const AllMessages = [];
+      // AllMessages.push(messagesReceived, messagesSent);
+      const AllMessages = [...messagesSent, ...messagesReceived];
       res.json(AllMessages);
     } catch (error) {
       console.log(error);

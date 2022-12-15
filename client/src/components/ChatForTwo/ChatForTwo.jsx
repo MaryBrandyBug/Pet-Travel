@@ -4,12 +4,17 @@ import { useParams } from 'react-router-dom';
 import './ChatForTwo.css';
 
 export default function ChatForTwo({ ws }) {
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
+  const [input, setInput] = useState('');
+
   const [messages, setMessages] = useState([]);
 
   const user = useSelector((store) => store.userStore.auth);
   const receiverProfileId = useParams().id;
 
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
   const submitMessage = (senderId, userName, msg, userRole) => {
     const messageNew = {
       receiverProfileId: +receiverProfileId,
@@ -17,6 +22,7 @@ export default function ChatForTwo({ ws }) {
       userName,
       message: msg,
       userRole,
+      createdAt: new Date(),
     };
     ws.send(JSON.stringify(messageNew));
     console.log('messGE submit', messageNew);
@@ -33,7 +39,8 @@ export default function ChatForTwo({ ws }) {
         body: JSON.stringify({ UserId: user.id, receiverId: receiverProfileId, userRole: user.role }),
       });
       const result = await response.json();
-      setMessages(result.sort((a, b) => b.createdAt - a.createdAt));
+      console.log('RESULT CHAT FOR TWO++++++++++++++++++++', result);
+      setMessages(result.sort((a, b) => (b.createdAt < a.createdAt ? 1 : -1)));
     };
     getMessages();
   }, []);
@@ -81,15 +88,17 @@ export default function ChatForTwo({ ws }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              submitMessage(user.id, user.name, message, user.role);
+              submitMessage(user.id, user.name, input, user.role);
               setMessage('');
             }}
           >
             <input
               type="text"
               placeholder="Type a message ..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              value={input}
+              name="message"
+              onChange={handleInput}
+            // onChange={(e) => setMessage(e.target.value)}
             />
             <input type="submit" value="Отправить" />
           </form>

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import './MyDialogsChat.css';
 
 export default function MyDialogsChat({ ws }) {
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
   const [messages, setMessages] = useState(null);
   const [input, setInput] = useState('');
 
