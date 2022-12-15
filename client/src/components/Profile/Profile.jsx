@@ -10,7 +10,7 @@ import './Profile.css';
 export default function Profile() {
   const user = useSelector((store) => store.userStore.auth);
 
-  console.log(user);
+  // console.log(user);
   // const sitter = useSelector((store) => store.sitterStore.sitter);
   console.log();
 

@@ -19,7 +19,7 @@ export default function SitterSearch() {
 
   const allSitters = useSelector((store) => store.allSittersStore.allSittersProfiles);
 
-  console.log(allSitters?.map((el) => el.city)); // почему здесь auth??
+  // console.log(allSitters?.map((el) => el.city)); // почему здесь auth??
 
   const [value, setValue] = useState('');
   const filteredSitters = allSitters?.filter((el) => el.city.toLowerCase().includes(value.toLowerCase()));

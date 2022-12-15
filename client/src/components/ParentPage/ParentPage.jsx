@@ -1,22 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-// import Map from '../Map/Map';
 
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Map from '../Map/Map';
 import Slider from '../Slider/Slider';
 import './ParentPage.css';
+
 
 export default function ParentPage() {
   const { id } = useParams();
   const [parent, setParent] = useState({});
+
+  const user = useSelector((store) => store.userStore.auth);
+
   useEffect(() => {
     fetch(`http://localhost:3001/all-parents/${id}`, {
       credentials: 'include',
     })
-      // .then((res) => console.log(res))
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
-  // console.log('🚀🚀🚀 =>=>=> file: ParentPage.jsx:8 =>=>=> ParentPage =>=>=> parent', parent);
+
+  const handleCreateChat = () => {
+    fetch(`http://localhost:3001/all-parents/chat/${id}`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userFrom: user.id, userTo: parent.UserId }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   return (
     <div className="container-parentPage">
       <div className="info-one">
@@ -32,6 +49,7 @@ export default function ParentPage() {
             pageWidth={600}
           />
         </div>
+
         <div className="parentInfo">
           <div className="parentName">
             <h3>{parent?.User?.name}</h3>
@@ -42,7 +60,9 @@ export default function ParentPage() {
             {/* <button type="button">Начать чат</button> */}
             {/* <button type="button" onClick={() => console.log(parent?.Pets[0].petName)}>Test</button> */}
           </div>
+
         </div>
+        <Link to={`/all-parents/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
       </div>
       <div className="info-2">
         <div className="title-1">
