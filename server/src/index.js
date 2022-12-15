@@ -73,7 +73,6 @@ app.use('/', parentPageRouter);
 app.use('/profile', profileRouter);
 app.use('/profile', profileSetRouter);
 
-
 app.locals.wsClients = new Map();
 
 server.on('upgrade', (req, socket, head) => {

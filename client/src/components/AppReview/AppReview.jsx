@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './AppReview.css';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function AppReview() {
-  const user = useSelector((store) => store.userStore);
+  const user = useSelector((store) => store.userStore.auth);
+  const navigate = useNavigate();
   const [reviewAppForm, setReviewAppForm] = useState({
     reviewText: '',
     rating: '',
@@ -25,6 +27,7 @@ export default function AppReview() {
     })
       .then((res) => res.json())
       .then((res) => console.log(res));
+    navigate('/');
   };
 
   return (

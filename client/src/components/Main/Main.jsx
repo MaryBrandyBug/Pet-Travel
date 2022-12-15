@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from '../Slider/Slider';
 import './Main.css';
@@ -8,6 +8,18 @@ import cuteDog from '../../imgMain/cuteDog.png';
 import redCat from '../../imgMain/redCat.jpg';
 
 export default function Main() {
+  const [reviews, setReviews] = useState();
+
+  useEffect(() => {
+    fetch('http://localhost:3001/appreviews', {
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((res) => setReviews(res));
+  }, []);
+
+  console.log('🚀🚀🚀 =>=>=> file: Main.jsx:12 =>=>=> Main =>=>=> reviews', reviews);
+
   return (
     <div>
       <div>
@@ -54,6 +66,21 @@ export default function Main() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="div_reviews">
+        <h3>Отзывы наших пользователей</h3>
+        <div className="reviews">
+          {reviews?.map((el) => (
+            <div className="one_review">
+              <div className="one_review_content">
+                <span>{el.raiting}</span>
+                <span>{el.User.name}</span>
+                <span>{el.title}</span>
+                <span>{el.reviewText}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <div className="read_article">
