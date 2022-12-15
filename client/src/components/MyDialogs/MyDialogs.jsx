@@ -21,7 +21,8 @@ export default function MyDialogs() {
 
       {dialogs?.map((el) => (
         <div className="dialogLinks">
-          <Link to={`/chat/${el.User.id}`}><h3 className="link">{el.User.name}</h3></Link>
+          <Link to={`/profile/my-chats/chat/${el.User.id}`}><h3 className="link">{el.User.name}</h3></Link>
+          {/* <Link to={`/chat/${el.User.id}`}><h3 className="link">{el.User.name}</h3></Link> */}
         </div>
       ))}
 

@@ -12,7 +12,8 @@ export default function Sidebar() {
         ? <Link to={`/profile/${user?.role}`}><span className="span">Мой профиль</span></Link>
         : <Link to={`/profile/${user?.role}`}><span className="span">Мой профиль</span></Link>}
       {' '}
-      <Link to="/my-chats"><span className="span">Мои диалоги</span></Link>
+      <Link to="/profile/my-chats"><span className="span">Мои диалоги</span></Link>
+      {/*  <Link to="/my-chats"><span className="span">Мои диалоги</span></Link> */}
       {' '}
       <Link to="/profile/reviews"><span className="span">Отзывы</span></Link>
       {' '}

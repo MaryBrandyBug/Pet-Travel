@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Map from '../Map/Map';
+// import Map from '../Map/Map';
 import Slider from '../Slider/Slider';
 import './ParentPage.css';
-
 
 export default function ParentPage() {
   const { id } = useParams();
