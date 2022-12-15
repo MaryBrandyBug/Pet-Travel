@@ -6,7 +6,6 @@ import Map from '../Map/Map';
 import Slider from '../Slider/Slider';
 import './ParentPage.css';
 
-
 export default function ParentPage() {
   const { id } = useParams();
   const [parent, setParent] = useState({});
@@ -20,19 +19,6 @@ export default function ParentPage() {
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
-
-  const handleCreateChat = () => {
-    fetch(`http://localhost:3001/all-parents/chat/${id}`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ userFrom: user.id, userTo: parent.UserId }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
 
   return (
     <div className="container-parentPage">
@@ -85,8 +71,9 @@ export default function ParentPage() {
           </div>
         </div>
       </div>
-      <div className="map">
-        {/* <Map parent={parent} /> */}
+      <div className="maps">
+        {/* <Map parents={[parent]} /> */}
+        <Map parent={parent} />
       </div>
     </div>
   );

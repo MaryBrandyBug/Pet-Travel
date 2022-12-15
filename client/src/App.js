@@ -40,6 +40,7 @@ import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
 import SitterPage from './components/SitterPage/SitterPage';
 import ParentPage from './components/ParentPage/ParentPage';
+import FormReviews from './components/FormReviews/FormReviews';
 import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import MyDialogs from './components/MyDialogs/MyDialogs';
 import MyDialogsChat from './components/MyDialogsChat/MyDialogsChat';
@@ -144,6 +145,8 @@ function App() {
 
           <Route path="/all-parents/:id" element={<ParentPage />} />
           <Route path="/all-sitters/:id" element={<SitterPage />} />
+          
+          <Route path="/review-parent" element={<FormReviews />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/signup" element={<SignUp />} />
