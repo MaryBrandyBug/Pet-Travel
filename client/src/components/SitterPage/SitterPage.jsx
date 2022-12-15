@@ -19,7 +19,7 @@ export default function SitterPage() {
   }, []);
 
   const handleCreateChat = () => {
-    fetch(`http://localhost:3001/all-sitters/chat/${id}`, {
+    fetch(`http://localhost:3001/all-user-dialogs/chat/${id}`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -62,7 +62,7 @@ export default function SitterPage() {
                 <div className="verification">
                   <h4>Прошел проверку документов</h4>
                 </div>
-                <Link to={`/all-sitters/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
+                <Link to={`/all-user-dialogs/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
               </div>
             </div>
           </div>

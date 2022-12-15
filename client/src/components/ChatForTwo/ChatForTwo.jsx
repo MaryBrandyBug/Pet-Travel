@@ -5,7 +5,7 @@ import './ChatForTwo.css';
 
 export default function ChatForTwo({ ws }) {
   const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(null);
 
   const user = useSelector((store) => store.userStore.auth);
   const receiverProfileId = useParams().id;

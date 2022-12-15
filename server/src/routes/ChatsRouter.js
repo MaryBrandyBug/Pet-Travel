@@ -3,6 +3,7 @@ const { Message } = require('../../db/models');
 
 router.post('/get-all-messages', async (req, res) => {
   const { UserId, receiverId } = req.body;
+  console.log(req.body);
   try {
     const messagesSent = await Message.findAll({ where: { UserId, receiverId }, raw: true });
     const messagesReceived = await Message.findAll({

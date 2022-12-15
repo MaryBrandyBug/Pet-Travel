@@ -18,7 +18,7 @@ export default function ParentPage() {
   }, []);
 
   const handleCreateChat = () => {
-    fetch(`http://localhost:3001/all-parents/chat/${id}`, {
+    fetch(`http://localhost:3001/all-user-dialogs/chat/${id}`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -39,7 +39,7 @@ export default function ParentPage() {
           <h4>Требуется няня:</h4>
           <h5>{parent.dateSince1} - {parent.dateUntil1}</h5>
         </div>
-        <Link to={`/all-parents/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
+        <Link to={`/all-user-dialogs/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
       </div>
       <div className="title">
         <h4>Введение</h4>

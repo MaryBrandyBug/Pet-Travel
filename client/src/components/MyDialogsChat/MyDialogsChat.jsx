@@ -37,8 +37,25 @@ export default function MyDialogsChat({ ws }) {
     };
     getMessages();
   }, []);
+  useEffect(
+    () => {
+      if (user) {
+        ws.onopen = () => {
+          console.log('WebSocket Connected');
+          ws.send(JSON.stringify({ type: 'open', payload: user.id }));
+          // ws.send(JSON.stringify({ message }));
+        };
+        ws.onmessage = (e) => {
+          console.log('eeeeeeeeeeeeeeeeeeeeeeeeeee', e);
+          const newMessage = JSON.parse(e.data);
+          setMessages([...messages, newMessage]);
+        };
+      }
+    },
+    [ws],
+  );
   // const sortedMessages = messages.sort((a, b) => a.createdAt - b.createdAt);
-  console.log(messages);
+  console.log('all mesages', messages);
 
   return (
     <div className="chat">
