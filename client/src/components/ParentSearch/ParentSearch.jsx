@@ -27,7 +27,7 @@ export default function ParentSearch() {
   }, []);
 
   const parents = useSelector((store) => store.allParentsStore.allParentsProfiles);
-  // console.log('parents', parents);
+  console.log('parents', parents);
 
   const pets = useSelector((store) => store.allParentsStore.allPets);
   // console.log(pets);
@@ -91,7 +91,9 @@ export default function ParentSearch() {
           ))}
         </div>
       </div>
-      {/* <Map parents={parents} /> */}
+      {/* {
+        parents?.length && <Map parents={parents} />
+      } */}
     </div>
   );
 }

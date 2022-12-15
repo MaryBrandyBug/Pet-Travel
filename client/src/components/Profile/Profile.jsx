@@ -23,7 +23,6 @@ export default function Profile() {
         <div className="rigth_menu">
           <Outlet />
         </div>
-        {/* <Map sitter={sitter} /> */}
       </div>
     </div>
   );

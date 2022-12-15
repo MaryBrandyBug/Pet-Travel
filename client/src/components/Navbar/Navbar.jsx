@@ -69,8 +69,7 @@ export default function Navbar() {
 
           )}
 
-          )
-          : null}
+
         {user
           ? <div><button className="dropbtn" type="button" onClick={handleLogout}>Выход</button></div>
           : null}

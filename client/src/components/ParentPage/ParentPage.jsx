@@ -5,7 +5,6 @@ import Map from '../Map/Map';
 import Slider from '../Slider/Slider';
 import './ParentPage.css';
 
-
 export default function ParentPage() {
   const { id } = useParams();
   const [parent, setParent] = useState({});
@@ -17,9 +16,9 @@ export default function ParentPage() {
       .then((res) => res.json())
       .then((data) => setParent(data));
   }, []);
-  // console.log('🚀🚀🚀 =>=>=> file: ParentPage.jsx:8 =>=>=> ParentPage =>=>=> parent', parent);
+
   return (
-    <div className='container-parentPage'>
+    <div className="container-parentPage">
       <div className="info-one">
         <div className="sliderContainer">
           <Slider
@@ -66,8 +65,9 @@ export default function ParentPage() {
           </div>
         </div>
       </div>
-      <div className="map">
-       {/* <Map parent={parent} />*/}
+      <div className="maps">
+        {/* <Map parents={[parent]} /> */}
+        <Map parent={parent} />
       </div>
     </div>
   );

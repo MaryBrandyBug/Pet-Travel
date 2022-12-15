@@ -41,6 +41,7 @@ import ParentSearch from './components/ParentSearch/ParentSearch';
 import SitterPage from './components/SitterPage/SitterPage';
 import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import ParentPage from './components/ParentPage/ParentPage';
+import FormReviews from './components/FormReviews/FormReviews';
 
 function App() {
   const dispatch = useDispatch();
@@ -158,6 +159,8 @@ function App() {
 
           <Route path="/all-parents/:id" element={<ParentPage />} />
           <Route path="/all-sitters/:id" element={<SitterPage />} />
+          
+          <Route path="/review-parent" element={<FormReviews />} />
 
           {/* <Route path="/chat" element={<Chat />} /> */}
 
