@@ -1,10 +1,11 @@
 import React from 'react';
-// import Map from '../Map/Map';
+import { Link } from 'react-router-dom';
 import Slider from '../Slider/Slider';
 import './Main.css';
 import familyCat from '../../imgMain/familyCat.png';
 import dogGlasses from '../../imgMain/dogGlasses.webp';
 import cuteDog from '../../imgMain/cuteDog.png';
+import redCat from '../../imgMain/redCat.jpg';
 
 export default function Main() {
   return (
@@ -54,6 +55,29 @@ export default function Main() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="read_article">
+        <div className="read_article_photo"><img src={redCat} alt="" /></div>
+        <div className="read_article_content">
+          <h2>Кто такие ситтеры?</h2>
+          <p>Ситтеры - люди, которые составят компанию вашим питомцам и
+            уделят им все свое время, заботу и внимание, пока вас нет дома.
+            Подробнее о ситтерах в наших статьях по ссылкам ниже.
+          </p>
+          <div className="read_article_buttons">
+            <Link to="/dog-sitters"><button type="button">Ситтеры для собак</button></Link>
+            <Link to="/cat-sitters"><button type="button">Ситтеры для кошек</button></Link>
+          </div>
+        </div>
+      </div>
+      <div className="search_links">
+        <div className="search_links_btns">
+          <Link to="/all-sitters"><div><span>Найти ситтера</span></div></Link>
+          <Link to="/all-parents"><div><span>Найти дом</span></div></Link>
+        </div>
+      </div>
+      <div className="review_btn">
+        <Link to="/appreview"><div><span>Оставить отзыв о нас</span></div></Link>
       </div>
     </div>
   );
