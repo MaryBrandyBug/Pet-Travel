@@ -56,7 +56,8 @@ a:active {
     padding: 0;
   }
   .footer .col ul li {
-    color: #999999;
+    color: rgb(192, 192, 192, 0.5);
+
     font-size: 14px;
     font-weight: bold;
     padding: 5px 0px 5px 0px;
