@@ -40,14 +40,14 @@ export default function SignIn() {
           <button type="submit">Войти</button>
         </form> */}
         <div className="wrapper fadeInDown">
-          <div id="formContent">
+          <div id="formContent_in">
             <h2 className="active"> Вход </h2>
 
             {/* <div className="fadeIn first">
               <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
             </div> */}
 
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form_signin" onSubmit={handleSubmit}>
               <div className="add_text">
                 <div className="form-item">
                   <input type="email" id="login" className="form-input" placeholder="Email" name="email" onChange={handleInput} required />
