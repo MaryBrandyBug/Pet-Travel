@@ -178,7 +178,7 @@ export default function ParentProfile() {
             <div className="SitterProfile_photos_addPhoto">
               <div className="SitterProfile_photo">
                 {
-              avatar
+              parent
                 ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh1}`} alt="avatar" />
                 : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh1}`} alt="avatar" />
             }
@@ -193,7 +193,7 @@ export default function ParentProfile() {
             <div className="SitterProfile_photos_addPhoto">
               <div className="SitterProfile_photo">
                 {
-              avatar
+              parent
                 ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh2}`} alt="avatar" />
                 : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh2}`} alt="avatar" />
             }
@@ -208,7 +208,7 @@ export default function ParentProfile() {
             <div className="SitterProfile_photos_addPhoto">
               <div className="SitterProfile_photo">
                 {
-              avatar
+              parent
                 ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh3}`} alt="avatar" />
                 : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh3}`} alt="avatar" />
             }
@@ -223,7 +223,7 @@ export default function ParentProfile() {
             <div className="SitterProfile_photos_addPhoto">
               <div className="SitterProfile_photo">
                 {
-              avatar
+              parent
                 ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh4}`} alt="avatar" />
                 : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh4}`} alt="avatar" />
             }
@@ -238,7 +238,7 @@ export default function ParentProfile() {
             <div className="SitterProfile_photos_addPhoto">
               <div className="SitterProfile_photo">
                 {
-              avatar
+              parent
                 ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh5}`} alt="avatar" />
                 : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh5}`} alt="avatar" />
             }
