@@ -171,7 +171,6 @@ export default function ParentProfile() {
                 : <button className="published_true" type="button" onClick={handlePublish}>Публиковать</button>}
             </div>
           </div>
-
           <div className="Parent_profile_photoadd">
             <div className="SitterProfile_photos_addPhoto">
               <div className="SitterProfile_photo">
@@ -320,7 +319,6 @@ export default function ParentProfile() {
               </Link>
             </div>
           </div>
-
         </div>
       )
         : (
