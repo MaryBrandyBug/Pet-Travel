@@ -19,8 +19,6 @@ router.post('/get-all-messages', async (req, res) => {
           { UserId: trueReceiverId, receiverId: UserId },
         raw: true,
       });
-      // const AllMessages = [];
-      // AllMessages.push(messagesReceived, messagesSent);
       const AllMessages = [...messagesSent, ...messagesReceived];
       res.json(AllMessages);
     } catch (error) {
@@ -30,7 +28,6 @@ router.post('/get-all-messages', async (req, res) => {
     try {
       const receiverIdProfile = await ParentProfile.findOne({ where: { id: receiverId } });
       const trueReceiverId = receiverIdProfile.UserId;
-
       const messagesSent = await Message.findAll({
         where:
           { UserId, receiverId: trueReceiverId },
@@ -41,8 +38,6 @@ router.post('/get-all-messages', async (req, res) => {
           { UserId: trueReceiverId, receiverId: UserId },
         raw: true,
       });
-      // const AllMessages = [];
-      // AllMessages.push(messagesReceived, messagesSent);
       const AllMessages = [...messagesSent, ...messagesReceived];
       res.json(AllMessages);
     } catch (error) {
@@ -52,7 +47,7 @@ router.post('/get-all-messages', async (req, res) => {
 });
 
 router.post('/get-all-messages/from-dialogs', async (req, res) => {
-  const { UserId, receiverId /* userRole */ } = req.body;
+  const { UserId, receiverId } = req.body;
 
   try {
     const messagesSent = await Message.findAll({

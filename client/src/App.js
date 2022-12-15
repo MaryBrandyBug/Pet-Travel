@@ -38,8 +38,8 @@ import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
 import SitterPage from './components/SitterPage/SitterPage';
-import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import ParentPage from './components/ParentPage/ParentPage';
+import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import MyDialogs from './components/MyDialogs/MyDialogs';
 import MyDialogsChat from './components/MyDialogsChat/MyDialogsChat';
 
@@ -49,7 +49,6 @@ function App() {
   // eslint-disable-next-line no-unused-vars
 
   const [ws, setWs] = useState(null);
-
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
@@ -148,18 +147,16 @@ function App() {
 
           <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
           <Route path="/all-parents/chat/:id" element={<ChatForTwo ws={ws} />} />
-          {/* /all-parents/chat/${id} */}
+          <Route path="/my-chats" element={<MyDialogs />} />
           <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
 
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
 
           <Route path="/all-sitters" element={<SitterSearch />} />
-          <Route path="/my-chats" element={<MyDialogs />} />
           <Route path="/all-parents" element={<ParentSearch />} />
 
           <Route path="/all-parents/:id" element={<ParentPage />} />
-
           <Route path="/all-sitters/:id" element={<SitterPage />} />
 
           <Route element={<ProtectedRoute />}>

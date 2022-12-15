@@ -1,9 +1,9 @@
-const router = require('express').Router();
 const WebSocket = require('ws');
 const {
-  SitterProfile, ParentProfile, User, Message,
+  SitterProfile,
+  ParentProfile,
+  Message,
 } = require('./db/models');
-// const {Message} = require(DB MODEL)
 
 const { WebSocketServer } = WebSocket;
 
@@ -13,22 +13,13 @@ const wss = new WebSocketServer({
 });
 
 wss.on('connection', (ws, req, wsClientMap) => {
-  // const { auth } = req.session; // auth === user
-  console.log('WS JS connection');
-  // console.log('PRIVET ', ws);
-
-  // wsClientMap.set(auth.id, { auth, ws });
-
   ws.on('message', async (arg) => {
     const newMessage = JSON.parse(arg);
-    console.log('22222222222222222222', newMessage);
     const {
       receiverProfileId, senderId, message, userRole,
     } = newMessage;
     if (userRole === 'parent') {
-      console.log('2999999 if parent');
       if (newMessage.receiverProfileId === undefined) {
-        console.log('proverka');
         const {
           receiverId, senderId, message, userRole,
         } = newMessage;
@@ -46,19 +37,17 @@ wss.on('connection', (ws, req, wsClientMap) => {
         try {
           const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
           const receiverId = receiverProfile.UserId;
-          console.log('receiverid', receiverId);
+
           await Message.create({
             UserId: senderId,
             receiverId,
             message,
           });
-          // console.log(receiverId);
         } catch (error) {
           console.log(error);
         }
       }
     } else if (newMessage.receiverProfileId === undefined) {
-      console.log('proverka');
       const {
         receiverId, senderId, message, userRole,
       } = newMessage;
@@ -76,87 +65,19 @@ wss.on('connection', (ws, req, wsClientMap) => {
       try {
         const receiverProfile = await ParentProfile.findOne({ where: { id: receiverProfileId } });
         const receiverId = receiverProfile.UserId;
-        console.log('receiverid', receiverId);
+
         await Message.create({
           UserId: senderId,
           receiverId,
           message,
         });
-        // console.log(receiverId);
       } catch (error) {
         console.log(error);
       }
     }
-
-    // console.log('MESSAGE ws on', message);
-    // console.log('MESSAGE ws on', newMessage.receiverProfileId);
-
-    // const { receiverProfileId, senderId, message } = newMessage;
-
-    // try {
-    //   const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
-    //   const receiverId = receiverProfile.id;
-    //   await Message.create({
-    //     UserId: senderId,
-    //     receiverId,
-    //     message,
-    //   });
-    //   // console.log(receiverId);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-
-    // });
-
-    // const { type, payload } = message;
-
-    // console.log(message, usersMap.size);
-
-    // const sender = wsClientMap.get(auth.id);
-    // const receiver = wsClientMap.get(+payload.chatWithUser);
-
-    //     switch (type) {
-    //       case 'message':
-
-    //         message.create({
-    //           text: payload.text,
-    //           userFrom: +payload.userFrom,
-    //           userTo: +payload.userTo,
-    //         })
-    //           .then((newMessage) => {
-    //             if (sender /* && receiver */) {
-    //               sender.ws.send(JSON.stringify({ type: 'message', payload: { newMessage, auth: auth.id } }));
-    //               // receiver.ws.send(JSON.stringify({ type: 'message', payload: { newMessage } }));
-    //             } else {
-    //               sender.ws.send(JSON.stringify({ type: 'offline' }));
-    //               sender.ws.send(JSON.stringify({ type: 'message', payload: { newMessage, auth: auth.id } }));
-    //             }
-    //           })
-    //           .catch(console.log);
-
-    //         break;
-    //       case 'open':
-    //         if (sender /* && receiver */) {
-    //           sender.ws.send(JSON.stringify({ type: 'online' }));
-    //           // receiver.ws.send(JSON.stringify({ type: 'online' }));
-    //         } wsClientMap.delete(auth.id);
-    //         // const receiver = wsClientMap.get(+message.chatWithUser);
-    //         /* if (receiver) {
-    // receiver.ws.send(JSON.stringify({ type: 'offline' }));
-    // } */
-    //         break;
-
-    //       default:
-    //         break;
-    //     }
   });
   ws.on('close', (msg) => {
     const message = JSON.parse(msg);
-    // wsClientMap.delete(auth.id);
-    // const receiver = wsClientMap.get(+message.chatWithUser);
-    /*  if (receiver) {
-      receiver.ws.send(JSON.stringify({ type: 'offline' }));
-    } */
   });
 });
 

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import './MyDialogsChat.css';
 
 export default function MyDialogsChat({ ws }) {
-  // const [message, setMessage] = useState('');
   const [messages, setMessages] = useState(null);
   const [input, setInput] = useState('');
 
@@ -23,7 +22,6 @@ export default function MyDialogsChat({ ws }) {
       createdAt: new Date(),
     };
     ws.send(JSON.stringify(messageNew));
-    console.log('message myDialogsChat 20', messageNew);
     setMessages([...messages, messageNew]);
   };
 
@@ -38,19 +36,14 @@ export default function MyDialogsChat({ ws }) {
         body: JSON.stringify({ UserId: user.id, receiverId: id /* userRole: user.role */ }),
       });
       const result = await response.json();
-      // console.log('RESULT SORT #^^^^^^^^^^', result.sort((a, b) => b.createdAt - a.createdAt));
       setMessages(result.sort((a, b) => (b.createdAt < a.createdAt ? 1 : -1)));
-      // setMessages(result);
     };
     getMessages();
   }, []);
-  // const sortedMessages = messages.sort((a, b) => a.createdAt - b.createdAt);
-  // const sortedStudents = messages.sort((a, b) => b.createdAt < a.createdAt ? 1: -1)
 
   return (
     <div className="chat">
-      <h3>MyDialogsChat</h3>
-      <button type="button" onClick={() => console.log(messages)}>TestState</button>
+      <h3>Мои диалоги</h3>
       <div className="messageBox">
         <ul>
           {messages?.map((el) => (
@@ -69,20 +62,10 @@ export default function MyDialogsChat({ ws }) {
                   <em>{el.message}</em>
                 </li>
               )
-
           ))}
         </ul>
       </div>
 
-      {/* <div className="messageBox">
-        <ul>
-          {messages?.map((el) => (
-            <li>
-              <em>{el.message}</em>
-            </li>
-          ))}
-        </ul>
-      </div> */}
       <div className="chatBtnInput">
         <form
           onSubmit={(e) => {
@@ -96,13 +79,11 @@ export default function MyDialogsChat({ ws }) {
             placeholder="Type a message ..."
             value={input}
             name="message"
-            // onChange={(e) => setMessage(e.target.value)}
             onChange={handleInput}
           />
           <input type="submit" value="Отправить" />
         </form>
       </div>
-
     </div>
   );
 }

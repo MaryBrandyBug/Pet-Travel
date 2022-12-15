@@ -4,9 +4,7 @@ import { useParams } from 'react-router-dom';
 import './ChatForTwo.css';
 
 export default function ChatForTwo({ ws }) {
-  // const [message, setMessage] = useState('');
   const [input, setInput] = useState('');
-
   const [messages, setMessages] = useState([]);
 
   const user = useSelector((store) => store.userStore.auth);
@@ -25,7 +23,6 @@ export default function ChatForTwo({ ws }) {
       createdAt: new Date(),
     };
     ws.send(JSON.stringify(messageNew));
-    console.log('messGE submit', messageNew);
     setMessages([...messages, messageNew]);
   };
   useEffect(() => {
@@ -39,7 +36,6 @@ export default function ChatForTwo({ ws }) {
         body: JSON.stringify({ UserId: user.id, receiverId: receiverProfileId, userRole: user.role }),
       });
       const result = await response.json();
-      console.log('RESULT CHAT FOR TWO++++++++++++++++++++', result);
       setMessages(result.sort((a, b) => (b.createdAt < a.createdAt ? 1 : -1)));
     };
     getMessages();
@@ -48,12 +44,9 @@ export default function ChatForTwo({ ws }) {
     () => {
       if (user) {
         ws.onopen = () => {
-          console.log('WebSocket Connected');
           ws.send(JSON.stringify({ type: 'open', payload: user.id }));
-          // ws.send(JSON.stringify({ message }));
         };
         ws.onmessage = (e) => {
-          console.log('eeeeeeeeeeeeeeeeeeeeeeeeeee', e);
           const newMessage = JSON.parse(e.data);
           setMessages([...messages, newMessage]);
         };
@@ -65,7 +58,7 @@ export default function ChatForTwo({ ws }) {
   return (
     <div>
       <div className="chat">
-        <h3>ChatForTwo</h3>
+        <h3>Чат</h3>
         <div className="messageBox">
           <ul>
             {messages?.map((el) => (
@@ -80,7 +73,6 @@ export default function ChatForTwo({ ws }) {
                     <em>{el.message}</em>
                   </li>
                 )
-
             ))}
           </ul>
         </div>
@@ -98,7 +90,6 @@ export default function ChatForTwo({ ws }) {
               value={input}
               name="message"
               onChange={handleInput}
-            // onChange={(e) => setMessage(e.target.value)}
             />
             <input type="submit" value="Отправить" />
           </form>
@@ -107,41 +98,3 @@ export default function ChatForTwo({ ws }) {
     </div>
   );
 }
-
-/*  <div>
-   <div className="chatRoom">
-     <div className="messagesContainer">
-       <ul>
-
-         {messages?.reverse().map((mes) => (
-           // key={(user?.id)}
-           <li>
-             <b>{mes.userName}</b>
-             :
-             <em>{mes.message}</em>
-           </li>
-         ))}
-       </ul>
-     </div>
-
-     <form
-       onSubmit={(e) => {
-         e.preventDefault();
-         submitMessage(user.id, user.name, message);
-         setMessage('');
-       }}
-     >
-       <input
-         type="text"
-         placeholder="Type a message ..."
-         value={message}
-         onChange={(e) => setMessage(e.target.value)}
-       />
-       <input type="submit" value="Send" />
-     </form>
-   </div>
-   Чат
- </div>
-
-);
-} */
