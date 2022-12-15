@@ -1,0 +1,28 @@
+/* c4-scrollslider ----- */
+
+.c4-scrollslider{ position:relative; }
+.c4-scrollslider .c4-scrollslider-scrollable	{overflow-x:auto; overflow-y:hidden; position:relative; }
+.c4-scrollslider .c4-scrollslider-scrollable-slider {position:absolute; }
+
+.c4-scrollslider ._c4ss-arrow						{
+   position:absolute; 
+   width:4rem; 
+   height:4rem; 
+   opacity:0.1;
+   top:50%; 
+   margin-top:-2rem; 
+   cursor:pointer; 
+   color:#fff;
+   border-radius:50%;
+   font-size:2rem;
+   background:rgba(0,0,0,0.3); 
+   transition: all 0.3s ease-in-out;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+}
+.c4-scrollslider:hover ._c4ss-arrow				{  opacity:1;}
+.c4-scrollslider ._c4ss-arrow.__left			{ left:1rem;}
+.c4-scrollslider ._c4ss-arrow.__left:before  { content:'<';}
+.c4-scrollslider ._c4ss-arrow.__right			{right:1rem;  }
+.c4-scrollslider ._c4ss-arrow.__right:before { content:'>';}
