@@ -8,8 +8,12 @@ h2 {
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
   }
+  .form_signin {
+
+  }
   
   .wrapper {
+    padding-top: 250px;
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -25,8 +29,8 @@ h2 {
     background: #fff;
     padding: 30px;
     width: 90%;
-    max-width: 450px;
-    height: 400px;
+    max-width: 500px;
+    height: 490px;
     position: relative;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -34,6 +38,25 @@ h2 {
     text-align: center;
   }
   
+  #formContent_in {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    height: 300px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
   #formFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
@@ -44,6 +67,7 @@ h2 {
   }
   
   .fadeInDown {
+    padding-top: 250px;
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
@@ -180,7 +204,8 @@ h2 {
   
   .add_text {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    align-items: center;
   }
   .add_role {
     display: flex;

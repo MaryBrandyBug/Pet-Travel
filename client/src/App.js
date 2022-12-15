@@ -124,6 +124,7 @@ function App() {
                 <Route path="create-parent-profile" element={<ParentProfileForm />} />
                 <Route path="create-sitter-profile" element={<SitterProfileForm />} />
               </Route>
+              <Route path="my-chats" element={<MyDialogs />} />
               <Route path="settings" element={<Settings />} />
               <Route path="reviews" element={<ProfileReviews />} />
               <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
@@ -133,7 +134,6 @@ function App() {
 
           <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
           <Route path="/all-parents/chat/:id" element={<ChatForTwo ws={ws} />} />
-          <Route path="/my-chats" element={<MyDialogs />} />
           <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
 
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
