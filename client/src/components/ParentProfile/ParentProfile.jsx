@@ -24,7 +24,6 @@ export default function ParentProfile() {
   };
 
   const [img, setImg] = useState(null);
-  const [avatar, setAvatar] = useState(null);
 
   const sendFile = async (el) => {
     try {
@@ -40,7 +39,6 @@ export default function ParentProfile() {
         .then((res) => {
           console.log(res);
           dispatch({ type: 'PET', payload: res.data.allPet });
-          setAvatar(`http://localhost:3001/${res.data.photo}`);
         });
     } catch (error) {
       console.log(error);
@@ -299,7 +297,7 @@ export default function ParentProfile() {
                   <div className="petContainer_photo">
                     <div className="petContainer_photo_pet_photo">
                       {
-              avatar
+              parent.pet
                 ? <img className="logo" src={`http://localhost:3001/${el.petPhoto}`} alt="avatar" />
                 : <img className="logo" src={`http://localhost:3001/${el.petPhoto}`} alt="avatar" />
             }
