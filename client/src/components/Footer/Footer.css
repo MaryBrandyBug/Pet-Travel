@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
     background-size: 0% 2px;
     transition: .3s;
-    color: #ffffff; 
+    color: black; 
 }
 a:hover {
     background-size: 100% 2px;
