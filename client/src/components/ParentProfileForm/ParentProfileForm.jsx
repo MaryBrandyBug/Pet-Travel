@@ -10,8 +10,8 @@ export default function ParentProfileForm() {
 
   const [pets, setPets] = useState([{}]);
 
-  const [dateDiv2, setDateDiv2] = useState('hidden');
-  const [dateDiv3, setDateDiv3] = useState('hidden');
+  // const [dateDiv2, setDateDiv2] = useState('hidden');
+  // const [dateDiv3, setDateDiv3] = useState('hidden');
 
   const [parentProfileForm, setParentProfileForm] = useState({
     title: '',
@@ -32,13 +32,13 @@ export default function ParentProfileForm() {
     setParentProfileForm({ ...parentProfileForm, [e.target.name]: e.target.value });
   };
 
-  const handleAddDate2 = () => (
-    setDateDiv2('visible')
-  );
+  // const handleAddDate2 = () => (
+  //   setDateDiv2('visible')
+  // );
 
-  const handleAddDate3 = () => (
-    setDateDiv3('visible')
-  );
+  // const handleAddDate3 = () => (
+  //   setDateDiv3('visible')
+  // );
 
   const handleSubmit = (e) => {
     e.preventDefault();
