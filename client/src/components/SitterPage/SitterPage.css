@@ -5,7 +5,12 @@
     max-width: 600px;
 
 }
+.sliderContainer>img {
+    margin: 15px;
+    width: 250px;
+    height: 250px;
 
+}
 .slide {
     display: flex;
     align-items: center;
@@ -13,30 +18,6 @@
     user-select: none;
 }
 
-.slide-s1 {
-    background-image:
-        /*url(../../img/SubmissionUrination.jpg)*/
-    ;
-    background-size: 100%;
-    background-position: center;
-
-}
-
-.slide-s2 {
-    background-image:
-        /* url(../../img/hike-3.jpeg) */
-    ;
-    background-size: 100%;
-    background-position: center;
-}
-
-.slide-s3 {
-    background-image:
-        /* url(../../img/Mission.jpg) */
-    ;
-    background-size: 100%;
-    background-position: center;
-}
 
 .reviews {
     border: solid 2px darkgreen;

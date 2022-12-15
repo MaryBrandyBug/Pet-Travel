@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const filemiddleware = require('../middlewares/file');
-const { User } = require('../../db/models');
+const { User, SitterProfile } = require('../../db/models');
 
 router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
-  console.log(req.body);
   try {
     if (req.file) {
       const userId = await User.findOne({ where: { id: req.body.id } });
@@ -16,6 +15,66 @@ router.post('/upload', filemiddleware.single('avatar'), async (req, res) => {
     }
   } catch (error) {
     console.log('=====>>>> 👉👉👉 file: upload.route.js:10 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadsitter', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body);
+  try {
+    if (req.file) {
+      const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto1 = await sitterId.update({ sitterPh1: req.file.filename });
+      res.json({ addPhoto1 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadsitter2', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body);
+  try {
+    if (req.file) {
+      const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto2 = await sitterId.update({ sitterPh2: req.file.filename });
+      res.json({ addPhoto2 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadsitter3', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body);
+  try {
+    if (req.file) {
+      const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto3 = await sitterId.update({ sitterPh3: req.file.filename });
+      res.json({ addPhoto3 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadsitter4', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body);
+  try {
+    if (req.file) {
+      const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto4 = await sitterId.update({ sitterPh4: req.file.filename });
+      res.json({ addPhoto4 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadsitter5', filemiddleware.single('avatar'), async (req, res) => {
+  console.log(req.body);
+  try {
+    if (req.file) {
+      const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto5 = await sitterId.update({ sitterPh5: req.file.filename });
+      res.json({ addPhoto5 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
   }
 });
 router.put('/settings', async (req, res) => {

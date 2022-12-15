@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
-const { ParentProfile, User, Dialog, Pet } = require('../../db/models');
-
+const {
+  ParentProfile, User, Dialog, Pet,
+} = require('../../db/models');
 
 router.get('/all-parents/:id', async (req, res) => {
   try {

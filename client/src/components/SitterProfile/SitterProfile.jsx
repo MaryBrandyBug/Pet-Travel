@@ -1,12 +1,139 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './SitterProfile.css';
+import avtr from './avatar.jpg';
 
 export default function SitterProfile() {
   const sitter = useSelector((store) => store.sitterStore.sitter);
+  // const allSitter = useSelector((store) => store.allSittersStore.allSittersProfiles);
 
   const dispatch = useDispatch();
+  const [img, setImg] = useState(null);
+  const [avatar, setAvatar] = useState(avtr);
+
+  const sendFile = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append('avatar', img);
+      data.append('id', sitter.id);
+
+      await axios.post('http://localhost:3001/profile/uploadsitter', data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto1 });
+          setAvatar(`http://localhost:3001/${res.data.photo}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [img2, setImg2] = useState(null);
+  const [avatar2, setAvatar2] = useState(avtr);
+
+  const sendFile2 = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append('avatar', img2);
+      data.append('id', sitter.id);
+
+      await axios.post('http://localhost:3001/profile/uploadsitter2', data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto2 });
+          setAvatar2(`http://localhost:3001/${res.data.photo}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [img3, setImg3] = useState(null);
+  const [avatar3, setAvatar3] = useState(avtr);
+
+  const sendFile3 = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append('avatar', img3);
+      data.append('id', sitter.id);
+
+      await axios.post('http://localhost:3001/profile/uploadsitter3', data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto3 });
+          setAvatar3(`http://localhost:3001/${res.data.photo}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [img4, setImg4] = useState(null);
+  const [avatar4, setAvatar4] = useState(avtr);
+
+  const sendFile4 = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append('avatar', img4);
+      data.append('id', sitter.id);
+
+      await axios.post('http://localhost:3001/profile/uploadsitter4', data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto4 });
+          setAvatar4(`http://localhost:3001/${res.data.photo}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [img5, setImg5] = useState(null);
+  const [avatar5, setAvatar5] = useState(avtr);
+
+  const sendFile5 = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append('avatar', img5);
+      data.append('id', sitter.id);
+
+      await axios.post('http://localhost:3001/profile/uploadsitter5', data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto5 });
+          setAvatar5(`http://localhost:3001/${res.data.photo}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // console.log(sitter.published);
   const cats = sitter?.cats;
@@ -54,9 +181,6 @@ export default function SitterProfile() {
     })
       .then((res) => res.json())
       .then((res) => dispatch({ type: 'SITTER_PROFILE', payload: res.sitter }));
-    // if (response === 200) {
-    //   alert('Профиль опубликован!');
-    // }
   };
 
   return (
@@ -79,57 +203,77 @@ export default function SitterProfile() {
               <div className="SitterProfile_photos">
                 <div className="SitterProfile_photos_addPhoto">
                   <div className="SitterProfile_photo">
-                    <div />
+                    {
+              avatar
+                ? <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh1}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh1}`} alt="avatar" />
+            }
                   </div>
                   <div>
-                    <input type="file" />
+                    <input type="file" onChange={(e) => setImg(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button">Добавить</button>
+                    <button type="button" onClick={sendFile}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
                   <div className="SitterProfile_photo">
-                    <div />
+                    {
+              avatar2
+                ? <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh2}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh2}`} alt="avatar" />
+            }
                   </div>
                   <div>
-                    <input type="file" />
+                    <input type="file" onChange={(e) => setImg2(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button">Добавить</button>
+                    <button type="button" onClick={sendFile2}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
                   <div className="SitterProfile_photo">
-                    <div />
+                    {
+              avatar3
+                ? <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh3}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh3}`} alt="avatar" />
+            }
                   </div>
                   <div>
-                    <input type="file" />
+                    <input type="file" onChange={(e) => setImg3(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button">Добавить</button>
+                    <button type="button" onClick={sendFile3}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
                   <div className="SitterProfile_photo">
-                    <div />
+                    {
+              avatar4
+                ? <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh4}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh4}`} alt="avatar" />
+            }
                   </div>
                   <div>
-                    <input type="file" />
+                    <input type="file" onChange={(e) => setImg4(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button">Добавить</button>
+                    <button type="button" onClick={sendFile4}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
                   <div className="SitterProfile_photo">
-                    <div />
+                    {
+              avatar5
+                ? <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh5}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${sitter?.sitterPh5}`} alt="avatar" />
+            }
                   </div>
                   <div>
-                    <input type="file" />
+                    <input type="file" onChange={(e) => setImg5(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button">Добавить</button>
+                    <button type="button" onClick={sendFile5}>Добавить</button>
                   </div>
                 </div>
               </div>
@@ -151,7 +295,6 @@ export default function SitterProfile() {
                   </div>
                 </div>
               </div>
-              <div className="SitterProfile_photos">ТУТ ФОТКИ ТИПА</div>
               <div>
                 <div className="SitterProfile_about">
                   <div>
