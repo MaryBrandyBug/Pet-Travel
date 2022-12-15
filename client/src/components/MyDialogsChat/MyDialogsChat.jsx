@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './MyDialogsChat.css';
 
 export default function MyDialogsChat({ ws }) {
@@ -40,32 +40,43 @@ export default function MyDialogsChat({ ws }) {
     };
     getMessages();
   }, []);
+  console.log(messages);
 
   return (
     <div className="chat">
-      <h3>Мои диалоги</h3>
+      <Link to="/profile/my-chats" className="span"><h3>Назад в Мои диалоги</h3></Link>
       <div className="messageBox">
         <ul>
           {messages?.map((el) => (
             el.UserId === user.id
               ? (
                 <li className="sender">
-                  <em className="date">{el.createdAt?.toLocaleString().substring(0, 16).split('T').join(' ')}</em>
-                  :
-                  <em className="message">{el.message}</em>
+                  <div className="senderText">
+                    <div>
+                      <h4 className="message">{el.message}</h4>
+                    </div>
+                    <div>
+                      <span className="date">{el.createdAt?.toLocaleString().substring(0, 16).split('T').join(' ')}</span>
+                    </div>
+
+                  </div>
                 </li>
               )
               : (
                 <li className="receiver">
-                  <em className="date">{el.createdAt?.toLocaleString().substring(0, 16).split('T').join(' ')}</em>
-                  :
-                  <em>{el.message}</em>
+                  <div className="receiverText">
+                    <div>
+                      <h4 className="message">{el.message}</h4>
+                    </div>
+                    <div>
+                      <span className="date">{el.createdAt?.toLocaleString().substring(0, 16).split('T').join(' ')}</span>
+                    </div>
+                  </div>
                 </li>
               )
           ))}
         </ul>
       </div>
-
       <div className="chatBtnInput">
         <form
           onSubmit={(e) => {
@@ -74,14 +85,20 @@ export default function MyDialogsChat({ ws }) {
             setInput('');
           }}
         >
-          <input
-            type="text"
-            placeholder="Type a message ..."
-            value={input}
-            name="message"
-            onChange={handleInput}
-          />
-          <input type="submit" value="Отправить" />
+          <div className="text-field">
+            <input
+              type="text"
+              placeholder="Введите сообщение ..."
+              value={input}
+              name="message"
+              className="text-field-input"
+              onChange={handleInput}
+            />
+            <div className="textBtn">
+              <input type="submit" value="Отправить" className="form-submit-button hover" />
+            </div>
+
+          </div>
         </form>
       </div>
     </div>

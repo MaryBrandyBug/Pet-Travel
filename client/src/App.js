@@ -128,6 +128,9 @@ function App() {
               <Route path="my-chats" element={<MyDialogs />} />
               <Route path="settings" element={<Settings />} />
               <Route path="reviews" element={<ProfileReviews />} />
+              <Route path="my-chats" element={<MyDialogs />} />
+              <Route path="my-chats/chat/:id" element={<MyDialogsChat ws={ws} />} />
+
               <Route path="sitter/update-sitter-profile" element={<UpdateSitter />} />
               <Route path="parent/update-parent-profile" element={<UpdateParent />} />
             </Route>
@@ -135,7 +138,12 @@ function App() {
 
           <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
           <Route path="/all-parents/chat/:id" element={<ChatForTwo ws={ws} />} />
+
+          {/* <Route path="/my-chats" element={<MyDialogs />} /> */}
+          {/* <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} /> */}
+
           <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
+
 
           <Route path="/all-sitters" element={<SitterSearch />} />
           <Route path="/all-parents" element={<ParentSearch />} />

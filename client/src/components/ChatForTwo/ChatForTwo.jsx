@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './ChatForTwo.css';
 
 export default function ChatForTwo({ ws }) {
+  const navigate = useNavigate();
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(null);
 
   const user = useSelector((store) => store.userStore.auth);
   const receiverProfileId = useParams().id;
@@ -58,19 +59,34 @@ export default function ChatForTwo({ ws }) {
   return (
     <div>
       <div className="chat">
-        <h3>Чат</h3>
+        <button type="button" className="span" onClick={() => navigate(-1)}>Назад</button>
         <div className="messageBox">
           <ul>
             {messages?.map((el) => (
               el.UserId === user.id
                 ? (
                   <li className="sender">
-                    <em className="message">{el.message}</em>
+                    <div className="senderText">
+                      <div>
+                        <h4 className="message">{el.message}</h4>
+                      </div>
+                      <div>
+                        <span className="date">{el.createdAt?.toLocaleString().substring(0, 16).split('T').join(' ')}</span>
+                      </div>
+
+                    </div>
                   </li>
                 )
                 : (
                   <li className="receiver">
-                    <em>{el.message}</em>
+                    <div className="receiverText">
+                      <div>
+                        <h4 className="message">{el.message}</h4>
+                      </div>
+                      <div>
+                        <span className="date">{el.createdAt?.toLocaleString().substring(0, 16).split('T').join(' ')}</span>
+                      </div>
+                    </div>
                   </li>
                 )
             ))}
@@ -81,17 +97,24 @@ export default function ChatForTwo({ ws }) {
             onSubmit={(e) => {
               e.preventDefault();
               submitMessage(user.id, user.name, input, user.role);
-              setMessages('');
+
+              setInput('');
+
             }}
           >
-            <input
-              type="text"
-              placeholder="Type a message ..."
-              value={input}
-              name="message"
-              onChange={handleInput}
-            />
-            <input type="submit" value="Отправить" />
+            <div className="text-field">
+              <input
+                type="text"
+                placeholder="Type a message ..."
+                value={input}
+                name="message"
+                className="text-field-input"
+                onChange={handleInput}
+              />
+              <div className="textBtn">
+                <input type="submit" value="Отправить" className="form-submit-button hover" />
+              </div>
+            </div>
           </form>
         </div>
       </div>
