@@ -10,12 +10,13 @@ export default function ChatForTwo({ ws }) {
   const user = useSelector((store) => store.userStore.auth);
   const receiverProfileId = useParams().id;
 
-  const submitMessage = (senderId, userName, msg) => {
+  const submitMessage = (senderId, userName, msg, userRole) => {
     const messageNew = {
       receiverProfileId: +receiverProfileId,
       senderId,
       userName,
       message: msg,
+      userRole,
     };
     ws.send(JSON.stringify(messageNew));
     console.log('messGE submit', messageNew);
@@ -29,7 +30,7 @@ export default function ChatForTwo({ ws }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ UserId: user.id, receiverId: receiverProfileId }),
+        body: JSON.stringify({ UserId: user.id, receiverId: receiverProfileId, userRole: user.role }),
       });
       const result = await response.json();
       setMessages(result.sort((a, b) => b.createdAt - a.createdAt));
@@ -80,7 +81,7 @@ export default function ChatForTwo({ ws }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              submitMessage(user.id, user.name, message);
+              submitMessage(user.id, user.name, message, user.role);
               setMessage('');
             }}
           >

@@ -24,21 +24,21 @@ export default function MyDialogsChat({ ws }) {
 
   useEffect(() => {
     const getMessages = async () => {
-      const response = await fetch('http://localhost:3001/get-all-messages', {
+      const response = await fetch('http://localhost:3001/get-all-messages/from-dialogs', {
         method: 'POST',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ UserId: user.id, receiverId: id }),
+        body: JSON.stringify({ UserId: user.id, receiverId: id /* userRole: user.role */ }),
       });
       const result = await response.json();
+      console.log('RESULT FETCH #^^^^^^^^^^', result);
       setMessages(result.sort((a, b) => b.createdAt - a.createdAt));
     };
     getMessages();
   }, []);
   // const sortedMessages = messages.sort((a, b) => a.createdAt - b.createdAt);
-  console.log(messages);
 
   return (
     <div className="chat">

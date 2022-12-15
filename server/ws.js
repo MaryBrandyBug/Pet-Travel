@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const WebSocket = require('ws');
-const { SitterProfile, User, Message } = require('./db/models');
+const {
+  SitterProfile, ParentProfile, User, Message,
+} = require('./db/models');
 // const {Message} = require(DB MODEL)
 
 const { WebSocketServer } = WebSocket;
@@ -19,9 +21,47 @@ wss.on('connection', (ws, req, wsClientMap) => {
 
   ws.on('message', async (arg) => {
     const newMessage = JSON.parse(arg);
-    if (newMessage.receiverProfileId === undefined) {
+    console.log('22222222222222222222', newMessage);
+    const {
+      receiverProfileId, senderId, message, userRole,
+    } = newMessage;
+    if (userRole === 'parent') {
+      console.log('2999999 if parent');
+      if (newMessage.receiverProfileId === undefined) {
+        console.log('proverka');
+        const {
+          receiverId, senderId, message, userRole,
+        } = newMessage;
+        try {
+          await Message.create({
+            UserId: senderId,
+            receiverId,
+            message,
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        const { receiverProfileId, senderId, message } = newMessage;
+        try {
+          const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
+          const receiverId = receiverProfile.UserId;
+          console.log('receiverid', receiverId);
+          await Message.create({
+            UserId: senderId,
+            receiverId,
+            message,
+          });
+          // console.log(receiverId);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    } else if (newMessage.receiverProfileId === undefined) {
       console.log('proverka');
-      const { receiverId, senderId, message } = newMessage;
+      const {
+        receiverId, senderId, message, userRole,
+      } = newMessage;
       try {
         await Message.create({
           UserId: senderId,
@@ -33,10 +73,9 @@ wss.on('connection', (ws, req, wsClientMap) => {
       }
     } else {
       const { receiverProfileId, senderId, message } = newMessage;
-      console.log('message iz poiska', newMessage);
       try {
-        const receiverProfile = await SitterProfile.findOne({ where: { id: receiverProfileId } });
-        const receiverId = receiverProfile.id;
+        const receiverProfile = await ParentProfile.findOne({ where: { id: receiverProfileId } });
+        const receiverId = receiverProfile.UserId;
         console.log('receiverid', receiverId);
         await Message.create({
           UserId: senderId,
@@ -48,6 +87,7 @@ wss.on('connection', (ws, req, wsClientMap) => {
         console.log(error);
       }
     }
+
     // console.log('MESSAGE ws on', message);
     // console.log('MESSAGE ws on', newMessage.receiverProfileId);
 
