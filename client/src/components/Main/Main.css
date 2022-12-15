@@ -21,3 +21,50 @@
   background-size: 100%;
   background-position: center;
 }
+
+.reasons_why_us {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.reasons_why_us h2 {
+  color: black;
+  font-size: 30px;
+}
+
+.reasons_in_row {
+  display: flex;
+  padding-top: 50px;
+  margin-left: 2%;
+  justify-content: space-evenly;
+  margin-top: 2%;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.reason_text {
+  width:80%;
+  text-align: center;
+}
+
+.reason_photo img{
+  width: 33%;
+  border-radius: 50%;
+}
+
+.reason_photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reason_title {
+  margin-top: 20px;
+}
