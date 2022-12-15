@@ -69,7 +69,6 @@ router.post('/uploadsitter4', filemiddleware.single('avatar'), async (req, res) 
   }
 });
 router.post('/uploadsitter5', filemiddleware.single('avatar'), async (req, res) => {
-  console.log(req.body);
   try {
     if (req.file) {
       const sitterId = await SitterProfile.findOne({ where: { id: req.body.id } });
@@ -81,8 +80,6 @@ router.post('/uploadsitter5', filemiddleware.single('avatar'), async (req, res) 
   }
 });
 router.post('/uploadparent1', filemiddleware.single('avatar'), async (req, res) => {
-  console.log('=====>>>> 👉👉👉 file: profileSettings.js:84 👉👉👉 router.post 👉👉👉 req', req.body);
-
   try {
     if (req.file) {
       const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
@@ -116,8 +113,6 @@ router.post('/uploadparent3', filemiddleware.single('avatar'), async (req, res) 
   }
 });
 router.post('/uploadparent4', filemiddleware.single('avatar'), async (req, res) => {
-  console.log('=====>>>> 👉👉👉 file: profileSettings.js:84 👉👉👉 router.post 👉👉👉 req', req.body);
-
   try {
     if (req.file) {
       const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
