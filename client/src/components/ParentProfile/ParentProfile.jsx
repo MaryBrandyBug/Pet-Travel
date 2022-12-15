@@ -91,9 +91,18 @@ export default function ParentProfile() {
         </div>
       )
         : (
-          <Link to="/profile/create-parent-profile">
-            <button type="button">Заполнить анкету</button>
-          </Link>
+          <div className="btn_add_prifile">
+            <div className="btn_add_prifile_p">
+              <p>
+                У вас еще нет заполеннной анкеты.
+              </p>
+            </div>
+            <div>
+              <Link to="/profile/create-parent-profile">
+                <button type="button">Заполнить анкету</button>
+              </Link>
+            </div>
+          </div>
         )}
     </div>
   );
