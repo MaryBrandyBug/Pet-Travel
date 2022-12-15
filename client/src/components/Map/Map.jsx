@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-undef */
+import React, { useEffect } from 'react';
 
-export default function Map({ parents, parent }) {
-  const [map, setMap] = useState(null);
+export default function Map({ parent }) {
+  // const [map, setMap] = useState(null);
   // useEffect(() => {
   //   function init() {
   //     const myMap = new ymaps.Map('map', {

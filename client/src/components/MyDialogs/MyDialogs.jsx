@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { /* useDispatch, */ useSelector } from 'react-redux';
+import { /* useParams, */ Link } from 'react-router-dom';
 import './MyDialogs.css';
 
 export default function MyDialogs() {
