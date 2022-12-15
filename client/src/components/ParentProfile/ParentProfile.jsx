@@ -52,7 +52,7 @@ export default function ParentProfile() {
     try {
       const data = new FormData();
       data.append('avatar', img1);
-      data.append('id', parent.id);
+      data.append('id', parent.profile.id);
 
       await axios.post('http://localhost:3001/profile/uploadparent1', data, {
         headers: {
@@ -61,7 +61,7 @@ export default function ParentProfile() {
       })
         .then((res) => {
           console.log(res);
-          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto1 });
+          dispatch({ type: 'PARENT_PROFILE', payload: res.data.addPhoto1 });
         });
     } catch (error) {
       console.log(error);
@@ -75,7 +75,7 @@ export default function ParentProfile() {
     try {
       const data = new FormData();
       data.append('avatar', img2);
-      data.append('id', parent.id);
+      data.append('id', parent.profile.id);
 
       await axios.post('http://localhost:3001/profile/uploadparent2', data, {
         headers: {
@@ -84,7 +84,7 @@ export default function ParentProfile() {
       })
         .then((res) => {
           console.log(res);
-          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto2 });
+          dispatch({ type: 'PARENT_PROFILE', payload: res.data.addPhoto2 });
         });
     } catch (error) {
       console.log(error);
@@ -98,7 +98,7 @@ export default function ParentProfile() {
     try {
       const data = new FormData();
       data.append('avatar', img3);
-      data.append('id', parent.id);
+      data.append('id', parent.profile.id);
 
       await axios.post('http://localhost:3001/profile/uploadparent3', data, {
         headers: {
@@ -107,7 +107,7 @@ export default function ParentProfile() {
       })
         .then((res) => {
           console.log(res);
-          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto3 });
+          dispatch({ type: 'PARENT_PROFILE', payload: res.data.addPhoto3 });
         });
     } catch (error) {
       console.log(error);
@@ -121,7 +121,7 @@ export default function ParentProfile() {
     try {
       const data = new FormData();
       data.append('avatar', img4);
-      data.append('id', parent.id);
+      data.append('id', parent.profile.id);
 
       await axios.post('http://localhost:3001/profile/uploadparent4', data, {
         headers: {
@@ -130,7 +130,7 @@ export default function ParentProfile() {
       })
         .then((res) => {
           console.log(res);
-          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto4 });
+          dispatch({ type: 'PARENT_PROFILE', payload: res.data.addPhoto4 });
         });
     } catch (error) {
       console.log(error);
@@ -144,7 +144,7 @@ export default function ParentProfile() {
     try {
       const data = new FormData();
       data.append('avatar', img5);
-      data.append('id', parent.id);
+      data.append('id', parent.profile.id);
 
       await axios.post('http://localhost:3001/profile/uploadparent5', data, {
         headers: {
@@ -153,7 +153,7 @@ export default function ParentProfile() {
       })
         .then((res) => {
           console.log(res);
-          dispatch({ type: 'SITTER_PROFILE', payload: res.data.addPhoto5 });
+          dispatch({ type: 'PARENT_PROFILE', payload: res.data.addPhoto5 });
         });
     } catch (error) {
       console.log(error);
@@ -178,8 +178,8 @@ export default function ParentProfile() {
               <div className="SitterProfile_photo">
                 {
               avatar
-                ? <img className="logo" src={`http://localhost:3001/${parent?.parentPh1}`} alt="avatar" />
-                : <img className="logo" src={`http://localhost:3001/${parent?.parentPh1}`} alt="avatar" />
+                ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh1}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh1}`} alt="avatar" />
             }
               </div>
               <div>
@@ -193,8 +193,8 @@ export default function ParentProfile() {
               <div className="SitterProfile_photo">
                 {
               avatar
-                ? <img className="logo" src={`http://localhost:3001/${parent?.parentPh2}`} alt="avatar" />
-                : <img className="logo" src={`http://localhost:3001/${parent?.parentPh2}`} alt="avatar" />
+                ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh2}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh2}`} alt="avatar" />
             }
               </div>
               <div>
@@ -208,8 +208,8 @@ export default function ParentProfile() {
               <div className="SitterProfile_photo">
                 {
               avatar
-                ? <img className="logo" src={`http://localhost:3001/${parent?.parentPh3}`} alt="avatar" />
-                : <img className="logo" src={`http://localhost:3001/${parent?.parentPh3}`} alt="avatar" />
+                ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh3}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh3}`} alt="avatar" />
             }
               </div>
               <div>
@@ -223,8 +223,8 @@ export default function ParentProfile() {
               <div className="SitterProfile_photo">
                 {
               avatar
-                ? <img className="logo" src={`http://localhost:3001/${parent?.parentPh4}`} alt="avatar" />
-                : <img className="logo" src={`http://localhost:3001/${parent?.parentPh4}`} alt="avatar" />
+                ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh4}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh4}`} alt="avatar" />
             }
               </div>
               <div>
@@ -238,8 +238,8 @@ export default function ParentProfile() {
               <div className="SitterProfile_photo">
                 {
               avatar
-                ? <img className="logo" src={`http://localhost:3001/${parent?.parentPh5}`} alt="avatar" />
-                : <img className="logo" src={`http://localhost:3001/${parent?.parentPh5}`} alt="avatar" />
+                ? <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh5}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${parent.profile?.parentPh5}`} alt="avatar" />
             }
               </div>
               <div>

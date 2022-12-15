@@ -47,5 +47,7 @@
   flex-direction: column;
 }
 .Parent_profile_photoadd {
+  margin-top: 15px;
+  margin-bottom: 15px;
   display: flex;
 }

@@ -81,12 +81,61 @@ router.post('/uploadsitter5', filemiddleware.single('avatar'), async (req, res) 
   }
 });
 router.post('/uploadparent1', filemiddleware.single('avatar'), async (req, res) => {
-  console.log(req.body);
+  console.log('=====>>>> 👉👉👉 file: profileSettings.js:84 👉👉👉 router.post 👉👉👉 req', req.body);
+
   try {
     if (req.file) {
-      const sitterId = await ParentProfile.findOne({ where: { id: req.body.id } });
-      const addPhoto1 = await sitterId.update({ parentPh1: req.file.filename });
+      const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto1 = await parentId.update({ parentPh1: req.file.filename });
       res.json({ addPhoto1 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadparent2', filemiddleware.single('avatar'), async (req, res) => {
+  try {
+    if (req.file) {
+      const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto2 = await parentId.update({ parentPh2: req.file.filename });
+      res.json({ addPhoto2 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadparent3', filemiddleware.single('avatar'), async (req, res) => {
+  try {
+    if (req.file) {
+      const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto3 = await parentId.update({ parentPh3: req.file.filename });
+      res.json({ addPhoto3 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadparent4', filemiddleware.single('avatar'), async (req, res) => {
+  console.log('=====>>>> 👉👉👉 file: profileSettings.js:84 👉👉👉 router.post 👉👉👉 req', req.body);
+
+  try {
+    if (req.file) {
+      const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto4 = await parentId.update({ parentPh4: req.file.filename });
+      res.json({ addPhoto4 });
+    }
+  } catch (error) {
+    console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
+  }
+});
+router.post('/uploadparent5', filemiddleware.single('avatar'), async (req, res) => {
+  console.log('=====>>>> 👉👉👉 file: profileSettings.js:84 👉👉👉 router.post 👉👉👉 req', req.body);
+
+  try {
+    if (req.file) {
+      const parentId = await ParentProfile.findOne({ where: { id: req.body.id } });
+      const addPhoto5 = await parentId.update({ parentPh5: req.file.filename });
+      res.json({ addPhoto5 });
     }
   } catch (error) {
     console.log('=====>>>> 👉👉👉 file: profileSettings.js:32 👉👉👉 router.post 👉👉👉 error', error);
