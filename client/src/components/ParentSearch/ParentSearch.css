@@ -77,6 +77,15 @@
   margin-top: 60px;
 }
 
+.container_ParentSearch_cards a {
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+}
+
 .container_ParentSearch_form form {
   text-align: center;
   width: 80%;
