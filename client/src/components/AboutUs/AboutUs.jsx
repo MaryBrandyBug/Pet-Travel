@@ -1,6 +1,8 @@
 import React from 'react';
 import './AboutUs.css';
 import Pictures from './Elbrus.png';
+import corgi from './corgi.webp';
+// import petLogo from './Pet_2.png';
 
 export default function AboutUs() {
   return (
@@ -8,7 +10,7 @@ export default function AboutUs() {
       <div className="About_text">
         <div>
           <p>
-            Dogsy — это онлайн сервис для поиска домашней передержки животных. Мы позволяем хозяину животного найти ситтера, чтобы оставить своего питомца на время.
+            Pet&Travel — это онлайн платформа для осуществления бартера между владельцами животных и ситтерами-путешественниками. Теперь не нужно переживать, что питомец дома в полном одиночестве, ведь есть ситтеры, которые с удовольствием приглядят за вашим любимцем совершенно бесплатно, и даже дадут ему лекарство, если это требуется. Ну а ситтеру не придется снимать номер в гостинице, и он совсем не против поливать ваши цветы.
           </p>
         </div>
         <div>
@@ -19,7 +21,7 @@ export default function AboutUs() {
       </div>
       <div className="About_talk">
         <div className="div_text">
-          <div>О нас говорят</div>
+          <div>О нас говорят:</div>
         </div>
         <div className="div_photo">
           <div className="talk_photo">
@@ -39,8 +41,8 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      <div className="About_video">3</div>
-      <div className="About_requisites">
+      <div className="About_video"><img src={corgi} alt="" /></div>
+      {/* <div className="About_requisites">
         <ul>
 
           Наши реквизиты
@@ -70,7 +72,7 @@ export default function AboutUs() {
 
         </ul>
 
-      </div>
+      </div> */}
     </div>
   );
 }
