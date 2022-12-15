@@ -15,8 +15,8 @@ export default function UpdateParent() {
 
   const [pets, setPets] = useState([{}]);
 
-  const [dateDiv2, setDateDiv2] = useState('hidden');
-  const [dateDiv3, setDateDiv3] = useState('hidden');
+  // const [dateDiv2, setDateDiv2] = useState('hidden');
+  // const [dateDiv3, setDateDiv3] = useState('hidden');
 
   const [updateFormParent, setUpdateFormParent] = useState({
     title: parent?.title,
@@ -37,13 +37,13 @@ export default function UpdateParent() {
     setUpdateFormParent({ ...updateFormParent, [e.target.name]: e.target.value });
   };
 
-  const handleAddDate2 = () => (
-    setDateDiv2('visible')
-  );
+  // const handleAddDate2 = () => (
+  //   setDateDiv2('visible')
+  // );
 
-  const handleAddDate3 = () => (
-    setDateDiv3('visible')
-  );
+  // const handleAddDate3 = () => (
+  //   setDateDiv3('visible')
+  // );
 
   const handlePet = (e, i) => {
     // console.log(e, i);
@@ -65,12 +65,23 @@ export default function UpdateParent() {
   const pet = (i) => {
     console.log(i);
     return (
-      <>
-        <button type="button">Добавить фото питомца</button>
-        <label>Имя питомца</label>
-        <input type="text" name="petName" onChange={(e) => handlePet(e, i)} />
-        <label>Возраст питомца</label>
-        <input type="text" name="petAge" onChange={(e) => handlePet(e, i)} />
+      <div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Имя питомца</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="petName" onChange={(e) => handlePet(e, i)} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Возраст питомца</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="petAge" onChange={(e) => handlePet(e, i)} />
+          </div>
+        </div>
         <p>
           <input type="radio" name={`type${i}`} value="cat" onChange={(e) => handlePet(e, i)} />
           Кошка
@@ -99,7 +110,7 @@ export default function UpdateParent() {
           <input type="radio" name={`type${i}`} value="reptiles" onChange={(e) => handlePet(e, i)} />
           Рептилия
         </p>
-      </>
+      </div>
     );
   };
 
@@ -137,25 +148,73 @@ export default function UpdateParent() {
   };
 
   return (
-    <div>
+    <div className="Update_sitter_profile">
       <form onSubmit={handleSubmit}>
-        <label>Заголовок</label>
-        <input type="text" name="title" value={updateFormParent.title} onChange={handleInput} />
-        <label>Страна</label>
-        <input type="text" name="country" value={updateFormParent.country} onChange={handleInput} />
-        <label>Город</label>
-        <input type="text" name="city" value={updateFormParent.city} onChange={handleInput} />
-        <label>Введение</label>
-        <input type="text" name="introduction" value={updateFormParent.introduction} onChange={handleInput} />
-        <label>Дом & Локация</label>
-        <input type="text" name="location" value={updateFormParent.location} onChange={handleInput} />
-        <label>Обязанности</label>
-        <input type="text" name="responsibilities" value={updateFormParent.responsibilities} onChange={handleInput} />
-        <label>С</label> {/* дата 1 */}
-        <input type="date" name="dateSince1" value={updateFormParent.dateSince1} onChange={handleInput} />
-        <label>По</label>
-        <input type="date" name="dateUntil1" value={updateFormParent.dateUntil1} onChange={handleInput} />
-        {parent?.dateSince2
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Заголовок</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="title" value={updateFormParent.title} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Страна</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="country" value={updateFormParent.country} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Город</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="city" value={updateFormParent.city} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Введение</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="introduction" value={updateFormParent.introduction} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Дом & Локация</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="location" value={updateFormParent.location} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>Обязанности</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="text" name="responsibilities" value={updateFormParent.responsibilities} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>С</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="date" name="dateSince1" value={updateFormParent.dateSince1} onChange={handleInput} />
+          </div>
+        </div>
+        <div className="Update_sitter_input">
+          <div className="Update_sitter_input_text">
+            <label>По</label>
+          </div>
+          <div className="Update_sitter_input_text">
+            <input type="date" name="dateUntil1" value={updateFormParent.dateUntil1} onChange={handleInput} />
+          </div>
+        </div>
+        {/* {parent?.dateSince2
           ? (
             <>
               <label>С</label>
@@ -200,18 +259,30 @@ export default function UpdateParent() {
                 </div>
               </>
             )
-        }
+        } */}
         <h4>Ваши питомцы:</h4>
         {allPets[0]
           ? (
             <div>
               {allPets?.map((el) => (
-                <>
-                  <div>ФОТО ПИТОМЦА</div>
+                <div className="petContainer_card">
+                  <div className="petContainer_photo">
+                    <div className="petContainer_photo_pet_photo">
+                      <div />
+                    </div>
+                    <div>
+                      <input type="file" />
+                    </div>
+                    <div>
+                      <button type="button">Добавить</button>
+                    </div>
+                  </div>
                   <p>{el?.petName}</p>
                   <p>{el?.petAge} лет</p>
-                  <button type="button" onClick={() => deletePet(el.id, el.ParentProfileId)}>Удалить</button>
-                </>
+                  <div className="Update_sitter_input">
+                    <button type="button" onClick={() => deletePet(el.id, el.ParentProfileId)}>Удалить</button>
+                  </div>
+                </div>
               ))}
               {pets.map((el, i) => pet(i))}
               <button type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
@@ -223,7 +294,9 @@ export default function UpdateParent() {
               <button type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
             </div>
           )}
-        <button type="submit">Сохранить изменения</button>
+        <div className="Update_sitter_input">
+          <button type="submit">Сохранить изменения</button>
+        </div>
       </form>
     </div>
   );

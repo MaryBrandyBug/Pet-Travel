@@ -24,15 +24,10 @@
 .petContainer_card {
   display: flex;
   flex-direction: column;
+  width: 300px;
 }
 
-.petContainer_petName {
-}
-
-.petContainer_petAge {
-}
-
-.ParentProfile_published {
+.ParentProfile_published { 
   width: 200px;
   display: flex;
   height: 25px;
