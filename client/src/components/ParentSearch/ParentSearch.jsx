@@ -30,7 +30,6 @@ export default function ParentSearch() {
   console.log('parents', parents);
 
   const pets = useSelector((store) => store.allParentsStore.allPets);
-  // console.log(pets);
 
   const findPets = (id) => {
     const pet = pets?.filter((el) => el.ParentProfileId === id);
@@ -74,25 +73,21 @@ export default function ParentSearch() {
       <div className="container_ParentSearch_content">
         <div className="container_ParentSearch_cards">
           {parents?.map((el) => (
-            <div className="container_ParentSearch_card">
-              <div className="ParentSearch_card_photo">ФОТО ДОМА ВЛАДЕЛЬЦА</div>
-              <div className="ParentSearch_card_title">
-                <span>
-                  {el.title.length < 20 ? el.title : `${el.title.substring(0, 20)}...`}
-                </span>
+            <Link to={`/all-parents/${el.id}`}>
+              <div className="container_ParentSearch_card">
+                <div className="ParentSearch_card_photo">ФОТО ДОМА ВЛАДЕЛЬЦА</div>
+                <div className="ParentSearch_card_title">
+                  <span>
+                    {el.title.length < 20 ? el.title : `${el.title.substring(0, 20)}...`}
+                  </span>
+                </div>
+                <div className="ParentSearch_card_date"><span>{el.dateSince1} {el.dateUntil1}</span></div>
+                <div className="ParentSearch_card_location"><span>{el.country}, {el.city}</span></div>
+                <div className="ParentSearch_card_pets">
+                  {findPets(el.id)}
+                </div>
               </div>
-              <div className="ParentSearch_card_date"><span>{el.dateSince1} {el.dateUntil1}</span></div>
-              <div className="ParentSearch_card_location"><span>{el.country}, {el.city}</span></div>
-
-              <Link to={`/all-parents/${el.id}`}><span className="ParentSearch_card_link">Подробнее</span></Link>
-
-              <div className="ParentSearch_card_pets">
-                {findPets(el.id)}
-              </div>
-
-              {/* {на одной строчке будут находиться даты С и ПО, город и страна } */}
-              {/* {добавить количество животных картинкой + количество} */}
-            </div>
+            </Link>
           ))}
         </div>
       </div>
