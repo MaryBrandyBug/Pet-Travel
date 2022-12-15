@@ -17,8 +17,7 @@
   justify-content: space-between;
   height: 200px;
 }
-.petContainer_photo_pet_photo {
-  background-color: aqua;
+.petContainer_photo_pet_photo>img {
   border-radius: 50%;
   width: 100px;
   height: 100px;

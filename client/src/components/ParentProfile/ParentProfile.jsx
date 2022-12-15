@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './ParentProfile.css';
@@ -19,6 +20,30 @@ export default function ParentProfile() {
     })
       .then((res) => res.json())
       .then((res) => dispatch({ type: 'PARENT_PROFILE', payload: res.profile }));
+  };
+
+  const [img, setImg] = useState(null);
+  const [avatar, setAvatar] = useState(null);
+
+  const sendFile = async (el) => {
+    try {
+      const data = new FormData();
+      data.append('avatar', img);
+      data.append('id', el);
+      data.append('parent', parent.profile.id);
+      await axios.post(`http://localhost:3001/profile/uploadPet/${el}`, data, {
+        headers: {
+          'content-type': 'mulpipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: 'PET', payload: res.data.allPet });
+          setAvatar(`http://localhost:3001/${res.data.photo}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -77,16 +102,20 @@ export default function ParentProfile() {
             <h4>Ваши питомцы:</h4>
             <div className="petContainer">
               {parent.pet?.map((el) => (
-                <div className="petContainer_card">
+                <div key={el.id} className="petContainer_card">
                   <div className="petContainer_photo">
                     <div className="petContainer_photo_pet_photo">
-                      <div />
+                      {
+              avatar
+                ? <img className="logo" src={`http://localhost:3001/${el.petPhoto}`} alt="avatar" />
+                : <img className="logo" src={`http://localhost:3001/${el.petPhoto}`} alt="avatar" />
+            }
                     </div>
                     <div>
-                      <input type="file" />
+                      <input type="file" onChange={(e) => setImg(e.target.files[0])} />
                     </div>
                     <div>
-                      <button type="button">Добавить</button>
+                      <button type="button" onClick={() => sendFile(el.id)}>Добавить</button>
                     </div>
                   </div>
                   <div className="petContainer_petName"><p>{el?.petName}</p></div>
