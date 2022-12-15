@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
+import gif from './loader.gif';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
@@ -89,24 +90,9 @@ function App() {
   }, [auth]);
   if (load) {
     return (
-      <div>
-        <div className="body">
-          <span>
-            <span />
-            <span />
-            <span />
-            <span />
-          </span>
-          <div className="base">
-            <span />
-            <div className="face" />
-          </div>
-        </div>
-        <div className="longfazers">
-          <span />
-          <span />
-          <span />
-          <span />
+      <div className="Lodaer">
+        <div className="loader_gif">
+          <img src={gif} alt="gif" />
         </div>
       </div>
     );
