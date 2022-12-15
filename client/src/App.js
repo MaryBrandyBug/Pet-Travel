@@ -145,8 +145,7 @@ function App() {
 
           <Route path="/all-parents/:id" element={<ParentPage />} />
           <Route path="/all-sitters/:id" element={<SitterPage />} />
-          
-          <Route path="/review-parent" element={<FormReviews />} />
+          <Route path="/review-parent/:id" element={<FormReviews />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/signup" element={<SignUp />} />
