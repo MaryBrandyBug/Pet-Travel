@@ -182,9 +182,18 @@ export default function SitterProfile() {
           </div>
         )
         : (
-          <Link to="/profile/create-sitter-profile">
-            <button type="button">Заполнить анкету</button>
-          </Link>
+          <div className="btn_add_prifile">
+            <div className="btn_add_prifile_p">
+              <p>
+                У вас еще нет заполеннной анкеты.
+              </p>
+            </div>
+            <div>
+              <Link to="/profile/create-sitter-profile">
+                <button type="button">Заполнить анкету</button>
+              </Link>
+            </div>
+          </div>
         )}
     </div>
   );

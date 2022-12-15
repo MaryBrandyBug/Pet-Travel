@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import AboutUs from './components/AboutUs/AboutUs';
 
+import gif from './loader.gif';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
@@ -16,7 +17,6 @@ import LoveInDogLanguage from './components/Articles/LoveInDogLanguage/LoveInDog
 import DogSittingTips from './components/Articles/DogSittingTips/DogSittingTips';
 import CatSitterArticle from './components/Articles/CatSitterArticle/CatSitterArticle';
 import DogSitterArticle from './components/Articles/DogSitterArticle/DogSitterArticle';
-// import Chat from './components/Chat/Chat';
 
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
@@ -39,9 +39,11 @@ import SitterSearch from './components/SitterSearch/SitterSearch';
 import UpdateParent from './components/UpdateParent/UpdateParent';
 import ParentSearch from './components/ParentSearch/ParentSearch';
 import SitterPage from './components/SitterPage/SitterPage';
-import ChatForTwo from './components/ChatForTwo/ChatForTwo';
 import ParentPage from './components/ParentPage/ParentPage';
 import FormReviews from './components/FormReviews/FormReviews';
+import ChatForTwo from './components/ChatForTwo/ChatForTwo';
+import MyDialogs from './components/MyDialogs/MyDialogs';
+import MyDialogsChat from './components/MyDialogsChat/MyDialogsChat';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +51,6 @@ function App() {
   // eslint-disable-next-line no-unused-vars
 
   const [ws, setWs] = useState(null);
-
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
@@ -90,24 +91,9 @@ function App() {
   }, [auth]);
   if (load) {
     return (
-      <div>
-        <div className="body">
-          <span>
-            <span />
-            <span />
-            <span />
-            <span />
-          </span>
-          <div className="base">
-            <span />
-            <div className="face" />
-          </div>
-        </div>
-        <div className="longfazers">
-          <span />
-          <span />
-          <span />
-          <span />
+      <div className="Lodaer">
+        <div className="loader_gif">
+          <img src={gif} alt="gif" />
         </div>
       </div>
     );
@@ -145,11 +131,11 @@ function App() {
               <Route path="parent/update-parent-profile" element={<UpdateParent />} />
             </Route>
           </Route>
-          {/* <Route path="/chat" element={<Chat ws={ws} />} /> */}
 
-
-          <Route path="/chat" element={<ChatForTwo ws={ws} />} />
-
+          <Route path="/all-sitters/chat/:id" element={<ChatForTwo ws={ws} />} />
+          <Route path="/all-parents/chat/:id" element={<ChatForTwo ws={ws} />} />
+          <Route path="/my-chats" element={<MyDialogs />} />
+          <Route path="chat/:id" element={<MyDialogsChat ws={ws} />} />
 
           {/* <Route path="/profile/create-parent-profile" element={<ParentProfileForm />} /> */}
           {/* <Route path="/profile/create-sitter-profile" element={<SitterProfileForm />} /> */}
@@ -162,8 +148,6 @@ function App() {
           
           <Route path="/review-parent" element={<FormReviews />} />
 
-          {/* <Route path="/chat" element={<Chat />} /> */}
-
           <Route element={<ProtectedRoute />}>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
@@ -173,7 +157,6 @@ function App() {
       <div className="Footer_bar">
         <Footer />
       </div>
-
     </div>
   );
 }

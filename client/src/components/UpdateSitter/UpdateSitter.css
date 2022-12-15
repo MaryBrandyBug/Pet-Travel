@@ -1,0 +1,27 @@
+.Update_sitter_profile {
+    padding: 50px;
+}
+.Update_sitter_input {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+.Update_sitter_input_text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.Update_sitter_input_text>input {
+    border-radius: 15px;
+    font-size: 25px;
+    width: 200px;
+    height: 30px;
+}
+
+.Update_sitter_input_text>textarea {
+    border-radius: 15px;
+    font-size: 25px;
+    width: 200px;
+    height: 30px;
+}

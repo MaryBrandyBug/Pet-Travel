@@ -10,7 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({
-      Verification, AppReview, SitterProfile, SitterReview, ParentProfile, ParentReview, Message,
+      Dialog,
+      Verification,
+      AppReview,
+      SitterProfile,
+      SitterReview,
+      ParentProfile,
+      ParentReview,
+      Message,
     }) {
       this.hasMany(Verification);
       this.hasMany(AppReview);
@@ -19,6 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(ParentProfile);
       this.hasMany(ParentReview);
       this.hasMany(Message);
+      this.hasMany(Dialog, { foreignKey: 'userFrom' });
+      this.hasMany(Dialog, { foreignKey: 'userTo' });
     }
   }
   User.init({

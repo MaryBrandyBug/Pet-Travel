@@ -44,10 +44,10 @@ export default function Footer() {
         <div className="col social">
           <h1>Мы в социальных сетях</h1>
           <ul>
-            <li><Link to="https://ru.wikipedia.org/wiki/Whatsaap"><img src={whatsapp} alt="whatsup" width="32" style={{ width: `${32}px` }} /></Link></li>
-            <li><Link to="https://ru.wikipedia.org/wiki/Instagram"><img src={instagram} alt="inst" width="32" style={{ width: `${32}px` }} /></Link></li>
-            <li><Link to="https://t.me/A_151514"><img src={telegram} alt="telegram" style={{ width: `${32}px` }} /></Link></li>
-            <li><Link to="https://ru.wikipedia.org/wiki/Facebook"><img src={facebook} alt="facebook" width="32" style={{ width: `${32}px` }} /></Link></li>
+            <li><a href="https://ru.wikipedia.org/wiki/Whatsaap"><img src={whatsapp} alt="whatsup" width="32" style={{ width: `${32}px` }} /></a></li>
+            <li><a href="https://ru.wikipedia.org/wiki/Instagram"><img src={instagram} alt="inst" width="32" style={{ width: `${32}px` }} /></a></li>
+            <li><a href="https://t.me/A_151514"><img src={telegram} alt="telegram" style={{ width: `${32}px` }} /></a></li>
+            <li><a href="https://ru.wikipedia.org/wiki/Facebook"><img src={facebook} alt="facebook" width="32" style={{ width: `${32}px` }} /></a></li>
           </ul>
         </div>
         <div className="clearfix">
