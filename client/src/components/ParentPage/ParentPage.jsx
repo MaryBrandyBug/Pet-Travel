@@ -20,6 +20,19 @@ export default function ParentPage() {
       .then((data) => setParent(data));
   }, []);
 
+  const handleCreateChat = () => {
+    fetch(`http://localhost:3001/all-parents/chat/${id}`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userFrom: user.id, userTo: parent.UserId }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   return (
     <div className="container-parentPage">
       <div className="info-one">
