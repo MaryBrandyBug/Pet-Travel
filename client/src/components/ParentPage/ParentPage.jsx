@@ -84,8 +84,9 @@ export default function ParentPage() {
           </div>
         </div>
       </div>
-      <div className="map">
-        {/* <Map parent={parent} /> */}
+      <div className="maps">
+        {/* <Map parents={[parent]} /> */}
+        <Map parent={parent} />
       </div>
     </div>
   );

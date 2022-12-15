@@ -8,7 +8,9 @@
   width: 900px;
 }
 
-
+.petContainer {
+  display: flex;
+}
 .petContainer_photo {
   display: flex;
   flex-direction: column;

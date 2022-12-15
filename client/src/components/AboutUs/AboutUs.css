@@ -1,6 +1,9 @@
+.About_container {
+width: 1280px;
+margin: auto;
+}
 .About_text {
-  width: 100%;
-  height: 200px;  
+  width: 100%; 
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -18,7 +21,8 @@
 }
 .div_text {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    font-size: 25px;
 }
 .div_photo {
     display: flex;
@@ -29,13 +33,16 @@
 }
 .About_video {
     width: 100%;
-    height: 700px;  
-    background-color: bisque;
     margin-top: 30px;
+    margin-bottom: 150px;
 }
+
+.About_video img {
+  width: 100%;
+}
+
 .About_requisites {
-    width: 100%;
-    height: 400px;  
+    width: 100%; 
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
@@ -43,5 +50,6 @@
     justify-content: space-evenly;
 }
 .About_requisites>ul {
+    padding: 0;
     font-size: 25px;
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './SitterPage.css';
 import { useSelector } from 'react-redux';
-import Slider from '../Slider/Slider';
 
 export default function SitterPage() {
   const { id } = useParams();
@@ -15,9 +14,11 @@ export default function SitterPage() {
       credentials: 'include',
     })
       .then((res) => res.json())
-      .then((data) => setSitter(data));
+      .then((data) => {
+        setSitter(data);
+      });
   }, []);
-
+  console.log(sitter.sitterPh1);
   const handleCreateChat = () => {
     fetch(`http://localhost:3001/all-sitters/chat/${id}`, {
       method: 'POST',
@@ -33,16 +34,22 @@ export default function SitterPage() {
   return (
     <div>
       <div className="sliderContainer">
-        <Slider
-          sliderItems={[
-            <div className="slide slide-s1">slide 1</div>,
-            <div className="slide slide-s2">slide 2</div>,
-            <div className="slide slide-s3">slide 3</div>,
-            <div className="slide slide-s2">slide 4</div>,
-            <div className="slide slide-s3">slide 5</div>,
-          ]}
-          pageWidth={600}
-        />
+        {sitter.sitterPh1 !== null
+          ? <img src={`http://localhost:3001/${sitter.sitterPh1}`} alt="alt" />
+          : <div>нету</div> }
+        {sitter.sitterPh2 !== null
+          ? <img src={`http://localhost:3001/${sitter.sitterPh2}`} alt="alt" />
+          : <div>нету</div> }
+        {sitter.sitterPh3 !== null
+          ? <img src={`http://localhost:3001/${sitter.sitterPh3}`} alt="alt" />
+          : <div>нету</div> }
+        {sitter.sitterPh4 !== null
+          ? <img src={`http://localhost:3001/${sitter.sitterPh4}`} alt="alt" />
+          : <div>нету</div> }
+        {sitter.sitterPh5 !== null
+          ? <img src={`http://localhost:3001/${sitter.sitterPh5}`} alt="alt" />
+          : <div>нету</div> }
+
       </div>
 
       <div className="sticky">
