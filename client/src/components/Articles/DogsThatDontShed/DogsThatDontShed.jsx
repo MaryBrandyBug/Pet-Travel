@@ -3,7 +3,7 @@ import dogShed from '../../../imgArticles/dogShed.webp';
 
 export default function DogsThatDontShed() {
   return (
-    <div>
+    <div className="catSitter">
       <div>
         <h1>8 ПОРОД СОБАК КОТОРЫЕ ПОЧТИ НЕ ЛИНЯЮТ</h1>
         <div className="div_article_img">

@@ -3,7 +3,7 @@ import photoTips from '../../../imgArticles/photoTips.webp';
 
 export default function GreatPhotosTips() {
   return (
-    <div>
+    <div className="catSitter">
       <h1>СОВЕТЫ ПО СЪЕМКЕ ДОМАШНИХ ЖИВОТНЫХ ДЛЯ НАЧИНАЮЩИХ: КАК СДЕЛАТЬ ОТЛИЧНЫЕ ФОТОГРАФИИ ВАШЕГО ЛЮБИМЦА</h1>
       <div>
         <div className="div_article_img">

@@ -3,7 +3,7 @@ import seniorDog1 from '../../../imgArticles/seniorDog1.jpg';
 
 export default function TipsForSeniorPets() {
   return (
-    <div>
+    <div className="catSitter">
       <h1>УХОД ЗА ПОЖИЛЫМИ ЖИВОТНЫМИ: 7 ОСНОВНЫХ СОВЕТОВ</h1>
       <div className="div_article_img">
         <img className="article_img" src={seniorDog1} alt="dog" />

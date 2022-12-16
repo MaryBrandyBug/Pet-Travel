@@ -3,7 +3,7 @@ import dogSitters from '../../../imgArticles/dogSitters.webp';
 
 export default function DogSitterArticle() {
   return (
-    <div>
+    <div className="catSitter">
       <div>
         <h1>СИТТЕРЫ ДЛЯ СОБАК</h1>
         <div>
