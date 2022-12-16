@@ -246,10 +246,10 @@ export default function ParentProfileForm() {
         {pets.map((el, i) => pet(i))}
         {/* pet */}
         <div className="Update_sitter_input">
-          <button type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
+          <button className="btn_subb" type="button" onClick={() => { setPets([...pets, {}]); }}>Добавить питомца</button>
         </div>
         <div className="Update_sitter_input">
-          <button type="submit">Создать</button>
+          <button className="btn_subb" type="submit">Создать</button>
         </div>
       </form>
     </div>

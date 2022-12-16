@@ -129,7 +129,7 @@ export default function SitterProfileForm() {
           </label>
         </div>
         <div className="Update_sitter_input">
-          <button type="submit">Создать</button>
+          <button className="btn_subb" type="submit">Создать</button>
         </div>
       </form>
     </div>

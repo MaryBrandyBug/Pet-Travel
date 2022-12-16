@@ -333,7 +333,7 @@ export default function SitterProfile() {
             </div>
             <div>
               <Link to="/profile/create-sitter-profile">
-                <button type="button">Заполнить анкету</button>
+                <button className="btn_subb" type="button">Заполнить анкету</button>
               </Link>
             </div>
           </div>
