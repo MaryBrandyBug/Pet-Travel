@@ -1,5 +1,7 @@
 .slider {
+  margin: auto;
   margin-top: 50px;
+  width: 1850px;
 }
 
 .slide_txt {

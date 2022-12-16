@@ -39,20 +39,25 @@
   width: 1400px;
   margin: auto;
 }
-
-.petPhoto img {
-  width: 200px;
-  height: 200px;
+.petPhoto{
+margin-top: 15px;
+}
+.petPhoto>img {
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
 }
-
+.pets-1{
+  margin-top: 30px;
+}
 .pet {
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 700px; */
+  width: 250px;
    border-radius: 25px;
-        /* height: 650px; */
+        height: 300px;
          border: none;
     box-shadow: rgba(0, 0, 0, .2) 0 3px 3px -1px,rgba(0, 0, 0, .14) 0 0 0 0,rgba(0, 0, 0, .12) 0 1px 9px 0;
 }

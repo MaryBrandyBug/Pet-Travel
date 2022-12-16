@@ -26,8 +26,8 @@ export default function Main() {
         <Slider
           sliderItems={[
             <div className="slide slide-1"><div className="slide_txt">Команда Pet&Travel поздравляет Вас с наступающим Новым Годом!</div></div>,
-            <div className="slide slide-2">slide 2</div>,
-            <div className="slide slide-3">slide 3</div>,
+            <div className="slide slide-2" />,
+            <div className="slide slide-3" />,
           ]}
           pageWidth={1900}
         />
