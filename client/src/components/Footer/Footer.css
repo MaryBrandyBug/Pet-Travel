@@ -82,3 +82,12 @@ a:active {
     text-align: center;
     color: black;
   }
+.col ul li a {
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+
+}
