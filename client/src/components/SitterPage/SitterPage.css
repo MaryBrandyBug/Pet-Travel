@@ -1,42 +1,21 @@
-.sliderContainer {
-    border: 2px solid darkgreen;
-    margin: 10px;
-    padding: 5px;
-    max-width: 600px;
-
-}
-.sliderContainer>img {
-    margin: 15px;
-    width: 250px;
-    height: 250px;
-
-}
-.slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-}
-
-
-.reviews {
-    border: solid 2px darkgreen;
-    padding: 5px;
-    margin: 10px;
+.container_sitterPage {
+    width: 1280px;
+    margin: auto;
 }
 
 .sitterInfo {
-    border: 2px solid darkgreen;
-    margin: 10px;
-    padding: 5px;
-    /*   display: block;
-    position: sticky; */
-    top: 90px;
-    right: 325px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly
+}
 
-    width: 600px;
-    height: 300px;
-
+.sitterName {
+  font-size: 30px;
 }
 
 .sitterInfo>a {
@@ -44,7 +23,49 @@
 }
 
 .details {
-    border: solid 2px darkgreen;
-    padding: 5px;
-    margin: 10px;
+    margin: auto;
+    border-radius: 25px;
+        width: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 650px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, .2) 0 3px 3px -1px,rgba(0, 0, 0, .14) 0 0 0 0,rgba(0, 0, 0, .12) 0 1px 9px 0;
+}
+
+.parent_chatBtn button {
+    border: none;
+    background-color: #FFCF48;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+}
+
+.parent_chatBtn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.pets, .aboutSitter {
+    margin-left: 50px;
+    width: 900px;
+}
+
+.aboutSitter h4 {
+    font-size: 23px;
+}
+
+.aboutSitter span {
+ font-size: 20px;
+}
+
+.pets h3 {
+    font-size: 23px;
+}
+
+.pets div {
+    margin-top: 15px;
+    font-size: 20px;
 }
