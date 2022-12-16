@@ -1,7 +1,6 @@
 import React from 'react';
 import dogShed from '../../../imgArticles/dogShed.webp';
 
-
 export default function DogsThatDontShed() {
   return (
     <div className="catSitter">

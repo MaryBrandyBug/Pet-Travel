@@ -1,7 +1,6 @@
 import React from 'react';
 import girlOrBoy from '../../../imgArticles/girlOrBoy.jpg';
 
-
 export default function MaleVsFemaleDogs() {
   return (
     <div className="catSitter">

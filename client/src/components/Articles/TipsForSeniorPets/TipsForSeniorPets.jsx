@@ -1,7 +1,6 @@
 import React from 'react';
 import seniorDog1 from '../../../imgArticles/seniorDog1.jpg';
 
-
 export default function TipsForSeniorPets() {
   return (
     <div className="catSitter">

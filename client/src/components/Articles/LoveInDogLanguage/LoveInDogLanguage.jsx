@@ -1,7 +1,6 @@
 import React from 'react';
 import love from '../../../imgArticles/love.webp';
 
-
 export default function LoveInDogLanguage() {
   return (
     <div className="catSitter">
