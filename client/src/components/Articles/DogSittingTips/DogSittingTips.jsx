@@ -3,7 +3,7 @@ import dogTips from '../../../imgArticles/dogTips.jpg';
 
 export default function DogSittingTips() {
   return (
-    <div>
+    <div className="catSitter">
       <div>
         <h1>ТОП-5 СОВЕТОВ СИТТЕРУ ДЛЯ СОБАК</h1>
         <div>

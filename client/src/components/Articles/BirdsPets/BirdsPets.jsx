@@ -4,7 +4,7 @@ import './articleStyle.css';
 
 export default function BirdsPets() {
   return (
-    <div className="article">
+    <div className="catSitter">
       <h1>7 причин завести птицу в качестве домашнего питомца</h1>
       <div className="div_article_img">
         <img className="article_img" src={parrot1} alt="parrot" />

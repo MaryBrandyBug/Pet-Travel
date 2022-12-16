@@ -3,7 +3,7 @@ import love from '../../../imgArticles/love.webp';
 
 export default function LoveInDogLanguage() {
   return (
-    <div>
+    <div className="catSitter">
       <div>
         <h1>КАК ПОКАЗАТЬ ЛЮБОВЬ СВОЕЙ СОБАКЕ</h1>
         <div className="div_article_img">

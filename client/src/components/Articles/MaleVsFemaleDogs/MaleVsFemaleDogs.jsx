@@ -3,7 +3,7 @@ import girlOrBoy from '../../../imgArticles/girlOrBoy.jpg';
 
 export default function MaleVsFemaleDogs() {
   return (
-    <div>
+    <div className="catSitter">
       <div>
         <div>
           <h1>ВЫБИРАЕМ ДРУГА: КАКОГО ПОЛА СОБАКА ПОДОЙДЕМ ВАМ</h1>

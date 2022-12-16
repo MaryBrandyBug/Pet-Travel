@@ -135,14 +135,14 @@ export default function Setting() {
             }
             <input type="file" onChange={(e) => setImg(e.target.files[0])} />
             <div className="btn_sub">
-              <button type="button" onClick={sendFile}>Добавить фото</button>
+              <button className="btn_send_review" type="button" onClick={sendFile}>Добавить фото</button>
             </div>
           </div>
         </div>
         <div className="btn">
           <div className="btn_put">
             <div className="btn_sub">
-              <button type="submit">Сохранить изменения</button>
+              <button className="btn_send_review" type="submit">Сохранить изменения</button>
             </div>
           </div>
         </div>

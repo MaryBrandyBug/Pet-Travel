@@ -21,7 +21,7 @@ export default function Navbar() {
 
     <div className="nav">
       <div className="nav-header">
-        <img src={petImg} alt="logo" />
+        <Link to="/"><img src={petImg} alt="logo" /></Link>
       </div>
       <div className="findTestClass">
         <div>
