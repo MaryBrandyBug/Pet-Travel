@@ -73,5 +73,5 @@ export default function Map({ parent }) {
       });
   }, [parent]);
 
-  return <div id="map" style={{ width: '800px', height: '400px', marginLeft: '300px' }} />;
+  return <div id="map" style={{ width: '600px', height: '400px' }} />;
 }

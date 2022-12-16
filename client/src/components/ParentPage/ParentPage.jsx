@@ -3,7 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Map from '../Map/Map';
-import Slider from '../Slider/Slider';
+// import Slider from '../Slider/Slider';
+import fish from '../../icons/fish.png';
+import cat from '../../icons/cat.png';
+import dog from '../../icons/dog.png';
+import reptile from '../../icons/reptile.png';
+import bird from '../../icons/bird.png';
+import rabbit from '../../icons/rabbit.png';
+import horse from '../../icons/horse.png';
 import './ParentPage.css';
 
 export default function ParentPage() {
@@ -33,67 +40,84 @@ export default function ParentPage() {
       .then((data) => console.log(data));
   };
 
+  const petPicture = (type) => {
+    for (let i = 0; i < 7; i += 1) {
+      if (type === 'fish') {
+        return <img className="img_animal" src={fish} alt="" />;
+      }
+      if (type === 'bird') {
+        return <img className="img_animal" src={bird} alt="" />;
+      }
+      if (type === 'cat') {
+        return <img className="img_animal" src={cat} alt="" />;
+      }
+      if (type === 'dog') {
+        return <img className="img_animal" src={dog} alt="" />;
+      }
+      if (type === 'reptiles') {
+        return <img className="img_animal" src={reptile} alt="" />;
+      }
+      if (type === 'small') {
+        return <img className="img_animal" src={rabbit} alt="" />;
+      }
+      if (type === 'horse') {
+        return <img className="img_animal" src={horse} alt="" />;
+      }
+    }
+    return 0;
+  };
   return (
     <div className="container-parentPage">
       <div className="info-one">
-        <div className="sliderContainer">
-          <Slider
-            sliderItems={[
-              <div className="slide slide-s1">slide 1</div>,
-              <div className="slide slide-s2">slide 2</div>,
-              <div className="slide slide-s3">slide 3</div>,
-              <div className="slide slide-s2">slide 4</div>,
-              <div className="slide slide-s3">slide 5</div>,
-            ]}
-            pageWidth={600}
-          />
-        </div>
 
         <div className="parentInfo">
           <div className="parentName">
-            <h3>{parent?.User?.name}</h3>
+            <span className="span_Name">{parent?.User?.name}</span>
+            <span>Требуется ситтер:</span>
+            <span className="span_Date">{parent.dateSince1} - {parent.dateUntil1}</span>
           </div>
-          <div className="date">
-            <h4>Требуется няня:</h4>
-            <h5>{parent.dateSince1} - {parent.dateUntil1}</h5>
-            {/* <button type="button">Начать чат</button> */}
-            {/* <button type="button" onClick={() => console.log(parent?.Pets[0].petName)}>Test</button> */}
+          <div className="parentPage_buttons">
+            <Link to={`/all-parents/chat/${id}`}><button className="button_parent" type="button" onClick={handleCreateChat}>Чат</button></Link>
+            <Link to={`/review-parent/${id}`}><button className="button_parent" type="button">Оставить отзыв</button></Link>
           </div>
-
         </div>
-        <Link to={`/all-parents/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
-      </div>
-      <div>
-
-        <Link to={`/review-parent/${id}`}><button type="button">Оставить отзыв</button></Link>
-
+        <div className="maps">
+          {/* <Map parents={[parent]} /> */}
+          <Map parent={parent} />
+        </div>
+        <div />
       </div>
 
       <div className="info-2">
         <div className="title-1">
           <h4>Введение</h4>
-          <h5>{parent.title}</h5>
+          <span>{parent.title}</span>
         </div>
         <div className="location-1">
           <h4>Дом и местоположение</h4>
-          <h5>{parent.location}</h5>
+          <span>{parent.location}</span>
         </div>
         <div className="details-1">
           <div className="Responsibilities">
             <h4>Обязанности</h4>
-            <h5>{parent.responsibilities}</h5>
-          </div>
-
-          <div className="pets-1">
-            <h4>Познакомьтесь с домашними животными</h4>
-            {/* <h4>{parent?.Pets[0].petName}</h4> */}
+            <span>{parent.responsibilities}</span>
           </div>
         </div>
       </div>
-      <div className="maps">
-        {/* <Map parents={[parent]} /> */}
-        <Map parent={parent} />
+      <div className="pets-1">
+        <h4>Познакомьтесь с домашними животными</h4>
+        <div className="all_parents_pets">
+          {parent.Pets?.map((el) => (
+            <div className="pet">
+              <div className="petPhoto"><img src={`http://localhost:3001/${el.petPhoto}`} alt="" /></div>
+              <div><span>{el.petName}</span></div>
+              <div><span>{el.petAge} лет</span></div>
+              <div>{petPicture(el.type)}</div>
+            </div>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }

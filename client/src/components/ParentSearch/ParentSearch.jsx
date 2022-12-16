@@ -58,7 +58,6 @@ export default function ParentSearch() {
         types[i] = horse;
       }
     }
-    // console.log(types);
     return types.map((el) => <img className="img_animal" src={el} alt="" />);
   };
 
