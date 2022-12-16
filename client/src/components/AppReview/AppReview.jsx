@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React, { useState } from 'react';
 import './AppReview.css';
 import { useSelector } from 'react-redux';
@@ -34,8 +35,8 @@ export default function AppReview() {
     <div className="review_container">
       <div className="star">
         <h1>Выберите оценку</h1>
-        <form onSubmit={handleSubmit}>
-          <fieldset className="rating">
+        <form className="Form_review" onSubmit={handleSubmit}>
+          {/* <fieldset className="rating">
             <input type="radio" id="star5" name="rating" value="5" onChange={handleInput} />
             <label className="full" htmlFor="star5" title="Awesome - 5 stars" />
             <input type="radio" id="star4half" name="rating" value="4.5" onChange={handleInput} />
@@ -56,10 +57,93 @@ export default function AppReview() {
             <label className="full" htmlFor="star1" title="Sucks big time - 1 star" />
             <input type="radio" id="starhalf" name="rating" value="0,5" onChange={handleInput} />
             <label className="half" htmlFor="starhalf" title="Sucks big time - 0.5 stars" />
-          </fieldset>
+          </fieldset> */}
+          <div className="container_review">
+            <div className="rating">
+              <div className="rating__bar">
+                <label
+                  className="rating__star rating__star--1"
+                  htmlFor="rating-star-1"
+                  role="button"
+                  aria-label="Uma estrela"
+                />
+                <input
+                  type="checkbox"
+                  id="rating-star-1"
+                  className="rating__checkbox"
+                  name="rating"
+                  value="1"
+                  hidden
+                  onChange={handleInput}
+                />
+                <label
+                  className="rating__star rating__star--2"
+                  htmlFor="rating-star-2"
+                  role="button"
+                  aria-label="Uma estrela"
+                />
+                <input
+                  type="checkbox"
+                  id="rating-star-2"
+                  className="rating__checkbox"
+                  name="rating"
+                  value="2"
+                  hidden
+                  onChange={handleInput}
+                />
+                <label
+                  className="rating__star rating__star--3"
+                  htmlFor="rating-star-3"
+                  role="button"
+                  aria-label="Uma estrela"
+                />
+                <input
+                  type="checkbox"
+                  id="rating-star-3"
+                  className="rating__checkbox"
+                  name="rating"
+                  value="3"
+                  hidden
+                  onChange={handleInput}
+                />
+                <label
+                  className="rating__star rating__star--4"
+                  htmlFor="rating-star-4"
+                  role="button"
+                  aria-label="Uma estrela"
+                />
+                <input
+                  type="checkbox"
+                  id="rating-star-4"
+                  className="rating__checkbox"
+                  name="rating"
+                  value="4"
+                  hidden
+                  onChange={handleInput}
+                />
+                <label
+                  className="rating__star rating__star--5"
+                  htmlFor="rating-star-5"
+                  role="button"
+                  aria-label="Uma estrela"
+                />
+                <input
+                  type="checkbox"
+                  id="rating-star-5"
+                  className="rating__checkbox"
+                  name="rating"
+                  value="5"
+                  hidden
+                  onChange={handleInput}
+                />
+
+                <div className="rating__filled-stars" />
+              </div>
+            </div>
+          </div>
         </form>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className="review_text_re" onSubmit={handleSubmit}>
         <div className="text_review review">
           <h1>Заголовок</h1>
           <input type="text" name="title" onChange={handleInput} />
@@ -68,8 +152,8 @@ export default function AppReview() {
           <h1>Оставьте ваш отзыв</h1>
           <textarea cols="40" rows="10" name="reviewText" onChange={handleInput} />
         </div>
-        <div className="text_review">
-          <button type="submit" className="btn_send_review">Отправить</button>
+        <div className="text_review_btn">
+          <button type="submit" className="btn_subb">Отправить</button>
         </div>
       </form>
     </div>
