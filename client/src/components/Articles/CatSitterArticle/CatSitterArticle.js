@@ -1,9 +1,10 @@
 import React from 'react';
 import catSitters from '../../../imgArticles/catSitters.webp';
+import './articleStyle.css';
 
 export default function CatSitterArticle() {
   return (
-    <div>
+    <div className="article">
       <div>
         <h1>СИТТЕРЫ ДЛЯ КОШЕК</h1>
         <div className="div_article_img">
@@ -80,5 +81,6 @@ export default function CatSitterArticle() {
         </p>
       </div>
     </div>
+
   );
 }
