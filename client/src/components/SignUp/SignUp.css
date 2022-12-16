@@ -194,12 +194,24 @@ h2 {
   margin: 15px;
 }
 .btn_sub>button{
-  width: 300px;
+  background-color: #FFCF48;
+  width: 150px;
   height: 40px;
-  background-color: #4d4d4d;
-  color: #ffff;
+  border: none;
+  border-radius: 25px;
 }
 .btn_sub>button:hover{
+  background-color: #ffff;
+  color: #4d4d4d;
+}
+.btn_subb {
+  background-color: #FFCF48;
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
+.btn_subb>button:hover{
   background-color: #ffff;
   color: #4d4d4d;
 }

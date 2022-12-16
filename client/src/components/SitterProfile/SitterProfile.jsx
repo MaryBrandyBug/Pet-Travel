@@ -213,7 +213,7 @@ export default function SitterProfile() {
                     <input type="file" onChange={(e) => setImg(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button" onClick={sendFile}>Добавить</button>
+                    <button className="btn_subb" type="button" onClick={sendFile}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
@@ -228,7 +228,7 @@ export default function SitterProfile() {
                     <input type="file" onChange={(e) => setImg2(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button" onClick={sendFile2}>Добавить</button>
+                    <button className="btn_subb" type="button" onClick={sendFile2}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
@@ -243,7 +243,7 @@ export default function SitterProfile() {
                     <input type="file" onChange={(e) => setImg3(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button" onClick={sendFile3}>Добавить</button>
+                    <button className="btn_subb" type="button" onClick={sendFile3}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
@@ -258,7 +258,7 @@ export default function SitterProfile() {
                     <input type="file" onChange={(e) => setImg4(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button" onClick={sendFile4}>Добавить</button>
+                    <button className="btn_subb" type="button" onClick={sendFile4}>Добавить</button>
                   </div>
                 </div>
                 <div className="SitterProfile_photos_addPhoto">
@@ -273,7 +273,7 @@ export default function SitterProfile() {
                     <input type="file" onChange={(e) => setImg5(e.target.files[0])} />
                   </div>
                   <div>
-                    <button type="button" onClick={sendFile5}>Добавить</button>
+                    <button className="btn_subb" type="button" onClick={sendFile5}>Добавить</button>
                   </div>
                 </div>
               </div>
@@ -317,7 +317,7 @@ export default function SitterProfile() {
                 </div>
                 <div className="btn_update">
                   <Link to="/profile/sitter/update-sitter-profile">
-                    <button type="button">Изменить данные профиля</button>
+                    <button className="btn_subb" type="button">Изменить данные профиля</button>
                   </Link>
                 </div>
               </div>
