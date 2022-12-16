@@ -55,16 +55,39 @@
 
 
 .nav>.nav-header {
-  width: 80px;
+  margin-top: 3px;
+  width: 100px;
+  height: 70px;
   display: inline;
   left: 0;
   display: flex;
+  align-items: center;
 }
 
 .nav>.nav-btn {
   display: none;
 }
+.nav>.nav-header>a {
+    text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+}
+.nav>.nav-header>a:hover {
+  text-decoration: none;
+}
 
+.nav>.nav-header>a>img {
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+  width: 90px;
+}
 .nav>.nav-links {
   display: flex;
   align-items: center;

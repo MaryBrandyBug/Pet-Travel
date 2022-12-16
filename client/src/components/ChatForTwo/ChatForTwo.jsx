@@ -99,7 +99,6 @@ export default function ChatForTwo({ ws }) {
               submitMessage(user.id, user.name, input, user.role);
 
               setInput('');
-
             }}
           >
             <div className="text-field">

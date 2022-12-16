@@ -1,10 +1,11 @@
 import React from 'react';
 import dogSitters from '../../../imgArticles/dogSitters.webp';
-import './articleStyle.css';
+
 
 export default function DogSitterArticle() {
   return (
-    <div className="article">
+    <div className="catSitter">
+
       <div>
         <h1>СИТТЕРЫ ДЛЯ СОБАК</h1>
         <div>
@@ -52,7 +53,7 @@ export default function DogSitterArticle() {
         <p>
           Так как же нанять ситтера для собак, если вы являетесь участником Pet&Travel? Верифицировавшись и зарегистрировавшись, участники могут связаться друг с другом, чтобы безопасно и надежно организовать столько мест, сколько им нужно, используя веб-сайт.
         </p>
-        <div />
+
         <h3>Сколько стоят услуги ситтера?</h3>
         <p>
           В то время как некоторые няни берут деньги за свои услуги, в Pet&Ytavel все наши участники выбирают присмотр за собаками бесплатно.

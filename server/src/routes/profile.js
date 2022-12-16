@@ -11,7 +11,7 @@ router.post('/create-parent-profile', async (req, res) => {
       dateUntil1, dateSince2, dateUntil2, dateSince3, dateUntil3,
       pets,
     } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const parent = await ParentProfile.create({
       UserId,
       title,
@@ -85,7 +85,7 @@ router.put('/sitter', async (req, res) => {
     const profile = await SitterProfile.findOne({ where: { id } });
     const prof = profile.get();
     await profile.update({ published: !published });
-    console.log('prof', profile);
+    // console.log('prof', profile);
     res.json({ sitter: profile });
   } catch (error) {
     console.log(error);

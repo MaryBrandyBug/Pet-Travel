@@ -41,16 +41,17 @@ export default function SitterSearch() {
       <div className="container_SitterSearch_content">
         <div className="container_SitterSearch_cards">
           {filteredSitters?.map((el) => (
-            <div className="container_SitterSearch_card">
-              <div className="SitterSearch_card_photo">
-                {el.User.mainPhoto
-                  ? <img src={`http://localhost:3001/${el.User.mainPhoto}`} alt="" />
-                  : <div className="SitterSearch_card_photo">TEXT</div>}
+            <Link to={`/all-sitters/${el.id}`}>
+              <div className="container_SitterSearch_card">
+                <div className="SitterSearch_card_photo">
+                  {el.User.mainPhoto
+                    ? <img src={`http://localhost:3001/${el.User.mainPhoto}`} alt="" />
+                    : <div className="SitterSearch_card_photo">TEXT</div>}
+                </div>
+                <div className="SitterSearch_card_name"><span>{el.User.name}</span></div>
+                <div className="SitterSearch_card_location"><span>{el.country}, {el.city}</span></div>
               </div>
-              <div className="SitterSearch_card_name"><span>{el.User.name}</span></div>
-              <div className="SitterSearch_card_location"><span>{el.country}, {el.city}</span></div>
-              <div className="link_div"><Link to={`/all-sitters/${el.id}`}><span>Подробнее</span></Link></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

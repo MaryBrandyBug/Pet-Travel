@@ -18,7 +18,7 @@ export default function Main() {
       .then((res) => setReviews(res));
   }, []);
 
-  console.log('🚀🚀🚀 =>=>=> file: Main.jsx:12 =>=>=> Main =>=>=> reviews', reviews);
+  // console.log('🚀🚀🚀 =>=>=> file: Main.jsx:12 =>=>=> Main =>=>=> reviews', reviews);
 
   return (
     <div>
@@ -95,8 +95,8 @@ export default function Main() {
             Подробнее о ситтерах в наших статьях по ссылкам ниже.
           </p>
           <div className="read_article_buttons">
-            <Link to="/dog-sitters"><button type="button">Ситтеры для собак</button></Link>
-            <Link to="/cat-sitters"><button type="button">Ситтеры для кошек</button></Link>
+            <Link to="/dog-sitters"><button className="btn_send_review" type="button">Ситтеры для собак</button></Link>
+            <Link to="/cat-sitters"><button className="btn_send_review" type="button">Ситтеры для кошек</button></Link>
           </div>
         </div>
       </div>

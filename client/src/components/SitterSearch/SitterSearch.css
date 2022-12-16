@@ -6,7 +6,6 @@
 }
 
 .container_SitterSearch_card {
-  border: 2px solid black;
   width: 300px;
   height: 470px;
   border-radius: 40px;
@@ -18,11 +17,15 @@
   align-items: flex-start;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+}
 
-  background-color: #fff;
-  border-radius: 24px;
-  border-style: none;
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+.container_SitterSearch_cards a {
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
 }
 
 .container_SitterSearch_card:hover {
@@ -70,7 +73,6 @@
 
 .container_SitterSearch_form form {
   text-align: center;
-  /* background-color: pink; */
   width: 80%;
 }
 
