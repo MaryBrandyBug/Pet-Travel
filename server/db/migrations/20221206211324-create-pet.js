@@ -29,6 +29,7 @@ module.exports = {
       },
       petPhoto: {
         type: Sequelize.STRING,
+        defaultValue: '2022-12-16T10:53:11.108Z-mainphotoPet.jpg',
       },
       createdAt: {
         allowNull: false,
