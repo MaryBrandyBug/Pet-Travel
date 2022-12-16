@@ -1,7 +1,6 @@
 import React from 'react';
 import photoTips from '../../../imgArticles/photoTips.webp';
 
-
 export default function GreatPhotosTips() {
   return (
     <div className="catSitter">

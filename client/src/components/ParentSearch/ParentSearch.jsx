@@ -74,7 +74,11 @@ export default function ParentSearch() {
           {parents?.map((el) => (
             <Link to={`/all-parents/${el.id}`}>
               <div className="container_ParentSearch_card">
-                <div className="ParentSearch_card_photo">ФОТО ДОМА ВЛАДЕЛЬЦА</div>
+                <div className="ParentSearch_card_photo">
+                  {el.parentPh1
+                    ? <img src={`http://localhost:3001/${el.parentPh1}`} alt="" />
+                    : <img src={`http://localhost:3001/${el.parentPh1}`} alt="" />}
+                </div>
                 <div className="ParentSearch_card_title">
                   <span>
                     {el.title.length < 20 ? el.title : `${el.title.substring(0, 20)}...`}

@@ -1,7 +1,6 @@
 import React from 'react';
 import dogSitters from '../../../imgArticles/dogSitters.webp';
 
-
 export default function DogSitterArticle() {
   return (
     <div className="catSitter">

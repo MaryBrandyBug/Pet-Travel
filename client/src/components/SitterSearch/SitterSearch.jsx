@@ -46,7 +46,7 @@ export default function SitterSearch() {
                 <div className="SitterSearch_card_photo">
                   {el.User.mainPhoto
                     ? <img src={`http://localhost:3001/${el.User.mainPhoto}`} alt="" />
-                    : <div className="SitterSearch_card_photo">TEXT</div>}
+                    : <img src={`http://localhost:3001/${el.User.mainPhoto}`} alt="" />}
                 </div>
                 <div className="SitterSearch_card_name"><span>{el.User.name}</span></div>
                 <div className="SitterSearch_card_location"><span>{el.country}, {el.city}</span></div>
