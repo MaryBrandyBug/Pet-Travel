@@ -32,8 +32,8 @@ export default function SitterPage() {
       .then((data) => console.log(data));
   };
   return (
-    <div>
-      <div className="sliderContainer">
+    <div className="container_sitterPage">
+      {/* <div className="sliderContainer">
         {sitter.sitterPh1 !== null
           ? <img src={`http://localhost:3001/${sitter.sitterPh1}`} alt="alt" />
           : <div>нету</div> }
@@ -50,71 +50,47 @@ export default function SitterPage() {
           ? <img src={`http://localhost:3001/${sitter.sitterPh5}`} alt="alt" />
           : <div>нету</div> }
 
-      </div>
+      </div> */}
 
-      <div className="sticky">
-        <div className="sticky_flex">
-          <div className="sticky_half">
-            <div className="sticky_body">
-              <div className="sitterInfo">
-                <div className="sitterName">
-                  <h3>{sitter?.User?.name}</h3>
-                </div>
-                <div className="rating" />
-                <h4>Рейтинг</h4>
-                <div className="location">
-                  <h5>{sitter?.country}</h5>
-                  <h5>{sitter?.city}</h5>
-                </div>
-                <div className="verification">
-                  <h4>Прошел проверку документов</h4>
-                </div>
-                <Link to={`/all-sitters/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
-              </div>
-            </div>
-          </div>
-
+      <div className="sitterInfo">
+        <div className="sitterName">
+          <h3>{sitter?.User?.name}</h3>
         </div>
-
-      </div>
-
-      <div className="reviews">
-        <div className="reviewsHeader">
-          <h3>Отзывы (общее количество)</h3>
+        <div className="location">
+          <span>{sitter?.country}, {sitter?.city}</span>
         </div>
-        <div className="reviewsContainer">
-          <h3>Имя ревьюера</h3>
-          <h4>Оценка</h4>
-          <h3>Сам отзыв</h3>
+        <div className="parent_chatBtn">
+          <Link to={`/all-sitters/chat/${id}`}><button type="button" onClick={handleCreateChat}>Чат</button></Link>
         </div>
       </div>
+
       <div className="details">
         <div className="aboutSitter">
-          <h4>Обо мне(подробно)
-          </h4>
+          <h4>Обо мне</h4>
+          <span>{sitter?.aboutMe}</span>
         </div>
         <div className="pets">
           <h3>Есть опыт ухода за:</h3>
           {sitter?.birds ? (
-            <div><h4>Птицы</h4></div>
+            <div><span>Птицы</span></div>
           ) : (<div />)}
           {sitter?.cats ? (
-            <div><h4>Кошки</h4></div>
+            <div><span>Кошки</span></div>
           ) : (<div />)}
           {sitter?.dogs ? (
-            <div><h4>Собаки</h4></div>
+            <div><span>Собаки</span></div>
           ) : (<div />)}
           {sitter?.fish ? (
-            <div><h4>Рыбы</h4></div>
+            <div><span>Рыбы</span></div>
           ) : (<div />)}
           {sitter?.horses ? (
-            <div><h4>Лошади</h4></div>
+            <div><span>Лошади</span></div>
           ) : (<div />)}
           {sitter?.reptiles ? (
-            <div><h4>Рептилии</h4></div>
+            <div><span>Рептилии</span></div>
           ) : (<div />)}
           {sitter?.smallPets ? (
-            <div><h4>Мелкие животные</h4></div>
+            <div><span>Мелкие животные</span></div>
           ) : (<div />)}
         </div>
       </div>
