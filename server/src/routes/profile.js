@@ -11,6 +11,7 @@ router.post('/create-parent-profile', async (req, res) => {
       dateUntil1, dateSince2, dateUntil2, dateSince3, dateUntil3,
       pets,
     } = req.body;
+    console.log('=====>>>> 👉👉👉 file: profile.js:14 👉👉👉 router.post 👉👉👉 pets', pets);
     // console.log(req.body);
     const parent = await ParentProfile.create({
       UserId,
@@ -26,6 +27,11 @@ router.post('/create-parent-profile', async (req, res) => {
       dateUntil2,
       dateSince3,
       dateUntil3,
+      parentPh1: '2022-12-16T10:50:56.144Z-mainmphotoparent.jpg',
+      parentPh2: '2022-12-16T10:50:56.144Z-mainmphotoparent.jpg',
+      parentPh3: '2022-12-16T10:50:56.144Z-mainmphotoparent.jpg',
+      parentPh4: '2022-12-16T10:50:56.144Z-mainmphotoparent.jpg',
+      parentPh5: '2022-12-16T10:50:56.144Z-mainmphotoparent.jpg',
     });
     const parentData = parent.get();
     delete parentData.createdAt;
@@ -71,6 +77,11 @@ router.post('/create-sitter-profile', async (req, res) => {
       reptiles,
       smallPets,
       UserId,
+      sitterPh1: '2022-12-16T10:46:10.788Z-mainphotoSitter.jpg',
+      sitterPh2: '2022-12-16T10:46:10.788Z-mainphotoSitter.jpg',
+      sitterPh3: '2022-12-16T10:46:10.788Z-mainphotoSitter.jpg',
+      sitterPh4: '2022-12-16T10:46:10.788Z-mainphotoSitter.jpg',
+      sitterPh5: '2022-12-16T10:46:10.788Z-mainphotoSitter.jpg',
     });
     const sitterData = sitterProfile.get();
     res.json({ sitter: sitterData });

@@ -39,7 +39,11 @@ router.post('/signup', async (req, res) => {
     const user = await User.findOne({ where: { email } });
     if (!user) {
       const newUser = await User.create({
-        name, email, password: hashedPass, role,
+        name,
+        email,
+        password: hashedPass,
+        role,
+        mainPhoto: '2022-12-16T10:37:29.532Z-avatar.jpg',
       });
       const auth = newUser.get();
       delete auth.password;

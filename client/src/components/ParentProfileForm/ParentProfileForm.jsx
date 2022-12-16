@@ -99,7 +99,7 @@ export default function ParentProfileForm() {
           </div>
         </div>
         <div className="radio_input_pet">
-
+          {/* 2022-12-16T10:53:11.108Z-mainphotoPet.jpg */}
           <p>
             <input type="radio" name={`type${i}`} value="cat" onChange={(e) => handlePet(e, i)} />
             Кошка
