@@ -9,7 +9,6 @@ export default function ParentProfileForm() {
   const navigate = useNavigate();
 
   const [pets, setPets] = useState([{}]);
-
   // const [dateDiv2, setDateDiv2] = useState('hidden');
   // const [dateDiv3, setDateDiv3] = useState('hidden');
 
