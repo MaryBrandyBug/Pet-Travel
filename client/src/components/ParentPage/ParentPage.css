@@ -1,0 +1,109 @@
+.parentInfo {
+  /* border: 2px solid darkgreen; */
+  /* margin-left: 50px; */
+  margin-top: 50px;
+  padding: 5px;
+  top: 90px;
+  right: 325px;
+  width: 500px;
+  height: 200px;
+  margin-bottom: 70px;
+}
+
+.info-one{
+  display: flex;
+  /* flex-wrap: nowrap; */
+  flex-direction: column;
+}
+
+.info-2{
+  margin: 30px;
+  margin-left: 100px;
+  padding: 5px;
+  /* top: 90px;
+  right: 325px; */
+
+}
+
+.info-2 h4{
+  font-size: 25px;
+}
+
+.info-2 span {
+  font-size: 20px;
+}
+
+.container-parentPage{
+  display: flex;
+  /* justify-content: space-evenly; */
+  width: 1400px;
+  margin: auto;
+}
+.petPhoto{
+margin-top: 15px;
+}
+.petPhoto>img {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+}
+.pets-1{
+  margin-top: 30px;
+}
+.pet {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+   border-radius: 25px;
+        height: 300px;
+         border: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 3px -1px,rgba(0, 0, 0, .14) 0 0 0 0,rgba(0, 0, 0, .12) 0 1px 9px 0;
+}
+
+.img_animal {
+  width: 40px;
+}
+
+.parentName {
+  display: flex;
+  flex-direction: column;
+}
+
+.parentName span {
+  margin-bottom: 30px;
+}
+
+.span_Name {
+  font-size: 30px;
+}
+
+.span_Date {
+  font-size: 23px;
+}
+
+.parentPage_buttons {
+  margin-top: 10px;
+}
+
+.parentPage_buttons a {
+  margin-left: 40px;
+  
+}
+
+.button_parent {
+  border: none;
+  background-color: #FFCF48;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
+
+/* .pets-1 {
+  width: 700px;
+} */
+
+
+

@@ -1,0 +1,299 @@
+.slider {
+  margin: auto;
+  margin-top: 50px;
+  width: 1850px;
+}
+
+.slide_txt {
+  background-color: rgb(255, 255, 255);
+  font-size: 40px;
+  margin-top: 520px;
+  margin-right: 360px;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.slide-1 {
+  background-image: url(./doggo.jpg);
+  background-size: cover;
+  background-position: center;
+  
+}
+.slide-2 {
+  background-image: url(https://img.freepik.com/free-photo/owner-petting-adorable-cat_23-2148740478.jpg?w=1480&t=st=1671133701~exp=1671134301~hmac=1d5fb3ee62d5fbc129625d1586703f32a2abce588312ba488af3351f258a9db1);
+  background-size: cover;
+  background-position: center;
+}
+
+.slide-3 {
+  background-image: url(https://img.freepik.com/free-photo/glad-young-woman-with-shiny-brown-hair-posing-on-the-floor-with-her-cute-beagle-puppy-indoor-portrait-of-excited-girl-in-dress-with-floral-print-sitting-on-the-carpet-with-dog_197531-4783.jpg?w=1800&t=st=1671134157~exp=1671134757~hmac=62361e98c54dfa614a3075aa83558eec4c0385e4218d0a07bf15d62bb135e7ac);
+  background-size: cover;
+  background-position: center;
+}
+
+.reasons_why_us {
+  display: flex;
+  flex-direction: column;
+  width: 1280px;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.reasons_why_us h2 {
+  color: black;
+  font-size: 30px;
+}
+
+.reasons_in_row {
+  display: flex;
+  padding-top: 50px;
+  margin-left: 2%;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.reason_text {
+  width:80%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.reason_photo img{
+  width: 33%;
+  border-radius: 50%;
+}
+
+.reason_photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reason_title {
+  margin-top: 20px;
+}
+
+.read_article {
+  width: 1280px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.read_article_content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.read_article_content h2 {
+  color: black;
+  font-size: 40px;
+}
+
+.read_article_photo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  align-items: flex-end;
+  margin-right: 50px;
+}
+
+.read_article_photo img {
+  border-radius: 50px;
+  width: 130%;
+}
+
+.read_article_content p {
+  font-size: 25px;
+  width: 80%;
+  margin-top: 70px;
+}
+
+.read_article_buttons {
+  display: flex;
+  width: 900px;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.read_article_buttons a{
+  width: 40%;
+  height: 200%;
+  font-size: 30px;
+  border-radius: 23px;
+  background-color: #FFCF48;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: #ffffff; 
+}
+
+.read_article_buttons a:hover {
+  text-decoration: none;
+}
+
+.read_article_buttons button {
+  font-size: 27px;
+  background-color:  #FFCF48;
+  border: none;
+}
+
+.search_links {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  width: 100%;
+  height: 300px;
+  background-color: rgb(192, 192, 192, 0.2);
+}
+
+.search_links_btns {
+  display: flex;
+  width: 100%;
+  height: 300px;
+  justify-content: space-evenly;
+  color: black;
+}
+
+.search_links_btns a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search_links_btns div {
+  background-color: #FFCF48;
+  width: 400px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.search_links_btns span {
+  color: black;
+  font-size: 30px;
+}
+
+.review_btn {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 150px;
+  margin-top: 50px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+
+.review_btn a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+}
+
+.review_btn span {
+  color: black;
+  font-size: 28px;
+}
+
+.review_btn span {
+  background-color: #FFCF48;
+  width: 400px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+.search_links_btns a {
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+
+}
+
+.div_reviews {
+  margin: auto;
+  margin-top: 150px;
+  width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.div_reviews h3 {
+  font-size: 30px;
+}
+
+.reviews_app{
+  width: 900px;
+  overflow-y: scroll;
+  height: 600px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 0 0 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+}
+
+.one_review {
+  background-color: rgb(192, 192, 192, 0.18);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 200px;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.one_review_content{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.one_review span {
+  /* margin: 10px; */
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.span_name {
+  color: #676767;
+  font-weight: bold;
+}
+
+.span_title {
+  font-weight: bold;
+}

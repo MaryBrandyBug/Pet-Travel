@@ -1,0 +1,53 @@
+.container_ParentProfile {
+  padding: 50px;
+}
+.container_ParentProfile_info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  width: 900px;
+}
+
+.petContainer {
+  display: flex;
+}
+.petContainer_photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+}
+.petContainer_photo_pet_photo>img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.petContainer_card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.ParentProfile_published { 
+  width: 200px;
+  display: flex;
+  height: 25px;
+}
+
+.info_published_true {
+  color: green;
+}
+
+.info_published_false {
+  color: red;
+}
+
+.ParentProfile_info_title {
+  display: flex;
+  flex-direction: column;
+}
+.Parent_profile_photoadd {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+}

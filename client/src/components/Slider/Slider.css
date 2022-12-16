@@ -1,0 +1,28 @@
+.slider-container {
+  height: 600px;
+  min-width: 600px;
+  max-width: 85%;
+  margin-left: 170px;
+  display: flex;
+  align-items: center;
+}
+
+.window {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.all-pages-container {
+  height: 100%;
+  display: flex;
+
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+}
+
+.arrow {
+  cursor: pointer;
+}

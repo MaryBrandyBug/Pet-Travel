@@ -1,0 +1,8 @@
+.form_parent {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+/* .radio_input_pet {
+  display: flex;
+} */

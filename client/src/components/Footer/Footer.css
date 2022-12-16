@@ -1,0 +1,93 @@
+
+  a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: .3s;
+    color: black; 
+}
+a:hover {
+    background-size: 100% 2px;
+    color: #ffffff;
+}
+a:active {
+    color: #ffffff;
+}
+  .dummy_page {
+    height: 200px;
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 60px 0px;
+  }
+  /* STYLES SPECIFIC TO FOOTER  */
+  .footer {
+    width: 1280px;
+    /* background-color: #4d4d4d; */
+    position: relative;
+    margin: auto;
+  }
+  .footer .col {
+    width: 240px;
+    height: auto;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0px 20px 20px 20px;
+  }
+  .footer .col h1 {
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 17px;
+    padding: 20px 0px 5px 0px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.250em;
+  }
+  .footer .col ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer .col ul li {
+    color: rgb(192, 192, 192, 0.5);
+
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+  .social ul li {
+    display: inline-block;
+    padding-right: 5px !important;
+  }
+  
+  .footer .col ul li:hover {
+    color: #ffffff;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+  }
+  .clearfix {
+    clear: both;
+    text-align: center;
+    color: black;
+  }
+.col ul li a {
+  text-decoration: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 0px;
+    transition: 0;
+    color: black;
+
+}
